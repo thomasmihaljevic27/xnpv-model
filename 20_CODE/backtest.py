@@ -64,7 +64,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "backtest.py v1.8 (2026-11-19)"   # v1.8: the clause group from clause_fill.clause_set (the spine, then CapWages); the seller group for just picks and prospects (Thomas); v1.7: the prospect model's defenceman x production (prospect_values v1.13); v1.6: goaltenders on contract_npv v3.4 (own line with term, age term, chance of playing by season ahead); v1.5: the Game Value check (XNPV_OUTCOME_METRIC), wins delivered; v1.4: LTIR relief; v1.3: "UFA no QO" known only after the decision; v1.2: seasons after a buyout; v1.1: the ledger's spelling when the spine's has no WAR rows
+SCRIPT_VERSION = "backtest.py v1.9 (2026-11-24)"   # v1.9: the stop-at-flip sensitivity (XNPV_STOP_AT_FLIP; unset, no change); v1.8: the clause group from clause_fill.clause_set (the spine, then CapWages); the seller group for just picks and prospects (Thomas); v1.7: the prospect model's defenceman x production (prospect_values v1.13); v1.6: goaltenders on contract_npv v3.4 (own line with term, age term, chance of playing by season ahead); v1.5: the Game Value check (XNPV_OUTCOME_METRIC), wins delivered; v1.4: LTIR relief; v1.3: "UFA no QO" known only after the decision; v1.2: seasons after a buyout; v1.1: the ledger's spelling when the spine's has no WAR rows
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_npv as CN                                     # noqa: E402  the engine, goalie line and hazard
@@ -97,6 +97,12 @@ N_BOOT, SEED = 2000, 20261020
 METRIC = os.environ.get("XNPV_OUTCOME_METRIC", "war")       # v1.5: war (Bacon) | gv_adj | gv_raw
 assert METRIC in ("war", "gv_adj", "gv_raw"), METRIC
 SUFFIX = "" if METRIC == "war" else f"_{METRIC}"
+# v1.9: the stop-at-flip sensitivity (protocol, "Realized value stopped when the club trades the asset on", declared
+# 2026-11-24). Unset, nothing changes. Set to 1, an asset its acquirer traded on later is held only to that trade, and the
+# model's trade-day value of it in the second trade is added (exit_M); outputs carry "_flipstop". Run on the extended ledger.
+STOP = os.environ.get("XNPV_STOP_AT_FLIP", "") == "1"
+if STOP:
+    SUFFIX += "_flipstop"
 GOALS_PER_WIN = 5.903                                       # the game-level chain's pooled goals per win (2026-07-03)
 LAPSED = ("lapsed", "drafted twice (earlier pick)")
 LOG = []
@@ -329,10 +335,83 @@ class Now:
         return pd.DataFrame([{"h": k, "war_if_plays": w, "p_play": p} for k, w, p in fc])
 
 
+def flip_table(tav):
+    """v1.9 (the stop-at-flip sensitivity; the protocol's rule): {asset_id: the second trade} for every player or pick
+    asset its acquiring club traded on later in the ledger, and the counts of the cases left unchanged.
+    IDENTITY: a player or prospect by PV.norm(name); a pick by its label (year, round, original club) at any later date,
+    and by the drafted player's name (draft_pick_linkage) in trades after July 1 of its draft year.
+    WHICH TRADE: the asset's next appearance after the first trade's date. A flip only if that appearance's sender (its
+    from_team, or the one other club of a two-team trade) is the first trade's acquirer.
+    EXIT: the second trade's asset value at the 2025-26 cap plus its retained part (what trade_sides charges the seller)."""
+    clubs, _ = TSD.trade_clubs()
+    t = tav.copy()
+    t["date"] = t["trade_date"].astype(str).str[:10]
+    ret = t[t["asset_type"] == "retained salary"].set_index("asset_id")["value_2025_cap_M"]
+    mv = t[t["asset_type"].isin(["player", "pick"])].copy()
+
+    def sender(r):
+        if pd.notna(r.from_team):
+            return r.from_team
+        o = [c for c in clubs.get(r.trade_id, []) if c != r.acquiring_team]
+        return o[0] if len(o) == 1 else None
+    mv["sender"] = [sender(r) for r in mv.itertuples()]
+    # identities: (key, earliest date it applies from)
+    tpk = pd.read_csv(OUTPUT_DIR / "traded_pick_values.csv").set_index("asset_id")
+    lk = pd.read_csv(OUTPUT_DIR / "draft_pick_linkage.csv").set_index(["draftYear", "overallPickNumber"])["playerName"]
+    keys = {}
+    for r in mv.itertuples():
+        if r.asset_type == "player":
+            keys[r.asset_id] = [(PV.norm(r.name), "")]
+        else:
+            k = [("pick:" + str(r.name), "")]
+            if r.asset_id in tpk.index and pd.notna(tpk.at[r.asset_id, "actual_slot"]):
+                dy, pk = int(tpk.at[r.asset_id, "pick_year"]), int(tpk.at[r.asset_id, "actual_slot"])
+                if (dy, pk) in lk.index:
+                    k.append((PV.norm(lk.loc[(dy, pk)]), f"{dy}-07-01"))
+            keys[r.asset_id] = k
+    # every appearance, by key: a player row appears under its name; a pick row under its label
+    seen = {}
+    for r in mv.itertuples():
+        seen.setdefault(keys[r.asset_id][0][0], []).append(r)
+    out, n = {}, {"flip": 0, "left another way": 0, "same day": 0, "two at once": 0, "no sender": 0, "not valued": 0}
+    for r in mv.itertuples():
+        cand = []
+        for key, since in keys[r.asset_id]:
+            cand += [q for q in seen.get(key, []) if q.date > r.date and q.date >= since and q.trade_id != r.trade_id]
+        same = [q for key, _ in keys[r.asset_id] for q in seen.get(key, []) if q.date == r.date and q.trade_id != r.trade_id]
+        if not cand:
+            if same:
+                n["same day"] += 1
+            continue
+        d2 = min(q.date for q in cand)
+        first = [q for q in cand if q.date == d2]
+        if len({q.trade_id for q in first}) > 1:
+            n["two at once"] += 1
+            continue
+        q = first[0]
+        if q.sender is None:
+            n["no sender"] += 1
+            continue
+        if q.sender != r.acquiring_team:
+            n["left another way"] += 1
+            continue
+        if q.source == "not valued" or pd.isna(q.value_2025_cap_M):
+            n["not valued"] += 1
+            continue
+        out[int(r.asset_id)] = {"date": pd.Timestamp(q.date), "page": int(q.valuation_page),
+                                "during": bool(q.during_regular_season),
+                                "share": float(q.season_share) if pd.notna(q.season_share) else 1.0,
+                                "exit_M": float(q.value_2025_cap_M) + float(ret.get(q.asset_id, 0.0)),
+                                "trade2": int(q.trade_id)}
+        n["flip"] += 1
+    return out, n
+
+
 def main():
     sys.stdout.reconfigure(errors="replace")
     log(SCRIPT_VERSION)
     log(f"  outcome metric: {METRIC} (XNPV_OUTCOME_METRIC)")
+    log(f"  stop at the flip: {'ON (XNPV_STOP_AT_FLIP=1), outputs ' + SUFFIX if STOP else 'off'}")
     log(f"  skater line: {LINE} alpha {ALPHA:.10f} beta F {BETA_F:.10f} D {BETA_D:.10f} term {GAMMA:.10f}; "
         f"goalie line: {CN.GOALIE_RATE['alpha']:.6f} + {CN.GOALIE_RATE['beta']:.6f} x WAR + "
         f"{CN.GOALIE_RATE['gamma_term']:.6f} x term")
@@ -353,6 +432,19 @@ def main():
     rows = {}                                   # asset_id -> outcome record (player and pick assets)
     retained_out = {}                           # asset_id -> the retaining club's realised + revalued cost ($M)
     names_note = []
+    # v1.9: the stop-at-flip sensitivity. FLIP: asset_id -> its second trade; AFTER: asset_id -> the part of its outcome
+    # after the flip, left out of realised_M and revalued_M (the guard adds it back against the full run)
+    FLIP, nflip = flip_table(tav) if STOP else ({}, {})
+    AFTER = {}
+    if STOP:
+        log(f"  flips: {nflip}")
+        assert all(v["page"] <= LAST for v in FLIP.values())        # GUARD: every second trade before the 2026-27 page
+
+    def where(z, st):
+        """Season z for the first trade's holder: held, split (traded on during it) or after the flip."""
+        if st is None or z < st["page"]:
+            return "held"
+        return "split" if (z == st["page"] and st["during"]) else "after"
 
     def gp_after(nhl_id, y, date):
         d = games.get((int(nhl_id), y)) if pd.notna(nhl_id) else None
@@ -381,10 +473,11 @@ def main():
         return d, s, masked, as_of
 
     def control_part(*, gk, pos, name_seasons, nhl_id, nk, ck, nname, bd, seasons, chain, flag, need, y0, share,
-                     trade_date, first_is_trade_season, acc=None):
+                     trade_date, first_is_trade_season, acc=None, stop=None):
         """Control seasons (rule cost): realised through 2025-26 (only when he played), revalued after.
-        Returns (realised $M, revalued $M)."""
-        real = rev = 0.0
+        Returns (realised $M, revalued $M, after the flip $M). v1.9: with stop (the second trade), a season after it
+        goes to the third figure, and a season he was traded on during counts its part before the second trade."""
+        real = rev = after = 0.0
         obs = {z: g for z, g in name_seasons["GP"].items()} if len(name_seasons) else {}
         later = [z for z in seasons if z >= NOW]
         fc = None
@@ -421,9 +514,18 @@ def main():
                         sc = gp / 82 if gp < CAMEO_GP else 1.0
                         v, c = played_value(w, gp, z, gk, pos, 1), cost / CAP[z] * sc
                         wd = w
+                    contrib = (v - c) * CAP_NOW / 1e6
+                    cls = where(z, stop)
+                    if cls == "split":                     # v1.9: less the part after the second trade
+                        gpp2, _ = gp_after(nhl_id, z, stop["date"])
+                        a_c = (part_value(w, gp, gpp2, stop["share"], z, gk, pos, 1)
+                               - cost / CAP[z] * stop["share"]) * CAP_NOW / 1e6
+                        contrib, after, wd = contrib - a_c, after + a_c, wd - w * gpp2 / gp
+                    elif cls == "after":
+                        contrib, after, wd = 0.0, after + contrib, 0.0
                     if acc is not None:
                         acc["w"] += wd                     # v1.5: wins delivered (the rate-free leg)
-                    real += (v - c) * CAP_NOW / 1e6
+                    real += contrib
                     chain.paid(cost)
                 else:
                     chain.paid(qo)                         # no NHL game: the qualifying offer carries the chain
@@ -447,9 +549,12 @@ def main():
                 ceil = cap_path(NOW, h)
                 cost, qo = chain.cost(z, tw, gk, pos, ceil, league_min_path(z))
                 val = max(line(w, gk, pos, 1) * ceil, league_min_path(z))
-                rev += p * (val - cost) / ceil * CAP_NOW / 1e6
+                if stop is None:
+                    rev += p * (val - cost) / ceil * CAP_NOW / 1e6
+                else:
+                    after += p * (val - cost) / ceil * CAP_NOW / 1e6    # v1.9: every flip is before 2026-27
                 chain.paid(cost)
-        return real, rev
+        return real, rev, after
 
     n_eng = n_walked = 0
     for _, r in tp.iterrows():
@@ -485,7 +590,8 @@ def main():
             if SFP.TERM_BASIS == "original":
                 for _, m_ in mine.iterrows():
                     tmap[int(m_["contract_id"])] = SFP.signed_term(m_, term)
-            real = rev = ret = capfx = lt_M = 0.0
+            real = rev = ret = capfx = lt_M = aft = 0.0
+            st = FLIP.get(int(r["asset_id"]))                                     # v1.9: None unless stopped
             names_lt = (name, r["player_name"])
             lt_now = LT.known_on_ltir(names_lt, page_date(NOW), crow0["nhl_id"])     # v1.4: on LTIR at 2026-27
             later = c[c["season_start"] >= NOW]
@@ -506,18 +612,31 @@ def main():
                     cut_hits.append((r["player_name"], z))
                 if z <= LAST:
                     gp, w = gp_war(ns, z)
+                    wd = 0.0
                     if post_cut:
                         v = 0.0                                     # he no longer plays on this contract
                     elif f < 1.0:
                         gpp, gps = gp_after(crow0["nhl_id"], z, date)
                         v = part_value(w, gp, gpp, f, z, gk, pos, term)
-                        acc["w"] += w * gpp / gp if gp > 0 else 0.0
+                        wd = w * gpp / gp if gp > 0 else 0.0
                     else:
                         v = played_value(w, gp, z, gk, pos, term)
-                        acc["w"] += w if gp > 0 else 0.0
+                        wd = w if gp > 0 else 0.0
                     lt = 0.0 if post_cut else LT.relief_any(names_lt, z, after=date if f < 1.0 else None)   # v1.4
                     lt_M += cost * keep * f * lt / CAP[z] * CAP_NOW / 1e6
-                    real += (v - cost * keep * f * (1 - lt) / CAP[z]) * CAP_NOW / 1e6
+                    contrib = (v - cost * keep * f * (1 - lt) / CAP[z]) * CAP_NOW / 1e6
+                    cls = where(z, st)
+                    if cls == "split":                              # v1.9: less the part after the second trade
+                        gpp2, _ = gp_after(crow0["nhl_id"], z, st["date"])
+                        v2 = 0.0 if post_cut else part_value(w, gp, gpp2, st["share"], z, gk, pos, term)
+                        lt2 = 0.0 if post_cut else LT.relief_any(names_lt, z, after=st["date"])
+                        a_c = (v2 - cost * keep * st["share"] * (1 - lt2) / CAP[z]) * CAP_NOW / 1e6
+                        wd2 = 0.0 if (post_cut or gp <= 0) else w * gpp2 / gp
+                        contrib, aft, wd = contrib - a_c, aft + a_c, wd - wd2
+                    elif cls == "after":
+                        contrib, aft, wd = 0.0, aft + contrib, 0.0
+                    acc["w"] += wd
+                    real += contrib
                     ret -= cost * (1 - keep) * f / CAP[z] * CAP_NOW / 1e6
                     # DECOMPOSITION (not in the protocol): the extra cost of the realised cap against the forecast's 3%
                     # path (the 2020-2022 flat cap), so the outcome on the forecast's cap path = outcome + cap_path_M
@@ -539,7 +658,10 @@ def main():
                         val, p = 0.0, 0.0
                     carried = cost * keep * (p if (lt_now and not post_cut) else 1.0)     # v1.4: LTIR at 2026-27
                     lt_M += (cost * keep - carried) / ceil * CAP_NOW / 1e6
-                    rev += (p * val - carried) / ceil * CAP_NOW / 1e6
+                    if st is None:
+                        rev += (p * val - carried) / ceil * CAP_NOW / 1e6
+                    else:
+                        aft += (p * val - carried) / ceil * CAP_NOW / 1e6   # v1.9: every flip is before 2026-27
                     ret -= cost * (1 - keep) / ceil * CAP_NOW / 1e6
             # control seasons: the forecast's own list (the chain end's expiry and UFA year)
             ctrl_real = ctrl_rev = 0.0
@@ -578,12 +700,14 @@ def main():
                     qo1 = RTV.qualifying_offer(sal, float(final["cost"]), ctrl[0], s20)
                     tv0 = eng.tv.terminal_value(pid, y, as_of)[0]
                     assert abs(float(tv0.iloc[0]["qo_cost"]) - qo1) < 1.0, (r["player_name"], qo1)   # GUARD: chain start
-                ctrl_real, ctrl_rev = control_part(
+                ctrl_real, ctrl_rev, ctrl_aft = control_part(
                     gk=gk, pos=pos, name_seasons=ns, nhl_id=crow0["nhl_id"], nk=nk, ck=ck, nname=crow0["nname"],
                     bd=crow0["bd"], seasons=ctrl, chain=ch, flag=flag, need=need, y0=y, share=share,
-                    trade_date=date, first_is_trade_season=False, acc=acc)
+                    trade_date=date, first_is_trade_season=False, acc=acc, stop=st)
+                aft += ctrl_aft
         finally:
             sp.signed.update(masked)
+        AFTER[int(r["asset_id"])] = aft
         rows[int(r["asset_id"])] = {"realised_M": real + ctrl_real, "revalued_M": rev + ctrl_rev,
                                    "trailing_war": np.nan if gk else trailing_total(ns_b, y),
                                    "wins_delivered": acc["w"], "pos": pos,
@@ -637,10 +761,11 @@ def main():
         ck = None if (gk or nk is None) else sp.forecaster.career_of.get(nk)
         seasons = list(range(P, int(r["ufa_year"])))
         share = float(r["season_share"]) if pd.notna(r["season_share"]) else 1.0
-        real, rev = control_part(gk=gk, pos=r["position"], name_seasons=ns, nhl_id=nid, nk=nk, ck=ck, nname=nname,
-                                 bd=bd, seasons=seasons, chain=Chain(sal, float(r["last_cap_hit"]), s20), flag=flag,
-                                 need=need, y0=P, share=share, trade_date=pd.Timestamp(r["trade_date"]),
-                                 first_is_trade_season=True, acc=acc)
+        real, rev, AFTER[int(aid)] = control_part(
+            gk=gk, pos=r["position"], name_seasons=ns, nhl_id=nid, nk=nk, ck=ck, nname=nname,
+            bd=bd, seasons=seasons, chain=Chain(sal, float(r["last_cap_hit"]), s20), flag=flag,
+            need=need, y0=P, share=share, trade_date=pd.Timestamp(r["trade_date"]),
+            first_is_trade_season=True, acc=acc, stop=FLIP.get(int(aid)))
         rows[int(aid)] = {"realised_M": real, "revalued_M": rev, "outcome_route": "rights",
                           "trailing_war": np.nan if gk else trailing_total(ns_b, P), "war_spelling": SPELLING[(name, gk)],
                           "wins_delivered": acc["w"], "pos": r["position"],
@@ -664,7 +789,8 @@ def main():
         acc = {"w": 0.0}
         share = float(r["season_share"]) if pd.notna(r["season_share"]) else 1.0
         rpct = float(r["retained_pct"]) if pd.notna(r["retained_pct"]) else 0.0
-        real = rev = ret = capfx = lt_M = 0.0
+        real = rev = ret = capfx = lt_M = aft = 0.0
+        st = FLIP.get(aid)                                                    # v1.9: None unless stopped
         names_lt = (r["war_name"], r["player_name"])
         if str(r["contract"]).startswith("PuckPedia"):
             # FALLBACK rows: PuckPedia's own contract, on the engine (page_2017_values' fallback path)
@@ -712,13 +838,24 @@ def main():
                 if f < 1.0:
                     gpp, gps = gp_after(r["nhl_id"], z, date)
                     v = part_value(w, gp, gpp, f, z, gk, pos, term)
-                    acc["w"] += w * gpp / gp if gp > 0 else 0.0
+                    wd = w * gpp / gp if gp > 0 else 0.0
                 else:
                     v = played_value(w, gp, z, gk, pos, term)
-                    acc["w"] += w if gp > 0 else 0.0
+                    wd = w if gp > 0 else 0.0
                 lt = LT.relief_any(names_lt, z, after=date if f < 1.0 else None)                  # v1.4
                 lt_M += cost * keep * f * lt / CAP[z] * CAP_NOW / 1e6
-                real += (v - cost * keep * f * (1 - lt) / CAP[z]) * CAP_NOW / 1e6
+                contrib = (v - cost * keep * f * (1 - lt) / CAP[z]) * CAP_NOW / 1e6
+                cls = where(z, st)
+                if cls == "split":                                  # v1.9: less the part after the second trade
+                    gpp2, _ = gp_after(r["nhl_id"], z, st["date"])
+                    v2 = part_value(w, gp, gpp2, st["share"], z, gk, pos, term)
+                    lt2 = LT.relief_any(names_lt, z, after=st["date"])
+                    a_c = (v2 - cost * keep * st["share"] * (1 - lt2) / CAP[z]) * CAP_NOW / 1e6
+                    contrib, aft, wd = contrib - a_c, aft + a_c, wd - (w * gpp2 / gp if gp > 0 else 0.0)
+                elif cls == "after":
+                    contrib, aft, wd = 0.0, aft + contrib, 0.0
+                acc["w"] += wd
+                real += contrib
                 ret -= cost * (1 - keep) * f / CAP[z] * CAP_NOW / 1e6
                 capfx += cost * keep * f * (1 / CAP[z] - 1 / cap_path(2017, z - 2017)) * CAP_NOW / 1e6
             else:
@@ -729,10 +866,12 @@ def main():
             if not gk and pd.notna(pid) and (sp.spine["player_id"] == pid).any():
                 nk = sp.spine.loc[sp.spine["player_id"] == pid, "nk"].iloc[0]
             ck = sp.forecaster.career_of.get(nk) if nk is not None else None
-            cr, cv = control_part(gk=gk, pos=pos, name_seasons=ns, nhl_id=r["nhl_id"], nk=nk, ck=ck,
-                                  nname=PV.norm(r["war_name"]), bd=pd.NaT, seasons=ctrl, chain=ch, flag=flag, need=None,
-                                  y0=2017, share=share, trade_date=date, first_is_trade_season=False, acc=acc)
-            real, rev = real + cr, rev + cv
+            cr, cv, ca = control_part(gk=gk, pos=pos, name_seasons=ns, nhl_id=r["nhl_id"], nk=nk, ck=ck,
+                                      nname=PV.norm(r["war_name"]), bd=pd.NaT, seasons=ctrl, chain=ch, flag=flag,
+                                      need=None, y0=2017, share=share, trade_date=date, first_is_trade_season=False,
+                                      acc=acc, stop=st)
+            real, rev, aft = real + cr, rev + cv, aft + ca
+        AFTER[aid] = aft
         rows[aid] = {"realised_M": real, "revalued_M": rev, "outcome_route": "player model, 2017 page", "cap_path_M": capfx,
                      "ltir_relief_M": lt_M,
                      "trailing_war": np.nan if gk else trailing_total(ns_b, 2017),
@@ -944,11 +1083,19 @@ def main():
                 rows[int(aid)] = {"realised_M": 0.0, "revalued_M": 0.0, "outcome_route": f"prospect, {route}"}
                 continue
             span = (played.index >= y) & (played.index <= LAST)
+            st = FLIP.get(int(aid))                                            # v1.9: None unless stopped
+            if st is not None:                       # a prospect keeps the full season: held before the second page
+                held = span & (played.index < st["page"])
+                AFTER[int(aid)] = float(played.loc[span & ~held, "surplus_2025_cap"].sum()) / 1e6
+                span = held
             real = float(played.loc[span, "surplus_2025_cap"].sum()) / 1e6
             ep = EPD.get((dy, pk))
             rest, how = draftee_rest(gk=gk, pos=pos, base_year=dy, window_end=wend, played=played, birth=birth, ep=ep,
                                      p_star=float(bacon[pk]), k_now=NOW - dy, name=name, state=state, war_names=wn,
                                      is_d=draft_is_d(dy, pk, pos))
+            if st is not None:
+                AFTER[int(aid)] += rest
+                rest = 0.0
             rows[int(aid)] = {"realised_M": real, "revalued_M": rest, "outcome_route": f"prospect, {how}",
                               "wins_delivered": float(played.loc[span, "war_82"].sum()), "pos": pos}
         else:
@@ -965,6 +1112,8 @@ def main():
             pl = ns[(ns["GP"] > 0) & (ns.index <= LAST)].rename(columns={"GP": "gp"})
             pl = pl[pl.index < wend]
             real, state = 0.0, {"first": np.nan}
+            st = FLIP.get(int(aid))                                            # v1.9: None unless stopped
+            aft_u = 0.0
             if len(pl):
                 first = int(pl.index.min())
                 age = RTV.cba_age(birth, first)
@@ -980,14 +1129,21 @@ def main():
                     if z in pl.index and z >= y:
                         gp, w = gp_war(ns, z)
                         sc = gp / 82 if gp < CAMEO_GP else 1.0
-                        real += (played_value(w, gp, z, gk, pos, 1) - (cost or 0) / CAP[z] * sc) * CAP_NOW / 1e6
-                        wins_u += w
+                        contrib = (played_value(w, gp, z, gk, pos, 1) - (cost or 0) / CAP[z] * sc) * CAP_NOW / 1e6
+                        if st is not None and z >= st["page"]:     # v1.9: a prospect keeps the full season
+                            aft_u += contrib
+                        else:
+                            real += contrib
+                            wins_u += w
                 state = {"first": first, "n_elc": n_elc, "need": need, "prior": prior}
             ep = EP_BY_NHL.get(int(nid)) if pd.notna(nid) else None
             rest, how = draftee_rest(gk=gk, pos=pos, base_year=min(fe, 2026), window_end=wend,
                                      played=pl, birth=birth, ep=ep, p_star=0.0, k_now=NOW - fe, name=name, state=state,
                                      war_names=name,
                                      is_d=float(r["is_d_model"]) if pd.notna(r.get("is_d_model")) else 0.0)
+            if st is not None:
+                aft_u, rest = aft_u + rest, 0.0
+            AFTER[int(aid)] = aft_u
             rows[int(aid)] = {"realised_M": real, "revalued_M": rest, "outcome_route": f"undrafted prospect, {how}",
                               "wins_delivered": wins_u, "pos": pos}
         n_pro += 1
@@ -1009,11 +1165,20 @@ def main():
         if route in LAPSED or wend is None:
             rows[aid] = {"realised_M": 0.0, "revalued_M": 0.0, "outcome_route": f"pick, {route}"}
             continue
-        real = float(played.loc[played.index <= LAST, "surplus_2025_cap"].sum()) / 1e6
-        wins_p = float(played.loc[played.index <= LAST, "war_82"].sum())
+        span = played.index <= LAST
+        st = FLIP.get(aid)                                                     # v1.9: None unless stopped
+        if st is not None:                           # before the second trade's page (none, if traded before the draft)
+            held = span & (played.index < st["page"])
+            AFTER[aid] = float(played.loc[span & ~held, "surplus_2025_cap"].sum()) / 1e6
+            span = held
+        real = float(played.loc[span, "surplus_2025_cap"].sum()) / 1e6
+        wins_p = float(played.loc[span, "war_82"].sum())
         rest, how = draftee_rest(gk=gk, pos=pos, base_year=dy, window_end=wend, played=played, birth=birth,
                                  ep=EPD.get((dy, pk)), p_star=float(bacon[pk]), k_now=NOW - dy, name=name, state=state,
                                  war_names=wn, is_d=draft_is_d(dy, pk, pos))
+        if st is not None:
+            AFTER[aid] += rest
+            rest = 0.0
         rows[aid] = {"realised_M": real, "revalued_M": rest, "outcome_route": f"pick, {how}",
                      "wins_delivered": wins_p, "pos": pos}
         n_pick += 1
@@ -1053,6 +1218,30 @@ def main():
     # the revalued part's retained share is already in the retained rows' realised part (cap hits are fixed); the
     # retained cost after 2025-26 is in `ret` for engine players (realised_M carries both parts for retained rows)
     a["outcome_M"] = a["realised_M"] + a["revalued_M"]
+    if STOP:
+        # v1.9: the exit value for each flipped asset; the routes the protocol leaves unchanged are counted. after_M is
+        # the part left out (the guard: realised + revalued + after_M equals the full run's outcome)
+        a["exit_M"], a["after_M"], a["flip_trade"] = 0.0, 0.0, np.nan
+        kept = {}
+        for i, r in a.iterrows():
+            aid = int(r["asset_id"])
+            if r["asset_type"] == "retained salary" or aid not in FLIP:
+                continue
+            route = str(r["outcome_route"])
+            if route.startswith("outcome = forecast") or pd.isna(r["outcome_M"]):
+                kept[route] = kept.get(route, 0) + 1
+                assert AFTER.get(aid, 0.0) == 0.0, (aid, route)              # GUARD: nothing was cut from these
+                continue
+            a.at[i, "exit_M"] = FLIP[aid]["exit_M"]
+            a.at[i, "after_M"] = AFTER.get(aid, 0.0)
+            a.at[i, "flip_trade"] = FLIP[aid]["trade2"]
+        a["outcome_M"] = a["outcome_M"] + a["exit_M"]
+        fl = a["flip_trade"].notna()
+        log(f"\n5a. STOP AT THE FLIP: {int(fl.sum())} assets held to their second trade "
+            f"({int((fl & (a['asset_type'] == 'player')).sum())} players and prospects, "
+            f"{int((fl & (a['asset_type'] == 'pick')).sum())} picks); left unchanged by route: {kept}")
+        log(f"    left out after the flip ${a.loc[fl, 'after_M'].sum():,.1f}M; exit values added "
+            f"${a.loc[fl, 'exit_M'].sum():,.1f}M")
     miss = a[(a["source"] != "not valued") & a["outcome_M"].isna()]
     log(f"\n5. assets with a forecast and no outcome: {len(miss)}")
     for r in miss.itertuples():

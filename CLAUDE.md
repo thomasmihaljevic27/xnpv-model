@@ -185,6 +185,13 @@ instead, in the forecast and the back-test's outcome alike (`skater_forward_proj
 only, run into `30_OUTPUT/_original_term_run/` exactly as the extended run with the variable set; never set it for a run
 into `30_OUTPUT` or `_extended_run`. Unset, nothing changes. Why it exists: `STANDING_FLAGS.md`, "The remaining-term rule".
 
+The stop-at-flip sensitivity (2026-11-24; Karl's question at the 2026-11-23 meeting): with `XNPV_STOP_AT_FLIP=1`,
+`backtest.py` (v1.9) holds an asset its acquirer traded on later only to that second trade and adds the model's trade-day
+value of it there (`exit_M`); outputs carry `_flipstop`, so it runs into `_extended_run` beside the full run without
+overwriting it (`XNPV_TRADES_DB` set, `OUTPUT_DIR` on `_extended_run`). Then `python 25_TESTS/flip_stop_check.py` (default
+`OUTPUT_DIR`) for its guards and Section 3's regression refitted. Unset, nothing changes. Rules: `40_DOCS/Backtest_Protocol.md`,
+"Realized value stopped when the club trades the asset on".
+
 The Game Value check (2026-10-20): the same script with XNPV_OUTCOME_METRIC=gv_adj, then gv_raw (outputs carry the
 metric's suffix), then `python 25_TESTS/backtest_gv_compare.py` for the protocol's verdicts. In PowerShell set the variable
 first: `$env:XNPV_OUTCOME_METRIC = "gv_adj"`, and remove it afterwards (`Remove-Item Env:XNPV_OUTCOME_METRIC`).

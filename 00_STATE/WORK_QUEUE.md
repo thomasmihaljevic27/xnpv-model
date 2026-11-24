@@ -24,6 +24,10 @@ review, the changes and his sign-off inside it ("sooner is better").
    appear in multiple ... Like, what proportion are we talking about here?"; Thomas guessed about 5%).
    **Counted 2026-11-23** (`25_TESTS/repeat_traded_players.py` v1.0): 153 of 698 players (21.9%) are in two or more of
    the 556 trades; 342 of 885 player assets (38.6%) were traded again later, to 2026-03-13 (session 2026-11-23).
+   **Tested 2026-11-24** (Thomas: "Yes, test it"; "His value at the flip"; "Players and picks"): realized value stopped
+   when the club trades the asset on, the model's value at the second trade credited (`backtest.py` v1.9 XNPV_STOP_AT_FLIP,
+   `25_TESTS/flip_stop_check.py`). Every finding holds, with the exit value and with nothing after the flip; none changes
+   status (session 2026-11-24). Decide (Thomas): whether it goes in the write-up as a robustness check.
 0f. Decide (Thomas, his own idea in the meeting): whether dollar figures are shown as a share of the salary cap.
 0g. Karl's remark, nothing asked: "Did you try doing like more restrictive, like top 10? ... Might pick up significance if
    you do that, but who knows."

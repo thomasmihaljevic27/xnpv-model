@@ -4213,3 +4213,12 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - CHECK (2026-11-23; Thomas: "Yes, count it"; Karl's question at the meeting): 25_TESTS/repeat_traded_players.py v1.0.
   Of Section 3's 556 trades, 153 of 698 players (21.9%) are in two or more; 342 of 885 player assets (38.6%) were traded
   again later (to 2026-03-13). Report only; no finding changed or tested. WORK_QUEUE 0e; MANIFEST row; session log.
+
+### Change log, 2026-11-24 (realized value stopped when the club trades the asset on)
+
+- SENSITIVITY (Thomas: "Yes, test it"; "His value at the flip"; "Players and picks"; declared first, protocol 5b41477):
+  backtest.py v1.9's XNPV_STOP_AT_FLIP (unset, no change) holds an asset its acquirer traded on later only to that trade and
+  credits the model's trade-day value of it there; 25_TESTS/flip_stop_check.py v1.0 refits Section 3's regression. 470
+  assets in 316 of the 556 trades held to a second trade. Every finding holds with the exit value and with nothing after
+  the flip; none changes status; nothing in the findings document changed. MANIFEST rows; CLAUDE.md run line; WORK_QUEUE
+  0e; session log 2026-11-24.
