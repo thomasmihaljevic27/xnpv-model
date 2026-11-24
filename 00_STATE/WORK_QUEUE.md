@@ -32,7 +32,8 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
 0f. Decided 2026-11-24 (Thomas: "I want them shown as a share of the cap."): dollar figures shown as a share of the salary
    cap. Do: in the write-up and the findings.
 0g. Do first (Thomas, 2026-11-24: "We could look at the top 10 picks, sure. Do this first, since this is an easy test."):
-   Karl's remark ("Did you try doing like more restrictive, like top 10?"). Declared in the protocol before it runs.
+   Karl's remark ("Did you try doing like more restrictive, like top 10?"). Declared in the protocol before it runs. Decided:
+   "Swap in top-10": the same regression, both rules, the former top-10 pick in place of the top-15, reported beside it.
 0h. Do (Thomas, 2026-11-24: "All changes agreed to for now, I can edit myself later anyways"): the four wordings flagged on
    2026-11-21 changed in the builder at the next build. Decided: the file keeps the name `40_DOCS/Findings.docx` (Thomas:
    "Just keep it findings"; `findings_doc.js` writes it).
@@ -70,7 +71,8 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
    negotiating dynamics at play (teams who would otherwise leave that cap space unused have less leverage because either
    their alternative is not necessarily to make a deal with another team, but rather to not spend the money at all, or
    because they are required by the CBA to spend that money)".
-1c. For the final paper (Thomas, 2026-11-18): "Keep note of what we just tested though because the professor who will
+1c. Decided 2026-11-24 (Thomas, AskUserQuestion: "Leave them out"): not mentioned in the paper; the record stays here.
+   Was: for the final paper (Thomas, 2026-11-18): "Keep note of what we just tested though because the professor who will
    review my paper after Karl and I are done working on it is a puckhead, so I imagine he may wonder about these variables
    too." Tested and not in the findings document (Thomas: "No that's okay"): handedness (right shot; right-shot defenceman),
    size (height, weight per 10 lb), playoff points in the most recent playoffs, born in Europe; `25_TESTS/traits_test.py`
@@ -99,6 +101,21 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
    ("decided: offer sheets out"); goalie birthdates "should be addressed" (Do; its scope asked). The back-test and thesis
    list and the Arbitration Cost Update note were explained to Thomas the same day, with the long-deal gap, the star
    under-forecast, the nine-season window and the thin-history biases (session 2026-11-24).
+   Decided 2026-11-24 (Thomas: "Accept the sorting"; "Limitation only" for the goalies):
+   - Closed (settled by later work): the in-season split (2026-10-20); the realized-value currency and outcome window
+     (2026-10-20; the Game Value check); the qualifying-offer start date and control-year qualification (replaced by the
+     arbitration cost, 2026-10-13, and the July method, 2026-10-05); the v3 regression report (superseded by the price
+     line); the market holdout (the trades after 2022 as the replication, 2026-11-19); the Arbitration Cost Update note's
+     Figure 1 (a point-in-time note); the PuckPedia export refresh (the model frozen for the write-up).
+   - Dropped: the league-minimum floor stress test; the nine-season participation window.
+   - Do (Claude): confirm the model keeps the two Erik Gustafssons apart (the WAR file merges them, STANDING_FLAGS 2026-07-19).
+   - Stated as limitations in the paper (item 8).
+8. For the final paper's limitations (Thomas, 2026-11-24): playoffs not counted (a rental is valued on the regular
+   season); a clause's cost, and trades a clause forced, not measured; the forecast low on six-to-eight-year deals (about
+   $4M on 41 deals in the 2026-09-30 test; re-measure before quoting); five generational stars under-forecast; players with
+   one or two seasons start high and run low after, partly cancelling; results that are not significant are not proof of
+   no effect (no power analysis); the goalie exit risk fitted on 2018-2024 for every page, a look-ahead before 2018
+   (Thomas: "Limitation only"; the birthdates are not added); conditional picks (2026-11-21).
 
 ## Earlier live list (audited 2026-10-14, items to 2026-11-09), kept as written
 
