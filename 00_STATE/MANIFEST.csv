@@ -488,3 +488,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,backtest.py,backtest,hashable,2026-11-24,9adf155e2ace17f95fd32f45f69acf4287655883,91470,2026-11-24,yes,git,"backtest.py v1.9 (2026-11-24); the stop-at-flip sensitivity, XNPV_STOP_AT_FLIP (unset, no change)"
 25_TESTS,flip_stop_check.py,backtest,hashable,2026-11-24,e099f01e078af6e432390fbddfd7ca3d956523f6,8765,2026-11-24,yes,git,"v1.0: the stop-at-flip run's guards and Section 3's regression refitted (report only)"
 25_TESTS,top10_swap.py,backtest,hashable,2026-11-24,231329c4d84b1e09d4923c01090b452e0225e009,6792,2026-11-24,yes,git,"v1.0: the former top-10 pick in place of the top-15 in Section 3's regression (report only, exploratory)"
+25_TESTS,top10_replication.py,backtest,hashable,2026-11-24,19345318770bd2de6cf3a9a9a69ab900ca9e3bcf,6475,2026-11-24,yes,git,"v1.0: the former top-10 pick on the trades after 2022 (report only)"
