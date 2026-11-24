@@ -4201,3 +4201,12 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   standard errors (one_regression.py v2.4; protocol amendment of the date); callers, the Stata export (v1.2) and the
   codebook moved with it; findings_doc.js v3.14 built with Thomas's saved edits (d6eccf3) carried. No finding changes.
   MANIFEST rows; PROJECT_STATE and WORK_QUEUE notes; session log 2026-11-21.
+
+### Change log, 2026-11-23 (the findings meeting; the plan to the deadline)
+
+- MEETING (2026-11-23, the supervisor; Granola's summary and Thomas's pasted transcript): the findings document presented;
+  no change asked of the model or the findings. Karl's asks queued in his words (WORK_QUEUE 0a-0e): the complete write-up
+  in half-hour chunks, a new flow diagram, a figures and regressions document beside each chunk, all the data with a
+  codebook for replication, and the share of players traded more than once. Thomas's cap-share idea and Karl's top-10
+  remark queued as 0f and 0g; the four wordings flagged 2026-11-21 and the findings file's uncommitted rename as 0h; the
+  parked items read back as 7. No decision taken. WORK_QUEUE; session log 2026-11-23.
