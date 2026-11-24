@@ -819,3 +819,10 @@ READ. `25_TESTS/flip_stop_check.py` (report only): Section 3's regression (one_r
 WAR and on seasons played replaced by the stop run's, with exit value and with nothing after the flip. A finding holds if
 its realized coefficient keeps p < 0.05 and the trade-day sign. Game Value is not re-run. Section 4 is unaffected (its
 outcome is the trade-day price). Nothing in the findings document changes unless Thomas decides it.
+
+## Amendment, 2026-11-24: the retention rule's effective date (Thomas)
+
+The extended run's cut 9 split retained salary by period and labelled 2025-26 "the season of the retention rule change;
+its date is not verified here". Thomas: the change took effect September 16, 2026. That is after the ledger's last trade
+(2026-03-13), so no trade in the back-test is under the new rule, and the 2025-26 group is a trade season before the
+change, not the season of it. No figure moves; nothing is re-run.

@@ -8,18 +8,18 @@
 
 ## Live (audited 2026-11-15)
 
-**From the findings meeting of 2026-11-23 (session 2026-11-23 has Karl's words).** Deadline: end of December, with his
-review, the changes and his sign-off inside it ("sooner is better").
-0a. Do: the complete write-up, sent to Karl in chunks of about half an hour's reading each ("here's the evaluation of
-   players, here's evaluation of prospects, and ... the logical flow again of the whole thing"), prepared as one document
-   and sent a part at a time. The chunk list, each chunk's take-aways and the pace are Thomas's to set (a proposal is in the
-   session log).
-0b. Do: a new flow diagram of the finished method, to go with the write-up.
-0c. Do: a separate document of the figures and regression results to read beside each chunk (Thomas's plan, agreed).
-0d. Do: send Karl all the data as CSV with a codebook that lets him replicate the paper's regressions (Karl: "Send me all
-   the data"; an AI-written codebook is fine). Before it goes: item 5 below (the commands run in Stata); the Section 2
-   `regress ... noconstant` standard error (session 2026-11-21); decide (Thomas) whether the PuckPedia cap hits in
-   `price_line_skaters.csv`, `price_line_goalies.csv` and `findings_data.csv` may be sent.
+**From the findings meeting of 2026-11-23 (session 2026-11-23 has Karl's words; Thomas's answers 2026-11-24, session
+2026-11-24).** Deadline: end of December, with his review, the changes and his sign-off inside it ("sooner is better").
+Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the documents.
+0a. Do: the write-up in four chunks, in this order (Thomas, 2026-11-24): the player model, the pick model, the prospect
+   model, each from "Valuing Players, Draft Picks, and Prospects" (finish editing it, then split it); then the findings, the
+   point-form `40_DOCS/Findings.docx` split up. Thomas: "I don't think there would be anything else?"
+0b. Do: a new flow diagram of the finished method (Thomas: "Yep, that needs to be made").
+0c. Do: a figures and regression results document beside each chunk (Thomas: "Sure").
+0d. Do: a separate codebook for each document (the three models and the findings), each relevant CSV checked accurate;
+   descriptions sparse (Thomas: "Keep the codebook sparse in terms of description"). Decided 2026-11-24: "If we need to send
+   him the PuckPedia csvs or a mix of the various sources in a single CSV, that's what we have to do." Thomas has run some of
+   the Stata commands (item 5). Still owed: the Section 2 `regress ... noconstant` standard error (session 2026-11-21).
 0e. Count: the share of traded players who appear in more than one trade (Karl: "I'd be interested to see how many players
    appear in multiple ... Like, what proportion are we talking about here?"; Thomas guessed about 5%).
    **Counted 2026-11-23** (`25_TESTS/repeat_traded_players.py` v1.0): 153 of 698 players (21.9%) are in two or more of
@@ -27,12 +27,16 @@ review, the changes and his sign-off inside it ("sooner is better").
    **Tested 2026-11-24** (Thomas: "Yes, test it"; "His value at the flip"; "Players and picks"): realized value stopped
    when the club trades the asset on, the model's value at the second trade credited (`backtest.py` v1.9 XNPV_STOP_AT_FLIP,
    `25_TESTS/flip_stop_check.py`). Every finding holds, with the exit value and with nothing after the flip; none changes
-   status (session 2026-11-24). Decide (Thomas): whether it goes in the write-up as a robustness check.
-0f. Decide (Thomas, his own idea in the meeting): whether dollar figures are shown as a share of the salary cap.
-0g. Karl's remark, nothing asked: "Did you try doing like more restrictive, like top 10? ... Might pick up significance if
-   you do that, but who knows."
-0h. Decide (Thomas): the four wordings flagged on 2026-11-21, still in `40_DOCS/Findings.docx` (session 2026-11-23); and
-   whether the file's rename from `Trade Back-test Findings.docx` is kept (`findings_doc.js` writes the old name).
+   status (session 2026-11-24). Decided 2026-11-24: not in the write-up (Thomas: "If Karl specifically asks for it then
+   great but I don't think we need to").
+0f. Decided 2026-11-24 (Thomas: "I want them shown as a share of the cap."): dollar figures shown as a share of the salary
+   cap. Do: in the write-up and the findings.
+0g. Do first (Thomas, 2026-11-24: "We could look at the top 10 picks, sure. Do this first, since this is an easy test."):
+   Karl's remark ("Did you try doing like more restrictive, like top 10?"). Declared in the protocol before it runs.
+0h. Do (Thomas, 2026-11-24: "All changes agreed to for now, I can edit myself later anyways"): the four wordings flagged on
+   2026-11-21 changed in the builder at the next build. Decided: the file keeps the name `40_DOCS/Findings.docx` (Thomas:
+   "Just keep it findings"; `findings_doc.js` writes it).
+0i. Do (Thomas, 2026-11-24: "update project state"): the PROJECT_STATE refresh (due 2026-11-22).
 
 1. Done 2026-11-18: the writeup revised on Thomas's 35 comments, then on his second round of 14 (`40_DOCS/Trade Back-test
    Findings.docx`, findings_doc.js v2.3; the second round's notes are in the ", revised" file, the first round's in the file
@@ -58,7 +62,8 @@ review, the changes and his sign-off inside it ("sooner is better").
    v3.14 (2026-11-21): back to one row a trade, robust standard errors (Thomas: "Yes, switch"); no finding changes.
    v3.8 (2026-11-19): clause fill, sellers for just picks and prospects, two rows a trade; every reader of the
    back-test's flags re-run the same day (backtest_cuts, joint_regression, clause_checks, the Stata exports).
-1b. For the final paper, not the findings document (Thomas, 2026-11-18, a comment on the cap-dump result): "I would like a
+1b. For the final paper's discussion section (Thomas, 2026-11-24: "that note will go in the discussion section"), not the
+   findings document (Thomas, 2026-11-18, a comment on the cap-dump result): "I would like a
    note in the final paper about why transacting like this is still rational. There is a cap floor to reach, unused cap is
    inefficient, etc. Getting paid to take on money when the alternative was to not spend the cap space at all is still an
    optimal move. It's just that it seems teams do not extract as much value as they possibly should be, but there may be
@@ -75,19 +80,25 @@ review, the changes and his sign-off inside it ("sooner is better").
    draft distance, conditional picks, the cap era, change over time. Listed as not testable (no data): GM tenure, injury
    status. The age bands' sensitivity (28 and over against 28 to 31 and 32 and over; Thomas: "Keep the two bands"): see
    the 2026-11-18 session log.
-2. Read (Thomas): the eleven spelling cases added to `prospect_values.REVIEWED_DISAGREEMENTS` on 2026-11-11 (Cal Foote,
+2. Read (Thomas): `20_CODE/prospect_values.py`, lines 162-177, the eleven spelling cases added to `REVIEWED_DISAGREEMENTS` on 2026-11-11 (Cal Foote,
    Patrik Puistola, Jack Dugan, Pat Maroon twice, Emilio Pettersen, Vasily Ponomarev, J.J. Moser, Ronnie Attard, Tommy
    Novak, JJ Peterka), each marked read by Claude only.
-3. Bring (Thomas): the effective date of the 2025-26 retention rule change (cut 9's split; not verified).
-4. Decide later (Thomas, "Leave for now", 2026-11-11): whether to rebuild the three finished prospect tests and the
+3. Answered 2026-11-24 (Thomas): the retention rule change took effect September 16, 2026. That is after the ledger's last
+   trade (2026-03-13), so no trade in the back-test is under the new rule; cut 9's 2025-26 group is before the change
+   (protocol amendment of 2026-11-24). No figure moves.
+4. Do (Thomas, 2026-11-24: "Build"; was "Leave for now", 2026-11-11): rebuild the three finished prospect tests and the
    documents' `numbers.json` on today's model, so the defenceman guard and the Stata document check run again.
 5. Do (Thomas): run the Stata guide's commands (untested in Stata); the Stata files are on the model of 2026-11-11.
    (2026-11-23: the files in `30_OUTPUT/stata/` were rewritten 2026-11-19, the findings files 2026-11-21; needed before 0d.)
-6. Ask (dated 2026-11-08, untouched since): does Nick Suzuki's dashboard value still need a look?
+6. Closed 2026-11-24 (Thomas: "Looks fine"): Nick Suzuki's dashboard value.
 7. Ask (read back 2026-11-23): the items parked 2026-10-04 "until the model is complete" (the defence premium, the
    nine-season participation window, the long-deal gap, the star under-forecast, the offsetting biases for thin histories;
    the slot-aware future first; the goalie birthdates and exit hazard; the back-test and thesis list), the Arbitration Cost
    Update note's Figure 1 placeholder, and offer sheets: which still apply, now that the model is complete.
+   Answered 2026-11-24 (Thomas): the defence premium closed ("Defence is addressed obviously"); offer sheets out
+   ("decided: offer sheets out"); goalie birthdates "should be addressed" (Do; its scope asked). The back-test and thesis
+   list and the Arbitration Cost Update note were explained to Thomas the same day, with the long-deal gap, the star
+   under-forecast, the nine-season window and the thin-history biases (session 2026-11-24).
 
 ## Earlier live list (audited 2026-10-14, items to 2026-11-09), kept as written
 

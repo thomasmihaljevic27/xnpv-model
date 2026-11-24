@@ -147,7 +147,7 @@ const {
 } = require("docx");
 
 const ROOT = path.resolve(__dirname, "..");
-const OUTFILE = process.env.DOC_OUT || path.join(ROOT, "40_DOCS", "Trade Back-test Findings.docx")   // v2.3: a new file; the ", revised" file holds Thomas's second round of notes
+const OUTFILE = process.env.DOC_OUT || path.join(ROOT, "40_DOCS", "Findings.docx")   // 2026-11-24: renamed by Thomas ("Just keep it findings"); was "Trade Back-test Findings.docx"; v2.3: a new file; the ", revised" file holds Thomas's second round of notes
 const FONT = "Arial";
 const VERSION = "findings_doc.js v3.14";   // v3.14: Section 3 on one row a trade, robust errors (Thomas: "Yes, switch"); his saved edits of 2026-11-21 (d6eccf3) carried; v3.13: "over the rest of team control" in the regression sentence (Thomas)
 

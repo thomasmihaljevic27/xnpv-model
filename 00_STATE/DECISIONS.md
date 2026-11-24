@@ -4222,3 +4222,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   assets in 316 of the 556 trades held to a second trade. Every finding holds with the exit value and with nothing after
   the flip; none changes status; nothing in the findings document changed. MANIFEST rows; CLAUDE.md run line; WORK_QUEUE
   0e; session log 2026-11-24.
+- DECISIONS (2026-11-24, Thomas, on the open list): the write-up in four chunks (player model, pick model, prospect
+  model, findings); a codebook for each document, sparse, PuckPedia data may be sent; dollar figures as a share of the
+  cap; the top-10 test first; the stop-at-flip check out of the write-up; the four flagged wordings agreed; the findings
+  file named Findings.docx (findings_doc.js writes it; rename committed); the cap-dump note in the discussion section;
+  the prospect tests rebuilt; Suzuki closed; the defence premium closed; offer sheets out; goalie birthdates to be
+  addressed; the retention rule's date September 16, 2026 (protocol amendment; no figure moves); PROJECT_STATE refresh.
+  WORK_QUEUE 0a-0i, 1b, 2-7; session log 2026-11-24.
