@@ -826,3 +826,14 @@ The extended run's cut 9 split retained salary by period and labelled 2025-26 "t
 its date is not verified here". Thomas: the change took effect September 16, 2026. That is after the ledger's last trade
 (2026-03-13), so no trade in the back-test is under the new rule, and the 2025-26 group is a trade season before the
 change, not the season of it. No figure moves; nothing is re-run.
+
+## The former top-10 pick in place of the top-15 (declared 2026-11-24, before it is built; Karl at the 2026-11-23 meeting: "Did you try doing like more restrictive, like top 10?"; Thomas: "Do this first"; "Swap in top-10")
+
+Exploratory, reported beside the document's regression; chosen after the top-15 term fell short of a finding, so it is a
+specification search and is read as one. `25_TESTS/top10_swap.py` (report only): one_regression.frame and joint, both
+rules, the 556 trades, with the former top-15 pick replaced by the former top-10 pick (main player rule: the main player's
+draft position at most 10; any player rule: any player received with a draft position at most 10, from the same
+prospect_values pick); every other term and row unchanged. GUARDS: the flags rebuilt at 15 equal the document's on every
+row, under both rules; the document's fit reproduces one_regression.csv. A finding: trade-day grade and realized value on
+WAR both p < 0.05, the same sign; Game Value and seasons played reported beside it. Nothing in the findings document
+changes unless Thomas decides it.
