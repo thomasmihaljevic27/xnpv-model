@@ -34,6 +34,10 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
 0g. Do first (Thomas, 2026-11-24: "We could look at the top 10 picks, sure. Do this first, since this is an easy test."):
    Karl's remark ("Did you try doing like more restrictive, like top 10?"). Declared in the protocol before it runs. Decided:
    "Swap in top-10": the same regression, both rules, the former top-10 pick in place of the top-15, reported beside it.
+   **Run 2026-11-24** (`25_TESTS/top10_swap.py`): a finding under both rules (main: trade-day -2.03, p = 0.018; realized
+   -2.43, p = 0.013; any: -2.04, p = 0.013; -2.30, p = 0.017); Game Value not met (p = 0.070, 0.075); no other term changes.
+   Exploratory (a specification search). Decide (Thomas): the replication on the trades after 2022; whether it goes in the
+   findings (session 2026-11-24).
 0h. Do (Thomas, 2026-11-24: "All changes agreed to for now, I can edit myself later anyways"): the four wordings flagged on
    2026-11-21 changed in the builder at the next build. Decided: the file keeps the name `40_DOCS/Findings.docx` (Thomas:
    "Just keep it findings"; `findings_doc.js` writes it).

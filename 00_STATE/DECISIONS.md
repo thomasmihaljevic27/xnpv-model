@@ -4229,3 +4229,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   the prospect tests rebuilt; Suzuki closed; the defence premium closed; offer sheets out; goalie birthdates to be
   addressed; the retention rule's date September 16, 2026 (protocol amendment; no figure moves); PROJECT_STATE refresh.
   WORK_QUEUE 0a-0i, 1b, 2-7; session log 2026-11-24.
+- CHECK (2026-11-24; Karl's remark, Thomas: "Swap in top-10"; declared first, 53fe7d0): 25_TESTS/top10_swap.py v1.0.
+  The former top-10 pick in place of the top-15: a finding under both rules (realized WAR p = 0.013 and 0.017), Game Value
+  not met; no other term changes status. Exploratory; nothing in the findings document changed. MANIFEST row; WORK_QUEUE
+  0g; session log.
