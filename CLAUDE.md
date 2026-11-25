@@ -264,6 +264,14 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
   2026-11-24 (Thomas: "Build"), with the documents' `numbers.json`, so all three checks run again. Before such a
   change, grep for the readers of each output it moves, and tell Thomas which checks will stop and what setting each
   aside costs. `stata_refresh.py` rewrites CSVs before its checks finish: a stopped run leaves the Stata folder half new.
+- **Don't say a player-side change leaves the draft pillar alone.** The pick curve and the prospect model price drafted
+  players' control seasons at their arbitration price, which the skater forecast sets, so any change to the forecast's
+  inputs or training rows moves their outcomes. Moving one 31-game season (the Gustafsson row, 2026-11-24) moved the star
+  value in the sixth digit and the prospect fits by 0.0023, enough to stop `prospect_values.py`'s defenceman guard, after I
+  had said the draft side would not move. Count the pick curve and the prospects among the readers of every forecast change.
+- **Don't run a reader on the default folder without checking which folder it reads.** `joint_regression.py`,
+  `groups_clustered.py` and `backtest_cuts_more.py` take the extended run as their OUTPUT_DIR; the others find
+  `_extended_run` under the live folder themselves (2026-11-24).
 - **Don't trust file size as an integrity check.** Pre-rebuild and post-rebuild
   `draft_yield_curve.csv` are both exactly 845 bytes with different contents. Compare hashes.
 - **Don't trust an output because a script ran.** Several scripts carry reproduction guards that

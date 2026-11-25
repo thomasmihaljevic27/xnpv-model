@@ -108,9 +108,10 @@ As in the 2026-11-15 section (History), with these changes since:
 - **The findings regression.** One regression of the first club's value on the two clubs' differences in 23
   characteristics and types of trade, no constant, one row a trade, robust (HC1) standard errors (`one_regression.py`
   v2.4); missing player facts filled by declared rules (`facts_fill.py` v1.2).
-- **Known data error, not fixed (2026-11-24; fix or record: Thomas).** WAR.csv leaves the b.1988 Erik Gustafsson's 2013-14
-  PHI season under the plain name, and the skater forecast gives it to the b.1992 player (age 21); no traded valuation
-  reads it (STANDING_FLAGS).
+- **One WAR row moved to its player (2026-11-24, Thomas: "Fix it").** `war_rows.py` gives the b.1988 Erik Gustafsson's
+  2013-14 PHI season back to him in every WAR reader that keeps the two apart. The price line refits within its lock's
+  tolerance (2.4e-06), so the lock is kept (Thomas: "Keep the lock"); the star value 18.288394 -> 18.288385; no finding
+  moves (Section 3: largest estimate change $0.0011M, no p-value crosses 0.05).
 
 ## Figures in force (read from the code and the runs of 2026-11-19 to 2026-11-24)
 

@@ -1274,7 +1274,9 @@ residuals and currency comparisons; fix and rerun development work before furthe
 - **Checked 2026-11-24:** the pick curve keeps the two apart; the skater forecast does not (forecast_config.MERGED_WAR_NAMES
   holds only Ryan Johnson and Nathan Smith), and WAR_with_age gives the 2013-14 PHI row to the b.1992 player (NHL id 8476979,
   age 21). No traded valuation reads it (his trades are valued on the three seasons before pages 2019, 2020, 2022); it
-  enters his 2015 and 2016 dashboard pages and one season of the forecast's training rows. Fix or record: Thomas.
+  enters his 2015 and 2016 dashboard pages and one season of the forecast's training rows. **FIXED 2026-11-24 (Thomas:
+  "Fix it"; `war_rows.py`)**: the row moved to "Erik Gustafsson 88" in age_join, player_season_table, skater_value_engine and
+  exit_hazard; prospect_values.season_table still reads both as one (its name rule drops digits), read by no trade.
 - **Erik Gustafsson = third WAR.csv merged name (2026-07-19)** — joins Ryan Johnson and Nathan Smith (13-14 PHI row is the undrafted b.1988 player; 15-16+ is the 2012-drafted b.1992 player). Standing rule applied: 2012 #93 pick excluded from the curve. Also: **Goalies_WAR splits traded goalies into one row per team per season** (78 duplicate name-seasons) — always SUM within name-season.
 
 ---

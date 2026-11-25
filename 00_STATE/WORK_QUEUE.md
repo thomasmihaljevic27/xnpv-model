@@ -118,8 +118,8 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
      Figure 1 (a point-in-time note); the PuckPedia export refresh (the model frozen for the write-up).
    - Dropped: the league-minimum floor stress test; the nine-season participation window.
    - Checked 2026-11-24 (Claude): the pick curve keeps them apart; the skater forecast gives the b.1988 player's 2013-14
-     PHI season to the b.1992 player; no traded valuation reads it. Decide (Thomas): fix (a model change, every chain re-run)
-     or record it as known (session 2026-11-24).
+     PHI season to the b.1992 player; no traded valuation reads it. Fixed 2026-11-24 (Thomas: "Fix it"; `war_rows.py`); the
+     lock kept ("Keep the lock"); every chain re-run; no finding moves (session 2026-11-24).
    - Stated as limitations in the paper (item 8).
 8. For the final paper's limitations (Thomas, 2026-11-24): playoffs not counted (a rental is valued on the regular
    season); a clause's cost, and trades a clause forced, not measured; the forecast low on six-to-eight-year deals (about

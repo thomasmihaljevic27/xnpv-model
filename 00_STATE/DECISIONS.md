@@ -4253,3 +4253,13 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   against `git log` (each of the seven days with commits has a session log; commits not matched one by one). STANDING_FLAGS: the Gustafsson check, the goalie
   exit risk's look-ahead a stated limitation. CLAUDE.md: the state paragraph and the rebuilt prospect tests. One open
   question for Thomas: the Gustafsson row (fix or record).
+
+### Change log, 2026-11-24c (the Gustafsson row)
+
+- FIX (Thomas: "Fix it"; protocol amendment first, 0e6ff50): `war_rows.py` v1.0 moves the b.1988 Erik Gustafsson's 2013-14
+  PHI row to his label in age_join, player_season_table 1.6, skater_value_engine v2.1, exit_hazard v1.4. The price line
+  refits within its lock's tolerance (2.4e-06): LOCK KEPT (Thomas: "Keep the lock"), as with the September age fix. Every
+  chain re-run (contract, trade on both ledgers, back-test with Game Value and stop-at-flip, every reader, the prospect
+  tests, the documents' numbers, Stata). Star value 18.288394 -> 18.288385; no asset outcome moves more than $0.01M; the
+  headline and every finding unchanged. stata_export_players v1.2: its skater price-line checks at the lock's tolerance.
+  MANIFEST rows; PROJECT_STATE, STANDING_FLAGS, WORK_QUEUE 7; CLAUDE.md rule; session log.

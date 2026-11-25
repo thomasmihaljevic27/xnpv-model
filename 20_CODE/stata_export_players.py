@@ -34,7 +34,8 @@ OUTPUTS (OUTPUT_DIR/stata/; codebook: 40_DOCS/Stata_Data_Codebook.md):
 
 CHECKS (each must PASS or the script stops; each refit reads the CSV back from disk):
   1. The skater price line, refitted from price_line_skaters.csv (censored at the league minimum, term in and term
-     free), gives skater_forward_projection.XNPV1_RATE and XNPV1_RATE_TERM_FREE (to 1e-8).
+     free), gives skater_forward_projection.XNPV1_RATE and XNPV1_RATE_TERM_FREE within the lock's tolerance
+     (SVE.TOL_NEW_COEF, 5e-05; v1.2, 2026-11-24: 1e-8 until the Gustafsson row fix, after which the lock was kept).
   2. The goalie price line, refitted from price_line_goalies.csv, gives contract_npv.GOALIE_RATE and
      GOALIE_RATE_TERM_FREE (to 1e-8), on the locked rows (count and fingerprint).
   3. For every page 2010-2026 and season ahead: the games share refitted from skater_forecast_pairs.csv equals the
@@ -70,7 +71,7 @@ import skater_value_engine as SVE               # noqa: E402
 import stata_expected as SE                     # noqa: E402
 import xnpv1_price_line as XPL                  # noqa: E402
 
-SCRIPT_VERSION = "stata_export_players.py v1.1 (2026-11-08)"   # v1.1: test columns, $M outcome, expected figures
+SCRIPT_VERSION = "stata_export_players.py v1.2 (2026-11-24)"   # v1.2: the skater price-line check at the lock's tolerance (Thomas: "Keep the lock"); v1.1: test columns, $M outcome, expected figures
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 OUT = OUTPUT_DIR / "stata"
 PAGES = range(2010, 2027)                       # 2010-11 to 2026-27, the pages the model values on
@@ -164,10 +165,14 @@ def skater_price_line(fc):
         c = f["coef"]
         got = dict(alpha=c[0], beta=c[1], beta_d_add=c[2], gamma_term=c[3] if term else 0.0)
         gap = max(abs(got[k] - lk[k]) for k in got)
-        assert f["converged"] and gap < 1e-8, (lab, gap)
+        # v1.2 (2026-11-24, Thomas: "Keep the lock"): the lock's own tolerance (xnpv1_price_line's reproduction guard,
+        # SVE.TOL_NEW_COEF), not 1e-8: after the Gustafsson row fix (war_rows.py) the refit is 2.4e-06 from the lock, which
+        # is kept, so Stata's fit of this CSV prints a coefficient that differs from the model's constant in the 6th decimal
+        assert f["converged"] and gap <= SVE.TOL_NEW_COEF, (lab, gap)
         log(f"  check 1, skater price line ({lab}), from price_line_skaters.csv: alpha {c[0]:.10f}, beta {c[1]:.10f}, "
             f"defence add {c[2]:.10f}" + (f", term {c[3]:.10f}" if term else "") + f", sigma {f['sigma']:.8f}; "
-            f"{len(R):,} contracts, {int(R['at_minimum'].sum())} at the minimum; = the lock (gap {gap:.1e}) (PASS)")
+            f"{len(R):,} contracts, {int(R['at_minimum'].sum())} at the minimum; = the lock within its tolerance "
+            f"(gap {gap:.1e}, tolerance {SVE.TOL_NEW_COEF:g}) (PASS)")
 
 
 # =============================== 2. the goalie price line ==============================================================
@@ -396,7 +401,7 @@ def expected_figures(fits):
     lk = SFP.XNPV1_RATE
     gap = max(abs(tin.share_coef[0] - lk["alpha"]), abs(tin.share_coef[1] - lk["beta"]),
               abs(tin.share_coef[2] - lk["beta_d_add"]), abs(tin.share_coef[3] - lk["gamma_term"]))
-    assert gap < 1e-8, gap
+    assert gap <= SVE.TOL_NEW_COEF, gap            # v1.2: the lock's tolerance, as check 1 (the lock kept, 2026-11-24)
     tcl = tob(base_cols, base_names, cluster=R["player_num"])
     for k_, nm in (("C", "_cons"), ("W", "xwar"), ("D", "c.xwar#c.is_d"), ("T", "term_years")):
         E.add(f"S14_{k_}", tin.coef(nm), "{:.4f}"); E.add(f"S14_{k_}SE", tin.sei(nm), "{:.4f}")
@@ -405,7 +410,8 @@ def expected_figures(fits):
     E.add("S14_N", f"{tin.n:,}"); E.add("S14_CENS", f"{tin.n_cens:,}")
     log(f"  step 14, the skater price line: intercept {tin.coef('_cons'):.4f}, per forecast win {tin.coef('xwar'):.4f}, "
         f"defence add {tin.coef('c.xwar#c.is_d'):.4f}, per year of term {tin.coef('term_years'):.4f}, sigma "
-        f"{tin.sigma:.4f}, log-likelihood {tin.ll:,.2f} ({tin.n:,} contracts, {tin.n_cens} at the minimum) = the lock")
+        f"{tin.sigma:.4f}, log-likelihood {tin.ll:,.2f} ({tin.n:,} contracts, {tin.n_cens} at the minimum) = the lock "
+        f"within its tolerance (gap {gap:.1e})")
     log(f"    clustered by player: s.e. {tcl.sei('xwar'):.4f} / {tcl.sei('c.xwar#c.is_d'):.4f} / {tcl.sei('term_years'):.4f}")
 
     t_w = tob([R["xwar"]], ["xwar"])
