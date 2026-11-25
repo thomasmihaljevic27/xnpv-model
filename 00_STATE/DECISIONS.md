@@ -4275,3 +4275,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   limits re-measured (star_miss_current.py v1.0, term_quality_test.py). CORRECTION: the goaltender exit-risk limitation of
   2026-11-24 withdrawn (the table prices nothing). MANIFEST rows; WORK_QUEUE 8; PROJECT_STATE; STANDING_FLAGS; CLAUDE.md
   rule; session log 2026-11-25.
+- DOCUMENT (Thomas: "turn the Findings doc into a fully worded one of the same format"): Findings.docx v4.0
+  (findings_doc.js v4.0, findings_numbers.py v1.0 new): prose in the big document's format; trade-day xNPV, realized NPV,
+  difference variables; shares of the cap; the former top-10 pick as exploratory; the cap-dump note in the discussion. Four
+  stale readers re-run first (defence_checks, defence_gap_split, trend_both, played_out_trades). MANIFEST rows; WORK_QUEUE
+  0a, 0f, 0g, 0h; session log 2026-11-25.
