@@ -163,8 +163,8 @@ REVIEWED_DISAGREEMENTS = {("2018-07-01", "Ryan O'Reilly"),      # the 2009 #33 v
                           ("2021-03-12", "Mikko Lehtonen"),     # the KHL defenceman, not the 2005 #83 draftee
                           # 2026-11-11, the extended ledger (PuckPedia's spellings, which the name rules do not match to the
                           # draft record's): each read, the id's draftee is the player (Claude, from the draft record's pick and
-                          # the export's NHL id). Read by Thomas 2026-11-24: O'Reilly, Lehtonen and the cases below "correct",
-                          # except Peterka, not in his list (asked)
+                          # the export's NHL id). Read by Thomas 2026-11-24: O'Reilly, Lehtonen and the cases below "correct" (Peterka
+                          # confirmed separately: "Yes, correct")
                           ("2023-02-26", "Callan Foote"),       # Cal Foote, 2017 #14
                           ("2023-02-28", "Patrick Puistola"),   # Patrik Puistola, 2019 #73
                           ("2023-03-10", "Jonathan Dugan"),     # Jack Dugan, 2017 #142

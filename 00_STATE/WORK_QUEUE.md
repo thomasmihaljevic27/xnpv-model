@@ -91,7 +91,7 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
    status. The age bands' sensitivity (28 and over against 28 to 31 and 32 and over; Thomas: "Keep the two bands"): see
    the 2026-11-18 session log.
 2. Read 2026-11-24 (Thomas): every case "correct" (O'Reilly, Lehtonen "the Lehtonen that played with Jokerit", Foote,
-   Puistola, Dugan, Maroon and the rest) except JJ Peterka, not in his list (asked). Was: Read (Thomas): `20_CODE/prospect_values.py`, lines 162-177, the eleven spelling cases added to `REVIEWED_DISAGREEMENTS` on 2026-11-11 (Cal Foote,
+   Puistola, Dugan, Maroon and the rest); JJ Peterka confirmed separately ("Yes, correct"). All twelve lines read. Was: Read (Thomas): `20_CODE/prospect_values.py`, lines 162-177, the eleven spelling cases added to `REVIEWED_DISAGREEMENTS` on 2026-11-11 (Cal Foote,
    Patrik Puistola, Jack Dugan, Pat Maroon twice, Emilio Pettersen, Vasily Ponomarev, J.J. Moser, Ronnie Attard, Tommy
    Novak, JJ Peterka), each marked read by Claude only.
 3. Answered 2026-11-24 (Thomas): the retention rule change took effect September 16, 2026. That is after the ledger's last
