@@ -11,7 +11,8 @@
 **From the findings meeting of 2026-11-23 (session 2026-11-23 has Karl's words; Thomas's answers 2026-11-24, session
 2026-11-24).** Deadline: end of December, with his review, the changes and his sign-off inside it ("sooner is better").
 Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the documents.
-0a. Do: the write-up in four chunks, in this order (Thomas, 2026-11-24): the player model, the pick model, the prospect
+0a. Do: the write-up in four chunks (2026-11-25: the big document updated, v5.0, and the Findings fully worded, v4.0; to be
+   read by Thomas, then split), in this order (Thomas, 2026-11-24): the player model, the pick model, the prospect
    model, each from "Valuing Players, Draft Picks, and Prospects" (finish editing it, then split it); then the findings, the
    point-form `40_DOCS/Findings.docx` split up. Thomas: "I don't think there would be anything else?"
 0b. Do: a new flow diagram of the finished method (Thomas: "Yep, that needs to be made").
@@ -30,7 +31,7 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
    status (session 2026-11-24). Decided 2026-11-24: not in the write-up (Thomas: "If Karl specifically asks for it then
    great but I don't think we need to").
 0f. Decided 2026-11-24 (Thomas: "I want them shown as a share of the cap."): dollar figures shown as a share of the salary
-   cap. Do: in the write-up and the findings.
+   cap. Done 2026-11-25 in both documents ("Both documents"; session 2026-11-25).
 0g. Do first (Thomas, 2026-11-24: "We could look at the top 10 picks, sure. Do this first, since this is an easy test."):
    Karl's remark ("Did you try doing like more restrictive, like top 10?"). Declared in the protocol before it runs. Decided:
    "Swap in top-10": the same regression, both rules, the former top-10 pick in place of the top-15, reported beside it.
@@ -41,9 +42,9 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
    grade p = 0.100 and 0.119, so "realized value only" by the declared reading (31 trades differ). Decided 2026-11-24
    (Thomas: "As exploratory"): in the findings as an exploratory result, beside the three findings and not counted as one:
    both rules' 2017-22 figures, that it was tried after the top-15 fell short, and the replication after 2022 (realized
-   value only). Do: at the next findings build, with 0f and 0h; the findings codebook (0d) carries its command.
-0h. Do (Thomas, 2026-11-24: "All changes agreed to for now, I can edit myself later anyways"): the four wordings flagged on
-   2026-11-21 changed in the builder at the next build. Decided: the file keeps the name `40_DOCS/Findings.docx` (Thomas:
+   value only). Written 2026-11-25 (Findings v4.0, Section 3 and Table 5). Still owed: its command in the findings codebook (0d).
+0h. Done 2026-11-25 (Thomas, 2026-11-24: "All changes agreed to for now, I can edit myself later anyways"): the four wordings
+   flagged on 2026-11-21 carried into the fully worded Findings (findings_doc.js v4.0). Decided: the file keeps the name `40_DOCS/Findings.docx` (Thomas:
    "Just keep it findings"; `findings_doc.js` writes it).
 0i. Done 2026-11-24 (Thomas: "update project state"): PROJECT_STATE v3.7, next due 2026-12-01.
 
