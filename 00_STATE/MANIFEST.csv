@@ -501,3 +501,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,stata_export_players.py,stata,hashable,2026-11-24,5e0cd850cf73954e21588c627eab29a534d93f8f,38574,2026-11-24,yes,git,"v1.2: the skater price-line checks at the lock's tolerance (Thomas: Keep the lock)"
 20_CODE,prospect_values.py,prospect,hashable,2026-11-24,41b773a2f374b5fd4acb409b0bedd9a6c42b8643,62312,2026-11-24,yes,git,"v1.13: comments only (the spelling cases read by Thomas; the archive path)"
 20_CODE,prospect_values.py,prospect,hashable,2026-11-24,037ef441f5993a5842a23ec56f9861fac8bdd499,62318,2026-11-24,yes,git,"v1.13: comment only (Peterka confirmed by Thomas)"
+25_TESTS,star_miss_current.py,player,hashable,2026-11-25,e2f23b25f13c8ed7be98164adc130759701ba36b,3906,2026-11-25,yes,git,"v1.0: the star tier's miss on today's forecast (report only)"
