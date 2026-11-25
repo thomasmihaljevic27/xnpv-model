@@ -126,7 +126,9 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
    season); a clause's cost, and trades a clause forced, not measured; the forecast low on six-to-eight-year deals (about
    $4M on 41 deals in the 2026-09-30 test; re-measure before quoting); five generational stars under-forecast; players with
    one or two seasons start high and run low after, partly cancelling; results that are not significant are not proof of
-   no effect (no power analysis); the goalie exit risk fitted on 2018-2024 for every page, a look-ahead before 2018
+   no effect (no power analysis); [CORRECTED 2026-11-25: not a limitation. The goalie exit-risk table is still built
+   (contract_npv `self.h_g`) but no value reads it; goaltenders are priced on their own chance of playing, fitted on seasons
+   before each valuation, so there is no look-ahead to state. Was:] the goalie exit risk fitted on 2018-2024 for every page, a look-ahead before 2018
    (Thomas: "Limitation only"; the birthdates are not added); conditional picks (2026-11-21). Added 2026-11-24 from
    STANDING_FLAGS' sorted open questions: league-average against team-specific value; in-season production not used
    before a trade; point-in-time data (one current download of WAR and of the NHL-equivalence factors).

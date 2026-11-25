@@ -4266,3 +4266,12 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - CLEANUP (2026-11-24, Thomas: "go ahead with cleanup as recommended"): the spelling cases read by Thomas (Peterka asked);
   two remote branches deleted; three superseded drafts and the week's scratch outputs archived; STANDING_FLAGS' open
   questions sorted (nothing open; three limitations to WORK_QUEUE 8). No decision changed. Session log.
+
+### Change log, 2026-11-25 (the documents)
+
+- DOCUMENT (Thomas: "update the big Players Picks Prospects doc with updated information"; "Both documents" in cap
+  shares): "Valuing Players, Draft Picks, and Prospects" v5.0 (model_doc.js v5.0, model_doc_figures.py v4.3): every value
+  a share of the cap; the ledger's sources corrected; the term premium's out-performance on today's forecast; Section 9's
+  limits re-measured (star_miss_current.py v1.0, term_quality_test.py). CORRECTION: the goaltender exit-risk limitation of
+  2026-11-24 withdrawn (the table prices nothing). MANIFEST rows; WORK_QUEUE 8; PROJECT_STATE; STANDING_FLAGS; CLAUDE.md
+  rule; session log 2026-11-25.

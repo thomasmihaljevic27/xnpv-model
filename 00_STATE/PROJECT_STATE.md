@@ -63,7 +63,7 @@ The model is built; the work now is the write-up for Karl (deadline end of Decem
 | Pillar | State | Code |
 |---|---|---|
 | Skater contracts | Unchanged since the 2026-10-21 re-lock (xNPV 1, D33; the term left at the valuation date) | `skater_forecast.py` v2.4, `participation_model.py` v2.0, `skater_forward_projection.py`, `rfa_terminal_value.py` v2.9, `contract_npv.py` v3.4 |
-| Goalie contracts | Unchanged since 2026-10-21. The exit risk is fitted on 2018-2024 for every page, a look-ahead before 2018: a stated limitation (Thomas, 2026-11-24: "Limitation only") | `contract_npv.py` v3.4, `goalie_value_engine.py` |
+| Goalie contracts | Unchanged since 2026-10-21. Priced on their own chance of playing, fitted on seasons before each valuation; the goalie exit-risk table (2018-2024) is built but prices nothing (checked 2026-11-25), so the look-ahead recorded on 2026-11-24 does not exist | `contract_npv.py` v3.4, `goalie_value_engine.py` |
 | Draft picks | Unchanged since 2026-11-11 | `pick_curve.py` v1.12, `traded_pick_values.py` v1.2 |
 | Prospects | Unchanged since 2026-10-24. Its defenceman guard runs again (2026-11-24): the finished tests it reads were rebuilt on today's model | `prospect_values.py` v1.13 |
 | Trades | Unchanged since 2026-11-11 (two ledgers); clause records filled from CapWages where PuckPedia has none (2026-11-19) | `trade_ledger_extend.py` v1.0, `trade_refresh.py` v1.1, `clause_fill.py` v1.0 |

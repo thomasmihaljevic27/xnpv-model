@@ -269,6 +269,11 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
   inputs or training rows moves their outcomes. Moving one 31-game season (the Gustafsson row, 2026-11-24) moved the star
   value in the sixth digit and the prospect fits by 0.0023, enough to stop `prospect_values.py`'s defenceman guard, after I
   had said the draft side would not move. Count the pick curve and the prospects among the readers of every forecast change.
+- **Don't describe a parked item from its old wording; read whether the code still does it.** A parked entry from
+  2026-10-04 ("the goalie exit hazard on seasons before each valuation, still 2018-2024") was put to Thomas on 2026-11-24 as a
+  look-ahead in goaltender values, and he chose to state it as a limitation. The table is still built but no value has read
+  it since goaltenders got their own chance of playing (contract_npv v3.4, 2026-10-21), so the limitation did not exist
+  (caught 2026-11-25). Before asking him to decide on an old item, find the line of code that would make it true.
 - **Don't run a reader on the default folder without checking which folder it reads.** `joint_regression.py`,
   `groups_clustered.py` and `backtest_cuts_more.py` take the extended run as their OUTPUT_DIR; the others find
   `_extended_run` under the live folder themselves (2026-11-24).

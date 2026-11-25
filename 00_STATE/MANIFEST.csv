@@ -502,3 +502,5 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,prospect_values.py,prospect,hashable,2026-11-24,41b773a2f374b5fd4acb409b0bedd9a6c42b8643,62312,2026-11-24,yes,git,"v1.13: comments only (the spelling cases read by Thomas; the archive path)"
 20_CODE,prospect_values.py,prospect,hashable,2026-11-24,037ef441f5993a5842a23ec56f9861fac8bdd499,62318,2026-11-24,yes,git,"v1.13: comment only (Peterka confirmed by Thomas)"
 25_TESTS,star_miss_current.py,player,hashable,2026-11-25,e2f23b25f13c8ed7be98164adc130759701ba36b,3906,2026-11-25,yes,git,"v1.0: the star tier's miss on today's forecast (report only)"
+25_TESTS,model_doc.js,docs,hashable,2026-11-25,0945f56b38427c54cdbdf8e54094fc2a2aeb2e0b,172762,2026-11-25,yes,git,"2026-11-25: shares of the cap; the ledger's sources; Section 9's limits re-measured (Thomas)"
+25_TESTS,model_doc_figures.py,docs,hashable,2026-11-25,aee8d0ae0e6557d8a7ce5f13fcff01b2e67daa1b,70891,2026-11-25,yes,git,"2026-11-25: shares of the cap; the ledger's sources; Section 9's limits re-measured (Thomas)"

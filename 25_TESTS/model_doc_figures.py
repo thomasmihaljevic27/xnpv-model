@@ -50,7 +50,7 @@ import matplotlib                                                  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                                    # noqa: E402
 
-SCRIPT_VERSION = "model_doc_figures.py v4.2 (2026-10-27)"   # v4.2: the prospect model with defenceman x production; the prospect document's tests read in; v4.1: figure labels say NPV and xNPV, not surplus (Thomas); v4.0: the model after 2026-10-21 (round-2 notes)
+SCRIPT_VERSION = "model_doc_figures.py v4.3 (2026-11-25)"   # v4.3: money axes as shares of the 2025-26 cap (Thomas: "Both documents"); v4.2: the prospect model with defenceman x production; the prospect document's tests read in; v4.1: figure labels say NPV and xNPV, not surplus (Thomas); v4.0: the model after 2026-10-21 (round-2 notes)
 OUT, SRC = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 FIG = OUT / "model_doc"
 FIG.mkdir(exist_ok=True)
@@ -894,23 +894,25 @@ tidy(ax, "Max Pacioretty, forecast at the trade")
 ax.legend(frameon=False, fontsize=7.5, loc="upper right")
 fig.tight_layout(); fig.savefig(FIG / "fig_aging.png"); plt.close(fig)
 
+# v4.3 (2026-11-25, Thomas: "Both documents"): every money axis as a share of the 2025-26 cap, in percent
+SHR = 100 / (cap["2025"] / 1e6)      # $M at the 2025-26 cap -> % of that cap
 # Figure: the price line (as v1.0)
 pts = pd.DataFrame(H["price_line"]["points"])
 TI_ = H["price_line"]["fits"]["wins + defence + term"]["terms"]
 fig, axes = plt.subplots(1, 2, figsize=(7.4, 3.2), sharey=True, dpi=200)
 for ax, dflag, title in ((axes[0], 0.0, "Forwards"), (axes[1], 1.0, "Defencemen")):
     q = pts[pts["is_d"] == dflag]
-    ax.scatter(q["xwar_signed"], q["cap_pct"] * cap["2025"] / 1e6, s=5, color=MUTED, alpha=0.35, lw=0, zorder=2)
+    ax.scatter(q["xwar_signed"], q["cap_pct"] * 100, s=5, color=MUTED, alpha=0.35, lw=0, zorder=2)
     xs = np.linspace(-1, 3.6, 50)
     slope = TI_["per forecast win"]["b"] + dflag * TI_["defence addition per win"]["b"]
     for yrs, col in ((1, A2), (3, A3), (6, A1)):
-        line = (TI_["intercept"]["b"] + slope * xs + TI_["per year of term"]["b"] * yrs) * cap["2025"] / 1e6
-        ax.plot(xs, np.maximum(line, 0.775), color=col, lw=1.8, zorder=3)
-        ax.text(3.65, max(line[-1], 0.775), f"{yrs} yr", color=col, fontsize=8, va="center")
+        line = (TI_["intercept"]["b"] + slope * xs + TI_["per year of term"]["b"] * yrs) * 100
+        ax.plot(xs, np.maximum(line, 0.775 * SHR), color=col, lw=1.8, zorder=3)
+        ax.text(3.65, max(line[-1], 0.775 * SHR), f"{yrs} yr", color=col, fontsize=8, va="center")
     tidy(ax, title)
     ax.set_xlabel("Forecast WAR if he plays, first season, dated at signing")
     ax.set_xlim(-1.2, 4.1)
-axes[0].set_ylabel("Cap hit ($M at the 2025-26 cap)")
+axes[0].set_ylabel("Cap hit (% of the cap)")
 fig.tight_layout(); fig.savefig(FIG / "fig_price_line.png"); plt.close(fig)
 
 # Figure: draft position. Left: Bacon's star probability. Right: average surplus at each draft position, with three curves
@@ -922,14 +924,14 @@ ax.set_xlabel("Draft position")
 ax.set_ylabel("Star probability (%)")
 tidy(ax, "Bacon's star probability")
 ax = axes[1]
-ax.scatter(xs, PK["avg_curve"], s=6, color=MUTED, alpha=0.6, lw=0, zorder=2, label="Average of the 11 players taken")
+ax.scatter(xs, np.asarray(PK["avg_curve"], dtype=float) * SHR, s=6, color=MUTED, alpha=0.6, lw=0, zorder=2, label="Average of the 11 players taken")
 for nm, col, ls, lab in (("straight line in draft position", A4, ":", "Straight line"), ("log of draft position", A3, "--", "Log of draft position"),
                          ("star probability (adopted)", A2, "-", "Star value x star probability (adopted)")):
-    ax.plot(xs, PK["shapes"][nm]["curve"], color=col, lw=1.8, ls=ls, label=lab, zorder=3)
+    ax.plot(xs, np.asarray(PK["shapes"][nm]["curve"], dtype=float) * SHR, color=col, lw=1.8, ls=ls, label=lab, zorder=3)
 ax.axhline(0, color=MUTED, lw=0.6)
 ax.set_xlabel("Draft position")
-ax.set_ylabel("Career NPV ($M at the 2025-26 cap)")
-ax.set_ylim(-3, max(16, np.nanmax(PK["avg_curve"][:5]) + 1))
+ax.set_ylabel("Career NPV (% of the 2025-26 cap)")
+ax.set_ylim(-3 * SHR, max(16, np.nanmax(PK["avg_curve"][:5]) + 1) * SHR)
 tidy(ax, "Career NPV delivered, and three curves")
 ax.legend(frameon=False, fontsize=7.2, loc="upper right")
 fig.tight_layout(); fig.savefig(FIG / "fig_picks.png"); plt.close(fig)
@@ -937,12 +939,12 @@ fig.tight_layout(); fig.savefig(FIG / "fig_picks.png"); plt.close(fig)
 # Figure: the star value fitted on each draft
 pdf_ = pd.DataFrame(PK["per_draft"])
 fig, ax = plt.subplots(figsize=(6.4, 2.9), dpi=200)
-ax.errorbar(pdf_["draft"], pdf_["star"], yerr=2 * pdf_["se"], fmt="o", color=A1, ms=4.5, capsize=0, elinewidth=1.2, zorder=3)
-ax.axhline(STAR, color=A2, lw=1.6, label=f"All eleven drafts (${STAR:.2f}M)")
-ax.axhline(PK["sensitivity"]["star"], color=A2, lw=1.2, ls="--", label=f"Without 2015 and 2016 (${PK['sensitivity']['star']:.2f}M)")
+ax.errorbar(pdf_["draft"], pdf_["star"] * SHR, yerr=2 * pdf_["se"] * SHR, fmt="o", color=A1, ms=4.5, capsize=0, elinewidth=1.2, zorder=3)
+ax.axhline(STAR * SHR, color=A2, lw=1.6, label=f"All eleven drafts ({STAR * SHR:.2f}%)")
+ax.axhline(PK["sensitivity"]["star"] * SHR, color=A2, lw=1.2, ls="--", label=f"Without 2015 and 2016 ({PK['sensitivity']['star'] * SHR:.2f}%)")
 ax.set_xticks(drafts)
 ax.set_xlabel("Draft")
-ax.set_ylabel("Star value ($M at the 2025-26 cap)")
+ax.set_ylabel("Star value (% of the 2025-26 cap)")
 tidy(ax)
 ax.legend(frameon=False, fontsize=8, loc="upper left")
 fig.tight_layout(); fig.savefig(FIG / "fig_pick_drafts.png"); plt.close(fig)
@@ -954,11 +956,11 @@ xg = np.arange(len(fr))
 wbar = 0.26
 for i, (col, c_, lab) in enumerate((("value", A3, "Value delivered"),
                                     ("cost_arb", A1, "Cost: adopted rule"), ("cost_actual", A2, "Cost actually paid"))):
-    ax.bar(xg + (i - 1) * wbar, fr[col], width=wbar, color=c_, label=lab, zorder=3)
-    for x_, v_ in zip(xg + (i - 1) * wbar, fr[col]):
+    ax.bar(xg + (i - 1) * wbar, fr[col] * SHR, width=wbar, color=c_, label=lab, zorder=3)
+    for x_, v_ in zip(xg + (i - 1) * wbar, fr[col] * SHR):
         ax.text(x_, v_ + 0.4, f"{v_:.1f}", ha="center", va="bottom", fontsize=7, color=INK)
 ax.set_xticks(xg, [f"Picks {r.lo}-{r.hi}\n({r.n} players)" for r in fr.itertuples()], fontsize=8.5)
-ax.set_ylabel("$M per player, at the 2025-26 cap")
+ax.set_ylabel("% of the 2025-26 cap, per player")
 tidy(ax)
 ax.legend(frameon=False, fontsize=7.5, loc="upper right")
 fig.tight_layout(); fig.savefig(FIG / "fig_pick_cost.png"); plt.close(fig)
@@ -984,18 +986,18 @@ xs8 = np.arange(1, 9)
 fig, axes = plt.subplots(1, 3, figsize=(7.4, 2.7), sharey=True, dpi=200)
 for ax, (alt, title) in zip(axes, (("no fade", "One value for every season"), ("straight line", "A straight-line decline"),
                                    ("same percentage", "The same percentage each season"))):
-    sep = fc_["separate"]
-    se_ = [PRS["star"][g]["se"] for g in G5]
+    sep = [v * SHR for v in fc_["separate"]]
+    se_ = [PRS["star"][g]["se"] * SHR for g in G5]
     ax.errorbar(xs8[:4], sep[:4], yerr=[1.96 * s for s in se_[:4]], fmt="o", color=A1, ms=4, capsize=0, zorder=3)
     ax.fill_between([4.6, 8.4], sep[4] - 1.96 * se_[4], sep[4] + 1.96 * se_[4], color=A1, alpha=0.15, lw=0, zorder=1)
     ax.plot([4.6, 8.4], [sep[4]] * 2, color=A1, lw=2, zorder=3)
-    ax.plot(xs8, fc_[alt][:8], color=A2, lw=2, zorder=4)
+    ax.plot(xs8, [v * SHR for v in fc_[alt][:8]], color=A2, lw=2, zorder=4)
     ax.axhline(0, color=MUTED, lw=0.6)
     ax.set_xticks(xs8, [f"D+{i}" for i in xs8], fontsize=7.5)
     tidy(ax, title)
-axes[0].set_ylabel("Star value ($M)")
-axes[0].text(4.7, sep[4] + 2.6, "Adopted", color=A1, fontsize=8)
-axes[0].text(5.0, fc_["no fade"][0] + 1.0, "Alternative", color=A2, fontsize=8)
+axes[0].set_ylabel("Star value (% of the cap)")
+axes[0].text(4.7, sep[4] + 2.6 * SHR, "Adopted", color=A1, fontsize=8)
+axes[0].text(5.0, (fc_["no fade"][0] + 1.0) * SHR, "Alternative", color=A2, fontsize=8)
 fig.tight_layout(); fig.savefig(FIG / "fig_star_fade.png"); plt.close(fig)
 
 # Figure: a prospect drafted 13th, in D+2 (Suzuki's season and draft position), at three ages
@@ -1006,18 +1008,18 @@ fig, ax = plt.subplots(figsize=(6.4, 3.2), dpi=200)
 for A, col, ls, lab in ((19.0, A1, "-", "Age 19"), (20.0, A2, "--", "Age 20"), (21.0, A4, ":", "Age 21")):
     v_ = (ad["p_star"]["b"] * SZ["inputs"]["p_star"] + ad["nhle82"]["b"] * qs + ad["nhle82_sq"]["b"] * qs ** 2
           + ad["prod_x_age18"]["b"] * qs * (A - 18.0))
-    ax.plot(qs, v_, color=col, lw=1.8, ls=ls, label=lab)
-ax.scatter([SZ["inputs"]["nhle82"]], [SZ["value"]], color=INK, s=22, zorder=5)
-ax.annotate(f"Nick Suzuki, 2018: ${SZ['value']:.2f}M", (SZ["inputs"]["nhle82"], SZ["value"]),
-            xytext=(SZ["inputs"]["nhle82"] - 9.5, SZ["value"] + 1.2), fontsize=8, color=INK,
+    ax.plot(qs, v_ * SHR, color=col, lw=1.8, ls=ls, label=lab)
+ax.scatter([SZ["inputs"]["nhle82"]], [SZ["value"] * SHR], color=INK, s=22, zorder=5)
+ax.annotate(f"Nick Suzuki, 2018: {SZ['value'] * SHR:.2f}%", (SZ["inputs"]["nhle82"], SZ["value"] * SHR),
+            xytext=(SZ["inputs"]["nhle82"] - 9.5, (SZ["value"] + 1.2) * SHR), fontsize=8, color=INK,
             arrowprops=dict(arrowstyle="-", color=MUTED, lw=0.7))
 for qq, v_ in PRS["pct_d2"].items():
     ax.axvline(v_, color="#D5D4CF", lw=0.8, zorder=0)
-    ax.text(v_ + 0.12, -0.95, f"{qq}th", ha="left", va="bottom", fontsize=8, color=MUTED)
+    ax.text(v_ + 0.12, -0.95 * SHR, f"{qq}th", ha="left", va="bottom", fontsize=8, color=MUTED)
 ax.axhline(0, color=MUTED, lw=0.6)
 ax.set_xlabel("Production level: NHLe points per 82 games (50/30/20 over the three seasons before)")
-ax.set_ylabel("Value ($M at the 2025-26 cap)")
-ax.set_xlim(0, 25); ax.set_ylim(-1, 7)
+ax.set_ylabel("Value (% of the 2025-26 cap)")
+ax.set_xlim(0, 25); ax.set_ylim(-1 * SHR, 7 * SHR)
 ax.legend(frameon=False, fontsize=8, loc="upper left")
 fig.tight_layout(); fig.savefig(FIG / "fig_prospect.png"); plt.close(fig)
 
@@ -1029,16 +1031,16 @@ parts = [("Received", "received_M", "#B9B8B2"), ("Given up", "given_M", MUTED), 
 hgt = 0.24
 for i_, (club, k_) in enumerate(rows_):
     for j_, (lab, col, c_) in enumerate(parts):
-        v_ = sd_[k_][col]
+        v_ = sd_[k_][col] * SHR
         y_ = (len(rows_) - 1 - i_) + (1 - j_) * hgt
         colour = c_ or A1
         ax.barh(y_, v_, height=hgt * 0.9, color=colour, label=lab if i_ == 0 else None)
-        ax.text(v_ + (0.12 if v_ >= 0 else -0.12), y_, f"{'-' if v_ < 0 else ''}${abs(v_):.2f}M", va="center",
+        ax.text(v_ + (0.12 if v_ >= 0 else -0.12), y_, f"{'-' if v_ < 0 else ''}{abs(v_):.2f}%", va="center",
                 ha="left" if v_ >= 0 else "right", fontsize=8, color=INK)
 ax.set_yticks([1, 0], [r_[0] for r_ in rows_], fontsize=9)
 ax.axvline(0, color=INK, lw=0.8)
-ax.set_xlabel("xNPV at the trade ($M at the 2025-26 cap)")
-ax.set_xlim(-7.5, 4.5)
+ax.set_xlabel("xNPV at the trade (% of the 2025-26 cap)")
+ax.set_xlim(-7.5 * SHR, 4.5 * SHR)
 ax.grid(axis="x", color=GRID, lw=0.6)
 ax.legend(frameon=False, fontsize=7.5, loc="lower right")
 fig.tight_layout(); fig.savefig(FIG / "fig_trade.png"); plt.close(fig)
