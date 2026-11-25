@@ -1283,6 +1283,23 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Open questions (triaged)
 
+**Sorted 2026-11-24 (Thomas: "go ahead with cleanup as recommended"). Nothing below is open now; each item's text is
+kept as written.** No decision changed.
+- Stated as limitations in the final paper (WORK_QUEUE item 8): league-average against team-specific value; forced trades
+  and the cost of a clause (two items); in-season production not used before a trade (the model values once a season);
+  point-in-time data (one current download of WAR and of the NHL-equivalence factors, a look-ahead not measured).
+- Settled by later work: outcome measurement (the window decided 2026-10-20; playoffs a stated limitation); long deals past
+  UFA eligibility (a terminal value only follows an RFA expiry: `rfa_terminal_value.py`, guarded in `backtest.py`);
+  replacement level by position for goaltenders (their own price line since 2026-10-21); LTIR (relief modelled 2026-10-20).
+- Closed 2026-11-24 with the parked list: the v3 WAR-to-cap-hit report (superseded by the price line); the league-minimum
+  floor stress test (dropped).
+- Moot: the negative-anchor backcast and the mean-reversion weight (xNPV 0, archived 2026-10-02); PuckPedia's early trade
+  coverage (the declared window reads CapFriendly's `trades.db` from 2017-07-01; PuckPedia's trades are used only after
+  2022-03-28); slug normalization.
+- For the write-up, not the model: the efficient-market null (the results that are not findings).
+- Optional, not pursued, none blocking: a player-specific discount rate, cap-inflation shocks, contender against rebuilder
+  value, signing bonuses, the ELC slide.
+
 
 **[DROPPED 2026-10-04, Thomas: belonged to xNPV 0, archived. xNPV 1 reads only the aging curve's
 yearly changes, from which the 55/45 level cancels.] IMPORTANT — should the mean-reversion blend

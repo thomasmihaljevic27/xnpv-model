@@ -163,7 +163,8 @@ REVIEWED_DISAGREEMENTS = {("2018-07-01", "Ryan O'Reilly"),      # the 2009 #33 v
                           ("2021-03-12", "Mikko Lehtonen"),     # the KHL defenceman, not the 2005 #83 draftee
                           # 2026-11-11, the extended ledger (PuckPedia's spellings, which the name rules do not match to the
                           # draft record's): each read, the id's draftee is the player (Claude, from the draft record's pick and
-                          # the export's NHL id; not yet read by Thomas)
+                          # the export's NHL id). Read by Thomas 2026-11-24: O'Reilly, Lehtonen and the cases below "correct",
+                          # except Peterka, not in his list (asked)
                           ("2023-02-26", "Callan Foote"),       # Cal Foote, 2017 #14
                           ("2023-02-28", "Patrick Puistola"),   # Patrik Puistola, 2019 #73
                           ("2023-03-10", "Jonathan Dugan"),     # Jack Dugan, 2017 #142
@@ -492,10 +493,9 @@ def main():
         assert gap < 1e-9, gap
         log(f"  guard: the coefficients equal defence_terms_look.py's defenceman x production arm (largest gap {gap:.1e}) (PASS)")
     else:
-        # 2026-11-11: the reference was measured on the pick curve before v1.12 (the rights rule on the ledger to 2026 moved
-        # one fitted player, Fredrik Olofsson, and these coefficients by up to 6e-4). It was set aside in
-        # 30_OUTPUT/_before_switch/ and defence_terms_look.py cannot re-measure it (its own guard is pinned to
-        # prospect_age_form_look.py's earlier figures), so this guard does not run until that test is rebuilt.
+        # The reference file is missing: defence_terms_look.py writes it (rebuilt on today's model 2026-11-24; it was set aside
+        # 2026-11-11, when pick_curve v1.12 moved these coefficients by up to 6e-4, and the old copy is in
+        # 90_ARCHIVE/2026-11-24/30_OUTPUT_scratch/_before_switch/). Run that test, then this script again.
         log("  guard NOT RUN: no defence_terms_coefficients.csv (the defenceman x production reference predates pick_curve v1.12)")
     for v in VERSIONS:
         for g in ("0", "1", "2", "3", "4+"):

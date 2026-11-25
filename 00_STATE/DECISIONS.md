@@ -4263,3 +4263,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   tests, the documents' numbers, Stata). Star value 18.288394 -> 18.288385; no asset outcome moves more than $0.01M; the
   headline and every finding unchanged. stata_export_players v1.2: its skater price-line checks at the lock's tolerance.
   MANIFEST rows; PROJECT_STATE, STANDING_FLAGS, WORK_QUEUE 7; CLAUDE.md rule; session log.
+- CLEANUP (2026-11-24, Thomas: "go ahead with cleanup as recommended"): the spelling cases read by Thomas (Peterka asked);
+  two remote branches deleted; three superseded drafts and the week's scratch outputs archived; STANDING_FLAGS' open
+  questions sorted (nothing open; three limitations to WORK_QUEUE 8). No decision changed. Session log.

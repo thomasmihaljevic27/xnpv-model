@@ -145,7 +145,8 @@ stop-at-flip switch); `clause_fill.py` v1.0 (new); `stata_export_findings.py` v1
 today's model (2026-11-24): `prospect_age_form_look.py` v1.2, `prospect_pooled_terms_look.py` v1.1, `defence_terms_look.py`
 v1.1, `prospect_age_discount_look.py` v1.2; the documents' `numbers.json` (`model_doc_figures.py`, `prospect_doc_figures.py`).
 
-**Run folders (`30_OUTPUT/`).** As 2026-11-15, plus the `_flipstop` files in `_extended_run/`. The documents' number files
+**Run folders (`30_OUTPUT/`).** `_extended_run/` (with the `_flipstop` files) and `_original_term_run/`; `_before_switch/`, the
+set-aside number files and the week's console logs moved to `90_ARCHIVE/2026-11-24/30_OUTPUT_scratch/` (2026-11-24). The documents' number files
 now hold today's figures, a fourth digit off the documents Karl was sent.
 
 **Pending data items.** None for the write-up; the PuckPedia export refresh is closed (the model is frozen for the

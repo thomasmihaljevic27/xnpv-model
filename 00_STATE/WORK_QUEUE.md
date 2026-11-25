@@ -90,7 +90,8 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
    draft distance, conditional picks, the cap era, change over time. Listed as not testable (no data): GM tenure, injury
    status. The age bands' sensitivity (28 and over against 28 to 31 and 32 and over; Thomas: "Keep the two bands"): see
    the 2026-11-18 session log.
-2. Read (Thomas): `20_CODE/prospect_values.py`, lines 162-177, the eleven spelling cases added to `REVIEWED_DISAGREEMENTS` on 2026-11-11 (Cal Foote,
+2. Read 2026-11-24 (Thomas): every case "correct" (O'Reilly, Lehtonen "the Lehtonen that played with Jokerit", Foote,
+   Puistola, Dugan, Maroon and the rest) except JJ Peterka, not in his list (asked). Was: Read (Thomas): `20_CODE/prospect_values.py`, lines 162-177, the eleven spelling cases added to `REVIEWED_DISAGREEMENTS` on 2026-11-11 (Cal Foote,
    Patrik Puistola, Jack Dugan, Pat Maroon twice, Emilio Pettersen, Vasily Ponomarev, J.J. Moser, Ronnie Attard, Tommy
    Novak, JJ Peterka), each marked read by Claude only.
 3. Answered 2026-11-24 (Thomas): the retention rule change took effect September 16, 2026. That is after the ledger's last
@@ -126,7 +127,9 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
    $4M on 41 deals in the 2026-09-30 test; re-measure before quoting); five generational stars under-forecast; players with
    one or two seasons start high and run low after, partly cancelling; results that are not significant are not proof of
    no effect (no power analysis); the goalie exit risk fitted on 2018-2024 for every page, a look-ahead before 2018
-   (Thomas: "Limitation only"; the birthdates are not added); conditional picks (2026-11-21).
+   (Thomas: "Limitation only"; the birthdates are not added); conditional picks (2026-11-21). Added 2026-11-24 from
+   STANDING_FLAGS' sorted open questions: league-average against team-specific value; in-season production not used
+   before a trade; point-in-time data (one current download of WAR and of the NHL-equivalence factors).
 
 ## Earlier live list (audited 2026-10-14, items to 2026-11-09), kept as written
 
