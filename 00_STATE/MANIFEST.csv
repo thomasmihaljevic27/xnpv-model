@@ -514,3 +514,6 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS/writing-style/scripts,LICENSE-ste-lint,docs,hashable,2026-11-25c,cb380040cc190991ff95e4beb64ce5f5f9688c4e,1075,2026-11-25,yes,git,its MIT licence
 25_TESTS,model_choices_current.py,player,hashable,2026-11-25c,c4bce9bc0839a6e9db380ac9b1f306089da1243c,32331,2026-11-25,yes,git,v1.0: the forecast's tested choices on today's model (Thomas: All five now)
 25_TESTS,price_line_spec_tests.py,player,hashable,2026-11-25c,6cb643c9532cd4f0ae11ac746ccb9cdb334add42,28798,2026-11-25,yes,git,v1.2: on today's lock at its tolerance; the October figures printed beside
+25_TESTS,player_doc.js,docs,hashable,2026-11-25d,79062d9a36fc26d493de39e0f17117a10e6618d5,108849,2026-11-25,yes,git,"v1.0: builds Valuing Players.docx, the player chunk (Thomas: Agreed, build it)"
+25_TESTS,player_doc_figures.py,docs,hashable,2026-11-25d,157520a33de120424c539adee9cdd4984426a002,13332,2026-11-25,yes,git,"v1.0: the player document's tested figures from today's runs, guarded"
+40_DOCS,Valuing Players.docx,docs,rendition,2026-11-25d,f994bdd111cdc18916a571b93a87b064288cf3b4,283007,2026-11-25,yes,git,"v1.0, built by player_doc.js v1.0"

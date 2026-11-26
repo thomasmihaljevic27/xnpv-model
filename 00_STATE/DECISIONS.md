@@ -4303,3 +4303,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DECISION (Thomas: "Keep the model"): WORK_QUEUE 0j closed. The comparable players' level keeps the league average at
   weight ten; the alternative found by model_choices_current.py (season WAR 0.8048 against 0.8054, found by a search over
   231 blends on the same rows) is not tested further. No model change.
+
+### Change log, 2026-11-25d (the player document)
+
+- DOCUMENT (Thomas: "Agreed, build it"): "Valuing Players" v1.0 (40_DOCS/Valuing Players.docx; 25_TESTS/player_doc.js v1.0
+  and player_doc_figures.py v1.0, new), the first write-up chunk, from v5.0's player sections with his 55 edits and his
+  comments, every tested figure from today's runs. Banned-pattern check clear. Two control-season figures from an earlier
+  price line dropped; the exit-after-qualifying share updated to today's 15.9%. MANIFEST rows; WORK_QUEUE 0a; session log
+  2026-11-25.
