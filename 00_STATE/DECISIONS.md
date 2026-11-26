@@ -4364,3 +4364,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   model_doc_figures.py v4.6 (a legend). STATA: 40_DOCS/Stata_Codebook.md (new, the four documents' regressions in their
   order) and 25_TESTS/stata_pack.py (new; 149 commands checked) write 30_OUTPUT/xNPV_Stata.zip for the supervisor. No model
   change. MANIFEST rows; session log 2026-11-27.
+
+### Change log, 2026-11-27d (the prospect document, his notes)
+
+- DOCUMENT (Thomas: "made a few notes and changes to the prospects"): his copy committed (64933c8); "Valuing Prospects"
+  v1.1 (prospect_doc.js v1.1): his 12 edits, his 5 notes (the age equation moved up, the traded-prospects section cut).
+  MANIFEST rows; session log 2026-11-27.
