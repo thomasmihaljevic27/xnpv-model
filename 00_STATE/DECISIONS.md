@@ -4324,3 +4324,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   seasons in one pass, repeats said once, the terms rule in Appendix A; his two comments on the p-value answered. One
   unsupported claim dropped (comparable players alone, "most for players under 22"). MANIFEST rows; WORK_QUEUE 0a; session
   log 2026-11-25.
+
+### Change log, 2026-11-26a (the player document, his copy and an outside review)
+
+- DOCUMENT: Thomas's saved copy of "Valuing Players" v1.1 committed as his (25 edits, 8 comments); an outside review's notes
+  checked against the code; a list of changes put to him, nothing built. Session log 2026-11-26.
