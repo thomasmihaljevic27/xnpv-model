@@ -526,3 +526,6 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS,Stata_Codebook.md,docs,hashable,2026-11-27,4015eca060155e880042048bdec9505fe1ef7c15,31812,2026-11-27,yes,git,"v1.1: the findings Section 2 regressions clustered by trade"
 25_TESTS,stata_pack.py,docs,hashable,2026-11-27,844dfa87aa992b290138ca84d1c57750ed684f6e,5425,2026-11-27,yes,git,"v1.1: the clustered Section 2 commands allowed, checked"
 40_DOCS,Findings.docx,docs,hashable,2026-11-27,80d89210165fa596868e68acd7cfa910acd6b459,30895,2026-11-27,yes,git,"v5.2, built by findings_doc.js v5.2"
+25_TESTS,flow_diagram.py,docs,hashable,2026-11-27,c28c429167442c49c31742c32f84cc8d7bed61d4,15882,2026-11-27,yes,git,"v1.0: the method on one page; writes 40_DOCS/Method_Flow.pdf and .png"
+40_DOCS,Method_Flow.pdf,docs,hashable,2026-11-27,a267815a52824a86f192f3558467abd739f7323c,61447,2026-11-27,yes,git,"built by flow_diagram.py v1.0"
+40_DOCS,Method_Flow.png,docs,hashable,2026-11-27,c4b4bec25f1ab800393ab916f7aef05c400966f3,481410,2026-11-27,yes,git,"built by flow_diagram.py v1.0"

@@ -15,7 +15,8 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
    read by Thomas, then split; the player chunk built 2026-11-25, `40_DOCS/Valuing Players.docx`, shortened the same day as v1.1 on Thomas's "Yes, build it"; v1.2 on 2026-11-26 with his edits and an outside review's fixes, for Thomas to read; the pick chunk built 2026-11-26, `40_DOCS/Valuing Draft Picks.docx` (v1.1 2026-11-27 with his edits); the prospect chunk built 2026-11-27, `40_DOCS/Valuing Prospects.docx`, with the Pacioretty trade added up at its end (to be its own final section in the final draft); the findings chunk rebuilt 2026-11-27 as `40_DOCS/Findings.docx` v5.0; all four for Thomas to read), in this order (Thomas, 2026-11-24): the player model, the pick model, the prospect
    model, each from "Valuing Players, Draft Picks, and Prospects" (finish editing it, then split it); then the findings, the
    point-form `40_DOCS/Findings.docx` split up. Thomas: "I don't think there would be anything else?"
-0b. Do: a new flow diagram of the finished method (Thomas: "Yep, that needs to be made").
+0b. [DONE 2026-11-27] Do: a new flow diagram of the finished method (Thomas: "Yep, that needs to be made").
+   Built: `40_DOCS/Method_Flow.pdf` and `.png` (`25_TESTS/flow_diagram.py`), on the layout Thomas agreed.
 0c. Do: a figures and regression results document beside each chunk (Thomas: "Sure").
 0d. Do: a separate codebook for each document (the three models and the findings), each relevant CSV checked accurate;
    descriptions sparse (Thomas: "Keep the codebook sparse in terms of description"). Decided 2026-11-24: "If we need to send

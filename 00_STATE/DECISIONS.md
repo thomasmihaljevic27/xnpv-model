@@ -4395,3 +4395,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DOCUMENT: "Findings" v5.2 (findings_doc.js v5.2): the cap-dump average reconciled with Table A1 (checked in the code),
   the two-stage first stage's cap cost named, Table A3's header and p-values, wording and colons. No model change. Session
   log 2026-11-27.
+
+### Change log, 2026-11-27i (the flow diagram)
+
+- DOCUMENT: `40_DOCS/Method_Flow.pdf` and `.png`, the method on one page (flow_diagram.py v1.0), replacing the September
+  overview's chart. WORK_QUEUE 0b done. No model change. Session log 2026-11-27.
