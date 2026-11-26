@@ -4316,3 +4316,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 
 - DOCUMENT: Thomas's saved copy of "Valuing Players" committed as his (three edits, two comments); the edits carried into
   25_TESTS/player_doc.js, not rebuilt. A restructure to shorten it proposed, awaiting his answer. Session log 2026-11-25.
+
+### Change log, 2026-11-25f (the player document, shorter)
+
+- DOCUMENT (Thomas: "Yes, build it"): "Valuing Players" v1.1 (25_TESTS/player_doc.js v1.1), the structure proposed in
+  2026-11-25e: the xNPV formula once, the glossary cut, the forecast's and the price line's test tables merged, control
+  seasons in one pass, repeats said once, the terms rule in Appendix A; his two comments on the p-value answered. One
+  unsupported claim dropped (comparable players alone, "most for players under 22"). MANIFEST rows; WORK_QUEUE 0a; session
+  log 2026-11-25.
