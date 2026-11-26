@@ -4411,3 +4411,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 
 - DOCUMENT: "Valuing Players" v1.6 (player_doc.js v1.6): the goaltender age slope quoted is the model's 2025-26 straight
   line (0.09 WAR a year), not a test regression's linear term (0.10). No model change. Session log 2026-11-27.
+
+### Change log, 2026-11-27l (Findings Tables 4 and 5 in Stata; the bundle for Karl)
+
+- EXPORT: stata_export_findings.py v1.3 (three new columns in findings_data.csv, two new checks); Stata_Codebook.md gains
+  Tables 4 and 5; karl_bundle.py v1.0 writes `30_OUTPUT/xNPV_for_Karl.zip`. WORK_QUEUE 0d done. No model change. Session
+  log 2026-11-27.

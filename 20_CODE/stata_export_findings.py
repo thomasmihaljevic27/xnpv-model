@@ -11,6 +11,10 @@ complete == True). Yes/no columns pick out each section's sample:
               regression reads one of them, first_club == 1; the other row is its mirror image)
   in_price    the 886 club sides with a main player valued by the player model and a cost (Section 4)
   first_club  1 for the first club (alphabetically) of a two-team trade: who_overpaid.py part A's one row a trade
+  in_reg_after  v1.3: the two-team trades after 2022-03-28 of the findings' Table 4 (one_regression_replication.pick):
+              both clubs' rows; m_<term> and a_<term> filled for them as for in_reg
+  m_top10, a_top10  v1.3: the former top-10 pick in place of the top-15 (Table 5; top10_replication.with_cut), side less
+              other side, on the in_reg and in_reg_after rows
 
 COLUMNS (Stata names; the codebook, 40_DOCS/Stata_Findings_Codebook.md, says what each is):
   outcomes    grade (trade-day grade), real_war, real_gv (realized value on WAR, Game Value), real_played (seasons played)
@@ -30,7 +34,9 @@ outputs, coefficients and standard errors to 1e-9: test A's slope and favoured s
 regression, every term, both rules, four outcomes (one_regression.csv); the clause with the cap hit, with reputation and
 without the cap dumps (clause_disguise.csv); the clause and seller averages (groups_any.csv, groups_clustered.csv); the
 sellers with the cap hit held (who_overpaid.csv); Section 4's three price fits (who_overpaid_checks.csv; the two-stage
-coefficients only, its standard errors there being resampled). The do-file's expected figures are computed as Stata
+coefficients only, its standard errors there being resampled); v1.3: Table 4's regression after 2022, every term, both
+rules, four outcomes (one_regression_replication.csv); Table 5's top-10 swap, every term (top10_swap.csv), and after 2022
+(top10_replication.csv). The do-file's expected figures are computed as Stata
 computes them (stata_expected.OLS: robust errors HC1, p-values on t with N-K degrees of freedom; clustered errors
 G/(G-1) x (N-1)/(N-K), p-values on t with G-1 degrees of freedom; the
 document's p-values use the normal, so a third decimal can differ).
@@ -57,7 +63,7 @@ import stata_expected as SE                                                  # n
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
 OUT = OUTPUT_DIR / "stata"
-SCRIPT_VERSION = "stata_export_findings.py v1.2 (2026-11-21)"   # v1.2: Section 3 on one row a trade (one_row_per_trade == 1), robust errors (Thomas: "Yes, switch"); v1.1: plain variable names (Thomas: "variable names that make sense"); nothing else changes
+SCRIPT_VERSION = "stata_export_findings.py v1.3 (2026-11-27)"   # v1.3: Findings Tables 4 and 5 (the trades after 2022, the former top-10 pick; Thomas: "Yes"); v1.2: Section 3 on one row a trade (one_row_per_trade == 1), robust errors (Thomas: "Yes, switch"); v1.1: plain variable names (Thomas: "variable names that make sense"); nothing else changes
 DECLARED_END = "2022-03-28"
 TOL = 1e-9
 LOG, DO = [], []
@@ -95,6 +101,7 @@ NICE = {"grade": "tradeday_grade", "real_war": "realized_war", "real_gv": "reali
         "own_clause_any": "own_any_player_has_clause", "own_seller": "own_sold_for_just_picks", "in_price": "in_price_regression",
         "price": "price_paid_main_player", "perf_value": "performance_value", "cap_cost": "cap_hit_cost",
         "perf_played": "performance_delivered", "first_club": "one_row_per_trade",
+        "in_reg_after": "in_regression_after_2022", "m_top10": "main_former_top10_pick", "a_top10": "any_former_top10_pick",
         "j_sold_picks": "grp_sold_for_just_picks", "j_deadline_buyer": "grp_deadline_buyer",
         "j_earlier_buyer": "grp_buyer_earlier_in_season", "j_rental": "grp_got_rental", "j_retained": "grp_retained_salary",
         "j_age28_31": "grp_age_28_31", "j_age32_plus": "grp_age_32_plus", "j_defence": "grp_defenceman", "j_clause": "grp_clause",
@@ -192,9 +199,47 @@ def main():
         sec3[nm] = v
     dump = ((A["t_dump"] == 1) | (B["t_dump"] == 1)).astype(int).values
     sec3["dump_trade"] = np.r_[dump, dump]
+
+    # v1.3: Table 5's former top-10 pick (top10_replication.with_cut, frame's construction at 10), and Table 4's rows,
+    # the two-team trades after 2022-03-28 (one_regression_replication.pick), with the terms its fit keeps
+    RP, TR = load("one_regression_replication"), load("top10_replication")
+    RP.log = TR.log = (lambda s="": None)
+    t10 = t.copy()
+    t10["top15"], t10["any_top15"] = TR.with_cut(t, f, key, 10)
+    Ad10, Bd10, _ = RP.pick(t10, key, after=False)
+    assert list(Ad10.index) == list(A.index) and list(Bd10["club"]) == list(B["club"]), "the declared rows, top-10"
+    for nm, c in (("m_top10", "top15"), ("a_top10", "any_top15")):
+        dd = Ad10[c].astype(float).values - Bd10[c].astype(float).values
+        sec3[nm] = np.r_[dd, -dd]
+    Aa, Ba, _ = RP.pick(t, key, after=True)
+    Aa10, Ba10, _ = RP.pick(t10, key, after=True)
+    assert list(Aa10.index) == list(Aa.index), "the rows after 2022, top-10"
+    after_cols, after10_cols = {}, {}
+    for rule, pre in (("main player rule", "m_"), ("any player rule", "a_")):
+        cols = [c for c in OR.P5[rule] if c not in OR.DUP[rule] and c != OR.BELOW[rule]] + OR.PC[rule] + ["recv"]
+        _, ka = OR.joint(Aa, Ba, cols, set(cols) - RP.CONT)
+        _, ka10 = OR.joint(Aa10, Ba10, cols, set(cols) - RP.CONT)
+        after_cols[rule] = [(c, pre + STEM[c]) for c in ka]
+        top = "top15" if rule == "main player rule" else "any_top15"
+        after10_cols[rule] = [(c, pre + ("top10" if c == top else STEM[c])) for c in ka10]
+    allc = {nm: c for rule in after_cols for c, nm in after_cols[rule] + reg_cols[rule] if not nm.endswith("top10")}
+    rows = []
+    for side, sign in ((Aa, 1.0), (Ba, -1.0)):
+        r = pd.DataFrame({"trade_id": side.index, "club": side["club"].values})
+        for nm, c in allc.items():
+            r[nm] = sign * (Aa[c].astype(float).values - Ba[c].astype(float).values)
+        r["m_top10"] = sign * (Aa10["top15"].astype(float).values - Ba10["top15"].astype(float).values)
+        r["a_top10"] = sign * (Aa10["any_top15"].astype(float).values - Ba10["any_top15"].astype(float).values)
+        rows.append(r)
+    sec3a = pd.concat(rows, ignore_index=True)
+    sec3a["in_reg_after"] = 1
+    assert not set(sec3a["trade_id"]) & set(sec3["trade_id"]), "the two windows share no trade"
+    sec3 = pd.concat([sec3, sec3a], ignore_index=True)
     d = d.merge(sec3, on=key, how="left")
     d["in_reg"] = d["in_reg"].fillna(0).astype(int)
+    d["in_reg_after"] = d["in_reg_after"].fillna(0).astype(int)
     assert int(d["in_reg"].sum()) == 2 * len(A), "every regression side found among the complete sides"
+    assert int(d["in_reg_after"].sum()) == 2 * len(Aa), "every side after 2022 found among the complete sides"
 
     # own yes/no (groups_any_sides.csv): the clause under each rule, the seller
     ga = pd.read_csv(OUTPUT_DIR / "groups_any_sides.csv")[key + ["m_clause", "t_clause", "t_futures"]]
@@ -372,6 +417,56 @@ def main():
     do("6. its first stage", "regress perf_value perf_played cap_cost if in_price == 1",
        f"perf_played {first.params['perf_played']:+.4f} (t = {first.tvalues['perf_played']:.1f})")
     log("  check 6: Section 4's price fits equal who_overpaid_checks.csv (two-stage: coefficients) (PASS)")
+
+    # 7. v1.3: Table 4, the regression on the trades after 2022-03-28 (one row a trade, robust)
+    RA1 = D[(D["in_reg_after"] == 1) & (D["first_club"] == 1)]
+    assert sorted(zip(RA1["trade_id"], RA1["club"])) == sorted(zip(Aa.index, Aa["club"])), "one_row_per_trade is the first club after 2022"
+    labs = ["trade-day grade", "realized value, WAR", "realized value, Game Value", "realized value, seasons played"]
+    rep = pd.read_csv(OUTPUT_DIR / "one_regression_replication.csv")
+    n_ok = 0
+    for rule in after_cols:
+        names = [nm for _, nm in after_cols[rule]]
+        for (ystata, _), ylab in zip(YS, labs):
+            o = SE.OLS(RA1[ystata], RA1[names], names, robust=True)
+            rr = rep[(rep["rule"] == rule) & (rep["outcome"] == ylab)].set_index("col")
+            assert sorted(rr.index) == sorted(c for c, _ in after_cols[rule]), f"Table 4 terms, {rule}"
+            for col, nm in after_cols[rule]:
+                eq(o.coef(nm), rr.at[col, "estimate"], f"after 2022 {rule} {ylab} {nm}")
+                eq(o.sei(nm), rr.at[col, "se"], f"after 2022 {rule} {ylab} {nm} se")
+                n_ok += 1
+            figs = "; ".join(f"{nm} {o.coef(nm):+.4f} ({pfmt(o.pval(nm))})" for nm in names
+                             if nm.split("_", 1)[1] in ("clause", "age28_31", "defence"))
+            do(f"7. Table 4, the trades after 2022-03-28, {rule}, {NICE[ystata]}: one row a trade",
+               f"regress {ystata} {' '.join(names)} if in_reg_after == 1 & first_club == 1, noconstant vce(robust)", figs)
+    log(f"  check 7: Table 4's regression from the CSV equals one_regression_replication.csv on {n_ok} coefficients and "
+        f"standard errors (PASS)")
+
+    # 8. v1.3: Table 5, the former top-10 pick in place of the top-15, 2017-22 and after 2022
+    sw = pd.read_csv(OUTPUT_DIR / "top10_swap.csv")
+    sw = sw[sw["version"] == "top-10 swap"]
+    t10r = pd.read_csv(OUTPUT_DIR / "top10_replication.csv")
+    n_ok = 0
+    for rule, pre in (("main player rule", "m_"), ("any player rule", "a_")):
+        top = "top15" if rule == "main player rule" else "any_top15"
+        for lab_w, rows_, cols_, ref_ in (("2017-22", R1, [(c, pre + "top10" if c == top else nm) for c, nm in reg_cols[rule]], sw),
+                                          ("after 2022", RA1, after10_cols[rule], t10r)):
+            names = [nm for _, nm in cols_]
+            cond = "in_reg == 1 & first_club == 1" if lab_w == "2017-22" else "in_reg_after == 1 & first_club == 1"
+            for (ystata, _), ylab in zip(YS, labs):
+                o = SE.OLS(rows_[ystata], rows_[names], names, robust=True)
+                rr = ref_[(ref_["rule"] == rule) & (ref_["outcome"] == ylab)]
+                rr = rr[~rr["col"].duplicated()].set_index("col")
+                for col, nm in cols_:
+                    if col in rr.index:                    # top10_replication.csv reports the top-10 term and the findings
+                        eq(o.coef(nm), rr.at[col, "estimate"], f"top-10 {lab_w} {rule} {ylab} {nm}")
+                        eq(o.sei(nm), rr.at[col, "se"], f"top-10 {lab_w} {rule} {ylab} {nm} se")
+                        n_ok += 1
+                assert top in rr.index, f"the top-10 term in the reference, {lab_w} {rule}"
+                do(f"8. Table 5, the former top-10 pick in place of the top-15, {lab_w}, {rule}, {NICE[ystata]}",
+                   f"regress {ystata} {' '.join(names)} if {cond}, noconstant vce(robust)",
+                   f"{pre}top10 {expect(o, pre + 'top10')}")
+    log(f"  check 8: Table 5's top-10 regressions from the CSV equal top10_swap.csv and top10_replication.csv on {n_ok} "
+        f"coefficients and standard errors (PASS)")
 
     out = [x if x.startswith("* ") and not x.startswith("*   expect:") else plain(x) for x in DO]
     (OUT / "findings_walkthrough.do").write_text("\n".join(out), encoding="utf-8")

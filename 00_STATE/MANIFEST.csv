@@ -538,3 +538,6 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS,Figures and Regression Results.docx,docs,hashable,2026-11-27,c652893102193969f6421c7b790b567b8b265bf4,706122,2026-11-27,yes,git,"built by companion_doc.js v1.0"
 25_TESTS,player_doc.js,docs,hashable,2026-11-27,3727cffd39ee545dfdddec66d6bcc8cf1f67fd55,97692,2026-11-27,yes,git,"v1.6: the goaltender age slope the model's 2025-26 line"
 40_DOCS,Valuing Players.docx,docs,hashable,2026-11-27,eea1ecc32483afd98e1f0f5a462ebd4c6d66e0f8,277110,2026-11-27,yes,git,"v1.6, built by player_doc.js v1.6"
+20_CODE,stata_export_findings.py,docs,hashable,2026-11-27,2987c4e392ebc92f0969d2ebe5cdfa2167ce8466,33430,2026-11-27,yes,git,"v1.3: Findings Tables 4 and 5 (the trades after 2022, the former top-10 pick), checked"
+40_DOCS,Stata_Codebook.md,docs,hashable,2026-11-27,6ca4fb7ccdf8b1bbb963eb36bdfb7a551db069d0,41730,2026-11-27,yes,git,"v1.2: Findings Tables 4 and 5 added"
+25_TESTS,karl_bundle.py,docs,hashable,2026-11-27,d2b10c69c35637a5f40c1a34f6e71dcf42d07dc1,2880,2026-11-27,yes,git,"v1.0: every deliverable for Karl in OUTPUT_DIR/xNPV_for_Karl.zip"

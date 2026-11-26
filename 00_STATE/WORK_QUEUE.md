@@ -20,7 +20,8 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
 0c. [DONE 2026-11-27] Do: a figures and regression results document beside each chunk (Thomas: "Sure").
    Built: `40_DOCS/Figures and Regression Results.docx` (`25_TESTS/companion_doc.js`, `companion_figures.py`), one file
    for the four chunks (Thomas's choice); the goaltender age slope in "Valuing Players" fixed to the model's (v1.6).
-0d. Do: a separate codebook for each document (the three models and the findings), each relevant CSV checked accurate;
+0d. [DONE 2026-11-27: one codebook in the documents' order, Thomas's later choice, `40_DOCS/Stata_Codebook.md`; Findings Tables
+   4 and 5 added that day; everything for Karl zipped as `30_OUTPUT/xNPV_for_Karl.zip` by `25_TESTS/karl_bundle.py`] Do: a separate codebook for each document (the three models and the findings), each relevant CSV checked accurate;
    descriptions sparse (Thomas: "Keep the codebook sparse in terms of description"). Decided 2026-11-24: "If we need to send
    him the PuckPedia csvs or a mix of the various sources in a single CSV, that's what we have to do." Thomas has run some of
    the Stata commands (item 5). The Section 2 `regress ... noconstant` standard error: fixed 2026-11-27 (clustered by trade in 40_DOCS/Stata_Codebook.md; 0.086 against 0.033 unclustered).
@@ -45,7 +46,8 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
    grade p = 0.100 and 0.119, so "realized value only" by the declared reading (31 trades differ). Decided 2026-11-24
    (Thomas: "As exploratory"): in the findings as an exploratory result, beside the three findings and not counted as one:
    both rules' 2017-22 figures, that it was tried after the top-15 fell short, and the replication after 2022 (realized
-   value only). Written 2026-11-25 (Findings v4.0, Section 3 and Table 5). Still owed: its command in the findings codebook (0d).
+   value only). Written 2026-11-25 (Findings v4.0, Section 3 and Table 5). Its commands in the codebook: done 2026-11-27
+   (stata_export_findings.py v1.3, `40_DOCS/Stata_Codebook.md`).
 0h. Done 2026-11-25 (Thomas, 2026-11-24: "All changes agreed to for now, I can edit myself later anyways"): the four wordings
    flagged on 2026-11-21 carried into the fully worded Findings (findings_doc.js v4.0). Decided: the file keeps the name `40_DOCS/Findings.docx` (Thomas:
    "Just keep it findings"; `findings_doc.js` writes it).
