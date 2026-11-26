@@ -4383,3 +4383,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   notes corrected (the two-stage row is resampled), the banned patterns cleared. STATA: the findings Section 2 regressions
   clustered by trade in Stata_Codebook.md (stata_pack.py v1.1); the zip rebuilt. No model change. MANIFEST rows; WORK_QUEUE
   0a and 0d; session log 2026-11-27.
+
+### Change log, 2026-11-27g (the findings document, his notes)
+
+- DOCUMENT (Thomas: "notes are up for the findings"): his copy committed (33ab4b9); "Findings" v5.1 (findings_doc.js v5.1):
+  his edits and eight notes (the variables as a table, "contract clause", "out of the regression sample", the pick result
+  as a limitation, the counterfactual). No model change. MANIFEST rows; session log 2026-11-27.
