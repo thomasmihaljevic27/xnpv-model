@@ -37,6 +37,12 @@ v1.1 (2026-10-05, Thomas's choices on the v1.0 results, made before this run):
                               known when he signed, p_play_signed).
     A reproduction guard holds the v1.0 cell (zeros in, first season) to the recorded figures.
 
+v1.2 (2026-11-25, Thomas: "All five now"). The same tests on the line in force, XNPV1_RATE as locked 2026-10-21. The guard
+holds the rows and their fingerprint to the lock's exactly and the refitted coefficients to the lock's own tolerance
+(skater_value_engine.TOL_NEW_COEF), not 1e-8: the Gustafsson row (2026-11-24) moved the refit by 2.4e-06 and Thomas kept
+the lock. The v1.0 reproductions (log-likelihoods, held-out figures, the hidden-quality cell) were figures of the 2026-10-05
+line; each is now printed beside today's figure instead of stopping the run. Nothing else changes.
+
 WHAT IT REPORTS
   0. GUARD. The locked rows (n 2,296, fingerprint b9067879bf72) and the term-in fit equal to the lock.
   1. LENGTH AND HIDDEN QUALITY (July's term premium test, on the forecast). On contracts whose first K
@@ -78,7 +84,7 @@ from scipy import stats
 
 import forecast_config as C
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"   # 1.2 (2026-11-25, Thomas: "All five now"): run on today's lock; the October figures reported beside
 CAP = None                          # 2025-26 ceiling, set in main()
 PRORATION = {2019: 82 / 70, 2020: 82 / 56}   # July's D20 proration of the two short seasons
 GOALS_PER_WIN = 5.903
@@ -90,7 +96,10 @@ GROUP_NAMES = ["below 0", "0 to 1", "1 to 2", "2 or more"]
 LOG = []
 ONE_STEP = "one step: premium below replacement"
 BY_GROUP = "length premium by forecast group"
-# v1.0's recorded figures (00_STATE/sessions/2026-10-04c.md, run 2026-10-05); this run must give them back
+# v1.0's recorded figures (00_STATE/sessions/2026-10-04c.md, run 2026-10-05), on the price line of that day. Until v1.1 this
+# run had to give them back; since v1.2 (2026-11-25) it runs on the line locked 2026-10-21 (re-locked on contracts dated
+# one way, skater_forecast v2.4), which they predate, so each is printed beside today's figure and nothing stops on it.
+# They reproduce only from git at 0e6ff50 or before, on that day's inputs.
 RECORDED_HELD_OUT = {"locked specification": (1.2809, 0.9234), "length x forecast (one term)": (1.2755, 0.9173),
                      BY_GROUP: (1.2712, 0.9150), "separate RFA line": (1.2787, 0.9198)}
 RECORDED_LL = {BY_GROUP: 4544.8, "length x forecast (one term)": 4531.9}
@@ -228,9 +237,8 @@ def price_side(d, base):
         log(f"    {implied(name, names, coef)}")
         out[name] = extra
         lls[name] = ll
-    for name, rec in RECORDED_LL.items():
-        assert near(lls[name], rec, 1), f"{name}: log-likelihood {lls[name]:.2f}, recorded {rec}"
-    log(f"\n  reproduction: the v1.0 log-likelihoods come back ({', '.join(f'{k} {lls[k]:,.1f}' for k in RECORDED_LL)})")
+    log("\n  October (v1.0) log-likelihoods, on that day's line, beside today's: " + ", ".join(
+        f"{k} {rec:,.1f} then, {lls[k]:,.1f} now" for k, rec in RECORDED_LL.items()))
     lr = 2 * (lls[BY_GROUP] - lls[ONE_STEP])
     df_ = len(out[BY_GROUP]) - len(out[ONE_STEP])
     log(f"  per-group premium against the one step: gain {lls[BY_GROUP] - lls[ONE_STEP]:+.1f}, LR {lr:.2f} on "
@@ -265,11 +273,9 @@ def held_out(d, var_extra):
         for k in specs:
             e = (pred[k] - y) * CAP / 1e6
             rmse[k].append(float(np.sqrt(np.mean(e ** 2)))); mae[k].append(float(np.mean(np.abs(e))))
-    for k, (rr, mm) in RECORDED_HELD_OUT.items():
-        assert near(np.mean(rmse[k]), rr, 4) and near(np.mean(mae[k]), mm, 4), \
-            f"{k}: held out {np.mean(rmse[k]):.5f} / {np.mean(mae[k]):.5f}, recorded {rr} / {mm}"
-    log("  reproduction: the v1.0 held-out figures come back (" +
-        ", ".join(f"{k} {np.mean(rmse[k]):.4f}/{np.mean(mae[k]):.4f}" for k in RECORDED_HELD_OUT) + ")")
+    log("  October (v1.0) held-out RMSE / MAE, on that day's line, beside today's: " + ", ".join(
+        f"{k} {rr:.4f}/{mm:.4f} then, {np.mean(rmse[k]):.4f}/{np.mean(mae[k]):.4f} now"
+        for k, (rr, mm) in RECORDED_HELD_OUT.items()))
     log(f"  {'specification':36s}{'RMSE':>9s}{'MAE':>9s}{'beats locked (RMSE)':>22s}{'(MAE)':>9s}")
     b_r, b_m = np.array(rmse["locked specification"]), np.array(mae["locked specification"])
     for k in specs:
@@ -391,7 +397,7 @@ def hidden_quality(d, fc, base):
                     res = sm.OLS(g[oc].astype(float), X).fit(cov_type="cluster", cov_kwds={"groups": grp})
                     f_, lo, hi = res.params["length_c"], *res.conf_int().loc["length_c"]
                     if K == K_MAIN and oc == "zeros in" and cn == CONTROLS[0]:
-                        assert near(f_, RECORDED_F[lab], 4), f"{lab}: f {f_:.5f}, v1.0 recorded {RECORDED_F[lab]}"
+                        log(f"    (October, v1.0, on that day's line: f {RECORDED_F[lab]:+.4f}; now {f_:+.4f})")
                     flag = "*" if not lo <= 0 <= hi else " "
                     log(f"    {oc:12s} {cn:28s} {len(g):>6,} {len(np.unique(grp)):>8,}  "
                         f"{res.params['control']:>+12.4f}  {f_:>+8.4f} [{lo:+.4f}, {hi:+.4f}]{flag} "
@@ -421,7 +427,10 @@ def main():
     gap = max(abs(base[1][i] - L[k]) for i, k in enumerate(("alpha", "beta", "beta_d_add", "gamma_term")))
     log(f"\n0. GUARD: {len(d):,} contracts (locked {L['n']:,}), fingerprint {fp} (locked {L['rows_fingerprint']}), "
         f"largest coefficient gap to the lock {gap:.1e}")
-    assert fp == L["rows_fingerprint"] and len(d) == L["n"] and gap < 1e-8, "not the locked line; nothing below is read"
+    # v1.2: the lock's own tolerance (skater_value_engine.TOL_NEW_COEF; Thomas kept the lock on 2026-11-24 when the
+    # Gustafsson row moved the refit by 2.4e-06); the rows and their fingerprint exactly
+    log(f"   the guard's tolerance: {SVE.TOL_NEW_COEF:.0e} (the lock's own, skater_value_engine.TOL_NEW_COEF)")
+    assert fp == L["rows_fingerprint"] and len(d) == L["n"] and gap <= SVE.TOL_NEW_COEF, "not the locked line; nothing below is read"
     ll_lock = XPL.loglik(tin, d, "xwar_signed")
     log(f"   log-likelihood here {base[3]:,.3f}; xnpv1_price_line's own {ll_lock:,.3f}")
     assert abs(base[3] - ll_lock) < 1e-6, "this script's log-likelihood is not the price-line script's"

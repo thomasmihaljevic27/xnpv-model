@@ -4291,3 +4291,12 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - PROCESS (Thomas: "yes I approve the download"): the clarity linter ste-lint.py (MIT, current head) and its licence
   restored in 40_DOCS/writing-style/scripts/ after the plugin sync dropped the skill's scripts; writing-style.zip
   (gitignored) built for the upload. MANIFEST rows; session log 2026-11-25.
+
+### Change log, 2026-11-25c (the October tests on today's model)
+
+- TEST (Thomas: "Yes, re-run them"; "All five now"): the eleven tests behind v5.0's dated passages re-run on
+  skater_forecast v2.4 (October outputs archived in 90_ARCHIVE/2026-11-25/october_tests/). Six ran unchanged; the five
+  forecast tests built on the October model are replaced by 25_TESTS/model_choices_current.py v1.0 (today's model the
+  baseline, forecast_term_audit's scoring); price_line_spec_tests.py v1.2 runs on today's lock at its tolerance. Every
+  choice the document defends holds. New for Thomas: WORK_QUEUE 0j (the comparables' level without the league average).
+  No model change. MANIFEST rows; inspection ledger; session log 2026-11-25.
