@@ -12,7 +12,7 @@
 2026-11-24).** Deadline: end of December, with his review, the changes and his sign-off inside it ("sooner is better").
 Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the documents.
 0a. Do: the write-up in four chunks (2026-11-25: the big document updated, v5.0, and the Findings fully worded, v4.0; to be
-   read by Thomas, then split; the player chunk built 2026-11-25, `40_DOCS/Valuing Players.docx`, shortened the same day as v1.1 on Thomas's "Yes, build it"; v1.2 on 2026-11-26 with his edits and an outside review's fixes, for Thomas to read; the pick chunk built 2026-11-26, `40_DOCS/Valuing Draft Picks.docx` (v1.1 2026-11-27 with his edits); the prospect chunk built 2026-11-27, `40_DOCS/Valuing Prospects.docx`, with the Pacioretty trade added up at its end, for Thomas to read), in this order (Thomas, 2026-11-24): the player model, the pick model, the prospect
+   read by Thomas, then split; the player chunk built 2026-11-25, `40_DOCS/Valuing Players.docx`, shortened the same day as v1.1 on Thomas's "Yes, build it"; v1.2 on 2026-11-26 with his edits and an outside review's fixes, for Thomas to read; the pick chunk built 2026-11-26, `40_DOCS/Valuing Draft Picks.docx` (v1.1 2026-11-27 with his edits); the prospect chunk built 2026-11-27, `40_DOCS/Valuing Prospects.docx`, with the Pacioretty trade added up at its end (to be its own final section in the final draft); the findings chunk rebuilt 2026-11-27 as `40_DOCS/Findings.docx` v5.0; all four for Thomas to read), in this order (Thomas, 2026-11-24): the player model, the pick model, the prospect
    model, each from "Valuing Players, Draft Picks, and Prospects" (finish editing it, then split it); then the findings, the
    point-form `40_DOCS/Findings.docx` split up. Thomas: "I don't think there would be anything else?"
 0b. Do: a new flow diagram of the finished method (Thomas: "Yep, that needs to be made").
@@ -20,7 +20,7 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
 0d. Do: a separate codebook for each document (the three models and the findings), each relevant CSV checked accurate;
    descriptions sparse (Thomas: "Keep the codebook sparse in terms of description"). Decided 2026-11-24: "If we need to send
    him the PuckPedia csvs or a mix of the various sources in a single CSV, that's what we have to do." Thomas has run some of
-   the Stata commands (item 5). Still owed: the Section 2 `regress ... noconstant` standard error (session 2026-11-21).
+   the Stata commands (item 5). The Section 2 `regress ... noconstant` standard error: fixed 2026-11-27 (clustered by trade in 40_DOCS/Stata_Codebook.md; 0.086 against 0.033 unclustered).
 0e. Count: the share of traded players who appear in more than one trade (Karl: "I'd be interested to see how many players
    appear in multiple ... Like, what proportion are we talking about here?"; Thomas guessed about 5%).
    **Counted 2026-11-23** (`25_TESTS/repeat_traded_players.py` v1.0): 153 of 698 players (21.9%) are in two or more of

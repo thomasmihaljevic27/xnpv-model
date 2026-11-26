@@ -33,7 +33,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "stata_pack.py v1.0 (2026-11-27)"
+SCRIPT_VERSION = "stata_pack.py v1.1 (2026-11-27)"   # v1.1: the findings Section 2 regressions clustered by trade
 load_dotenv(".env")
 ROOT = Path(__file__).resolve().parents[1]
 OUT = Path(os.environ["OUTPUT_DIR"])
@@ -47,6 +47,10 @@ ADDED = {
     "regress remaining_npv ibn.dplus#c.nhle_pts if skater_prospect == 1, noconstant vce(cluster player_id)",
     "tobit cap_hit war_fcst, ll(league_min) vce(cluster player_id)",
     "tobit cap_hit war_fcst c.war_fcst#c.defence, ll(league_min) vce(cluster player_id)",
+    # v1.1: Section 2 of the findings clustered by trade (both clubs are mirror-image rows); the slopes are the checked
+    # ones (0.7487, 0.7310), the clustered standard errors 0.086 and 0.104 against 0.033 unclustered (session 2026-11-27)
+    "regress realized_war tradeday_grade if in_2017_22 == 1, noconstant vce(cluster trade_id)",
+    "regress realized_gamevalue tradeday_grade if in_2017_22 == 1, noconstant vce(cluster trade_id)",
 }
 
 checked = set()

@@ -4375,3 +4375,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 
 - DOCUMENT: "Valuing Prospects" v1.2 (prospect_doc.js v1.2): an outside review's wording and arithmetic notes, applied.
   Thomas's note: the trade on one scale becomes its own final section in the final draft. Session log 2026-11-27.
+
+### Change log, 2026-11-27f (the findings document; the Stata Section 2 standard error)
+
+- DOCUMENT (Thomas: "build the doc"): "Findings" v5.0 (findings_doc.js v5.0), the fourth write-up chunk: realized NPV's
+  formula in full, Tables 4 and 6 cut, the non-mispriced types merged into Section 3, Table 7's and A3's standard-error
+  notes corrected (the two-stage row is resampled), the banned patterns cleared. STATA: the findings Section 2 regressions
+  clustered by trade in Stata_Codebook.md (stata_pack.py v1.1); the zip rebuilt. No model change. MANIFEST rows; WORK_QUEUE
+  0a and 0d; session log 2026-11-27.

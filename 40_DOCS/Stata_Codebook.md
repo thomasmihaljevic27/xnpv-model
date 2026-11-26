@@ -456,9 +456,12 @@ One row for each club in each complete trade, July 2017 to March 2026. Each sect
 
 ### Do the models predict how trades turn out? (Section 2)
 
+Both clubs of each trade are rows, mirror images of each other, so standard errors are clustered by trade; the
+document's intervals come from resampling whole trades.
+
 ```stata
-regress realized_war tradeday_grade if in_2017_22 == 1, noconstant
-regress realized_gamevalue tradeday_grade if in_2017_22 == 1, noconstant
+regress realized_war tradeday_grade if in_2017_22 == 1, noconstant vce(cluster trade_id)
+regress realized_gamevalue tradeday_grade if in_2017_22 == 1, noconstant vce(cluster trade_id)
 mean came_out_ahead_war came_out_ahead_gamevalue if in_2017_22 == 1 & favoured_by_grade == 1
 ```
 

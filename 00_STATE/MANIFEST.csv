@@ -508,7 +508,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,findings_numbers.py,docs,hashable,2026-11-25,763e221e797e47ca1d48d0dfd6113edf3d9c5c46,13627,2026-11-25,yes,git,"2026-11-25: the Findings fully worded; every figure read from the outputs (Thomas)"
 25_TESTS,doc_check.py,docs,hashable,2026-11-25b,abdf64a26fc143b58624b068b5c43bf18d50674c,10697,2026-11-25,yes,git,"v1.0: the banned-pattern check run on every document build (Thomas: Yes, merge and add it)"
 25_TESTS,model_doc.js,docs,hashable,2026-11-25b,21267a2512d0928f72bff91aa3a6d5d98c49d3fb,173567,2026-11-25,yes,git,2026-11-25b: runs doc_check.py on the file it writes (text unchanged)
-25_TESTS,findings_doc.js,docs,hashable,2026-11-25b,bb67a34a4ea4c873be079e57f5c031bb066bf20c,49347,2026-11-25,yes,git,2026-11-25b: runs doc_check.py on the file it writes (text unchanged)
+25_TESTS,findings_doc.js,docs,hashable,2026-11-27,40597a67f83449bea008ded99f56e071450abd6c,49483,2026-11-27,yes,git,"v5.0: the findings chunk, in the other three documents' form"
 40_DOCS/writing-style,SKILL.md,docs,hashable,2026-11-25b,fb0ce088250d8197a7e5e69d03db62d36cb9a7f7,21487,2026-11-25,yes,git,writing-style skill v2.0: the revamp merged with version 1 (Thomas)
 40_DOCS/writing-style/scripts,ste-lint.py,docs,hashable,2026-11-25c,3a553a351f9cc12a54e9a59408da2ef14d6c0dcc,192330,2026-11-25,yes,git,"the clarity linter, MIT, github.com/danyuchn/asd-ste100-skill head 65c8ab6 (Thomas approved the download)"
 40_DOCS/writing-style/scripts,LICENSE-ste-lint,docs,hashable,2026-11-25c,cb380040cc190991ff95e4beb64ce5f5f9688c4e,1075,2026-11-25,yes,git,its MIT licence
@@ -523,5 +523,6 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS,Valuing Draft Picks.docx,docs,hashable,2026-11-27,bfabc597775bcfcd743d41ec28302dce09c83238,191578,2026-11-27,yes,git,"v1.2, built by pick_doc.js v1.2"
 25_TESTS,prospect_doc.js,docs,hashable,2026-11-27,497f8ed8015b3252e227f670075f3024df911f72,51853,2026-11-27,yes,git,"v1.2: an outside review's edits"
 40_DOCS,Valuing Prospects.docx,docs,hashable,2026-11-27,8eaa80d2f9ed9bd3babbcda8df038d65d0b7e2e7,280600,2026-11-27,yes,git,"v1.2, built by prospect_doc.js v1.2"
-40_DOCS,Stata_Codebook.md,docs,hashable,2026-11-27,ecf1770675c05809119546dd4aa58c6b3631c675,31600,2026-11-27,yes,git,"v1.0: every regression of the four documents, in their order, for the supervisor"
-25_TESTS,stata_pack.py,docs,hashable,2026-11-27,1bd7fc85d1d8803ab8205270bd06b9d95c1b82bd,4921,2026-11-27,yes,git,"v1.0: checks the codebook against the checked do-files; writes stata_karl and xNPV_Stata.zip"
+40_DOCS,Stata_Codebook.md,docs,hashable,2026-11-27,4015eca060155e880042048bdec9505fe1ef7c15,31812,2026-11-27,yes,git,"v1.1: the findings Section 2 regressions clustered by trade"
+25_TESTS,stata_pack.py,docs,hashable,2026-11-27,844dfa87aa992b290138ca84d1c57750ed684f6e,5425,2026-11-27,yes,git,"v1.1: the clustered Section 2 commands allowed, checked"
+40_DOCS,Findings.docx,docs,hashable,2026-11-27,c34677d5f5bf568170d5529e225589f02bb99441,29585,2026-11-27,yes,git,"v5.0, built by findings_doc.js v5.0"
