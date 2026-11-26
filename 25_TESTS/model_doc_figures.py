@@ -50,7 +50,7 @@ import matplotlib                                                  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                                    # noqa: E402
 
-SCRIPT_VERSION = "model_doc_figures.py v4.3 (2026-11-25)"   # v4.3: money axes as shares of the 2025-26 cap (Thomas: "Both documents"); v4.2: the prospect model with defenceman x production; the prospect document's tests read in; v4.1: figure labels say NPV and xNPV, not surplus (Thomas); v4.0: the model after 2026-10-21 (round-2 notes)
+SCRIPT_VERSION = "model_doc_figures.py v4.4 (2026-11-26)"   # v4.4: the price-line figure's axis without "if he plays" (an outside review); v4.3: money axes as shares of the 2025-26 cap (Thomas: "Both documents"); v4.2: the prospect model with defenceman x production; the prospect document's tests read in; v4.1: figure labels say NPV and xNPV, not surplus (Thomas); v4.0: the model after 2026-10-21 (round-2 notes)
 OUT, SRC = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 FIG = OUT / "model_doc"
 FIG.mkdir(exist_ok=True)
@@ -910,7 +910,7 @@ for ax, dflag, title in ((axes[0], 0.0, "Forwards"), (axes[1], 1.0, "Defencemen"
         ax.plot(xs, np.maximum(line, 0.775 * SHR), color=col, lw=1.8, zorder=3)
         ax.text(3.65, max(line[-1], 0.775 * SHR), f"{yrs} yr", color=col, fontsize=8, va="center")
     tidy(ax, title)
-    ax.set_xlabel("Forecast WAR if he plays, first season, dated at signing")
+    ax.set_xlabel("Forecasted WAR in the first season, dated at signing")
     ax.set_xlim(-1.2, 4.1)
 axes[0].set_ylabel("Cap hit (% of the cap)")
 fig.tight_layout(); fig.savefig(FIG / "fig_price_line.png"); plt.close(fig)

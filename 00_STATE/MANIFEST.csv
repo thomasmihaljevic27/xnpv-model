@@ -503,7 +503,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,prospect_values.py,prospect,hashable,2026-11-24,037ef441f5993a5842a23ec56f9861fac8bdd499,62318,2026-11-24,yes,git,"v1.13: comment only (Peterka confirmed by Thomas)"
 25_TESTS,star_miss_current.py,player,hashable,2026-11-25,e2f23b25f13c8ed7be98164adc130759701ba36b,3906,2026-11-25,yes,git,"v1.0: the star tier's miss on today's forecast (report only)"
 25_TESTS,model_doc.js,docs,hashable,2026-11-25,0945f56b38427c54cdbdf8e54094fc2a2aeb2e0b,172762,2026-11-25,yes,git,"2026-11-25: shares of the cap; the ledger's sources; Section 9's limits re-measured (Thomas)"
-25_TESTS,model_doc_figures.py,docs,hashable,2026-11-25,aee8d0ae0e6557d8a7ce5f13fcff01b2e67daa1b,70891,2026-11-25,yes,git,"2026-11-25: shares of the cap; the ledger's sources; Section 9's limits re-measured (Thomas)"
+25_TESTS,model_doc_figures.py,docs,hashable,2026-11-26,be6775b9971071e8576b6fda074cfbaaba372335,69900,2026-11-26,yes,git,"v4.4: the price-line figure without if he plays"
 25_TESTS,findings_doc.js,docs,hashable,2026-11-25,7244adc5ab3e8908afc8d0a9514f841da96cfa6f,48542,2026-11-25,yes,git,"2026-11-25: the Findings fully worded; every figure read from the outputs (Thomas)"
 25_TESTS,findings_numbers.py,docs,hashable,2026-11-25,763e221e797e47ca1d48d0dfd6113edf3d9c5c46,13627,2026-11-25,yes,git,"2026-11-25: the Findings fully worded; every figure read from the outputs (Thomas)"
 25_TESTS,doc_check.py,docs,hashable,2026-11-25b,abdf64a26fc143b58624b068b5c43bf18d50674c,10697,2026-11-25,yes,git,"v1.0: the banned-pattern check run on every document build (Thomas: Yes, merge and add it)"
@@ -514,6 +514,6 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS/writing-style/scripts,LICENSE-ste-lint,docs,hashable,2026-11-25c,cb380040cc190991ff95e4beb64ce5f5f9688c4e,1075,2026-11-25,yes,git,its MIT licence
 25_TESTS,model_choices_current.py,player,hashable,2026-11-25c,c4bce9bc0839a6e9db380ac9b1f306089da1243c,32331,2026-11-25,yes,git,v1.0: the forecast's tested choices on today's model (Thomas: All five now)
 25_TESTS,price_line_spec_tests.py,player,hashable,2026-11-25c,6cb643c9532cd4f0ae11ac746ccb9cdb334add42,28798,2026-11-25,yes,git,v1.2: on today's lock at its tolerance; the October figures printed beside
-25_TESTS,player_doc.js,docs,hashable,2026-11-25f,002b5530fdcf326f47dc8e292d77f393d75ed8b9,96537,2026-11-25,yes,git,"v1.1: the shorter structure (Thomas: Yes, build it)"
+25_TESTS,player_doc.js,docs,hashable,2026-11-26,54737a051d2d6dbf0ef1f95acfa409db70907a0b,95307,2026-11-26,yes,git,"v1.2: his 25 edits, the agreed fixes, the tests one table per step (Thomas: Yes, implement it)"
 25_TESTS,player_doc_figures.py,docs,hashable,2026-11-25d,157520a33de120424c539adee9cdd4984426a002,13332,2026-11-25,yes,git,"v1.0: the player document's tested figures from today's runs, guarded"
-40_DOCS,Valuing Players.docx,docs,rendition,2026-11-25f,01c5733055088dd073a48671b3e3813d96e58732,276347,2026-11-25,yes,git,"v1.1, built by player_doc.js v1.1"
+40_DOCS,Valuing Players.docx,docs,rendition,2026-11-26,ddb5fd922b58b6369f4fad4cd0a5a7ada55f5c2e,277100,2026-11-26,yes,git,"v1.2, built by player_doc.js v1.2"

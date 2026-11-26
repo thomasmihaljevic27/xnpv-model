@@ -4329,3 +4329,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 
 - DOCUMENT: Thomas's saved copy of "Valuing Players" v1.1 committed as his (25 edits, 8 comments); an outside review's notes
   checked against the code; a list of changes put to him, nothing built. Session log 2026-11-26.
+
+### Change log, 2026-11-26b (the player document, v1.2)
+
+- DOCUMENT (Thomas: "Yes, implement it"): "Valuing Players" v1.2 (25_TESTS/player_doc.js v1.2): his 25 edits with the
+  corrections agreed in 2026-11-26a, his 8 comments, the outside review's fixes; the forecast's tests one table per step.
+  model_doc_figures.py v4.4 (Figure 2's axis label). MANIFEST rows; WORK_QUEUE 0a; session log 2026-11-26.
