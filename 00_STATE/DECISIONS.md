@@ -4349,3 +4349,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DOCUMENT (Thomas: "pick doc is mostly fine. Take a look"): his copies committed (552a8b7); "Valuing Draft Picks" v1.1
   (pick_doc.js v1.1: his edits; the term "arbitration WAR" dropped, its meaning kept) and "Valuing Players" v1.3
   (player_doc.js v1.3: Section 6 retitled). MANIFEST rows; session log 2026-11-27.
+
+### Change log, 2026-11-27b (the prospect document)
+
+- DOCUMENT (Thomas: "Agreed, build it"): "Valuing Prospects" v1.0 (40_DOCS/Valuing Prospects.docx; 25_TESTS/prospect_doc.js
+  v1.0, new), the third write-up chunk, from v5.0's Sections 7 and 8 and Appendix B with his comments 93-100; the trade on
+  one scale closes it. nhl_arrival_timing.py re-run (unchanged). No model change. MANIFEST rows; WORK_QUEUE 0a; session
+  log 2026-11-27.

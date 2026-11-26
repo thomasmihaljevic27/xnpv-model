@@ -521,3 +521,5 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,pick_doc_figures.py,docs,hashable,2026-11-26,63e37413c14debb615a947e47a6060075468e8a3,6217,2026-11-26,yes,git,"v1.0: the pick document figures model_doc_figures does not compute, guarded"
 25_TESTS,pick_doc.js,docs,hashable,2026-11-27,097b257781cf96caea6178735190730cf7d04b78,47474,2026-11-27,yes,git,"v1.1: his edits; arbitration WAR dropped as a term"
 40_DOCS,Valuing Draft Picks.docx,docs,hashable,2026-11-27,9faa6a42d5c000e7a571b4902aed5f28f45a3f20,191300,2026-11-27,yes,git,"v1.1, built by pick_doc.js v1.1"
+25_TESTS,prospect_doc.js,docs,hashable,2026-11-27,00247210aeeccf9320b05ddda2a89c19f4b2aa8f,51999,2026-11-27,yes,git,"v1.0: builds Valuing Prospects.docx, the prospect chunk (Thomas: Agreed, build it)"
+40_DOCS,Valuing Prospects.docx,docs,hashable,2026-11-27,91ba8e2880b87e8f0a61db2cef52801663764be5,280638,2026-11-27,yes,git,"v1.0, built by prospect_doc.js v1.0"
