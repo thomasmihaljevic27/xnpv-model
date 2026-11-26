@@ -38,6 +38,9 @@
 // Two figures are not re-measured and are flagged in the session log: the control-season rules' 18% and 44% and the
 // 13.1% exit after qualifying (DECISIONS D14(c), measured on an earlier price line), and the arbitration flag's checks.
 //
+// v1.5 (2026-11-27; Thomas: "Build it", the companion): unchanged text; a hook collects each titled table and
+// figure for companion_doc.js, and the chunk is written only when this file is run.
+//
 // Run:  NODE_PATH=<folder with docx> node 25_TESTS/player_doc.js   (DOC_OUT=<file> to write elsewhere; LINT_OUT=<file.md>)
 
 const fs = require("fs");
@@ -48,7 +51,7 @@ const {
   MathFraction, MathSum, MathRoundBrackets,
 } = require("docx");
 
-const VERSION = "player_doc.js v1.4";
+const VERSION = "player_doc.js v1.5";
 const ROOT = path.resolve(__dirname, "..");
 const FIG = path.join(ROOT, "30_OUTPUT", "model_doc");
 const N = JSON.parse(fs.readFileSync(path.join(FIG, "numbers.json"), "utf8"));
@@ -88,7 +91,7 @@ function runs(text, base = {}) {
 const P = (text) => { TEXT.push(text); return new Paragraph({ children: runs(text), spacing: { before: 60, after: 120, line: 276 } }); };
 const H1 = (text) => { TEXT.push(`## ${text}`); return new Paragraph({ heading: HeadingLevel.HEADING_1, keepNext: true, children: [new TextRun({ text, font: FONT })], spacing: { before: 280, after: 120 } }); };
 const H2 = (text) => { TEXT.push(`### ${text}`); return new Paragraph({ heading: HeadingLevel.HEADING_2, keepNext: true, children: [new TextRun({ text, font: FONT })], spacing: { before: 200, after: 80 } }); };
-const CAPTION = (text) => { TEXT.push(text); return new Paragraph({ spacing: { before: 40, after: 220 }, children: runs(text, { size: 18, color: "52514E" }) }); };
+const CAPTION_ = (text) => { TEXT.push(text); return new Paragraph({ spacing: { before: 40, after: 220 }, children: runs(text, { size: 18, color: "52514E" }) }); };
 const TITLE = (text) => new Paragraph({ spacing: { before: 180, after: 60 }, keepNext: true, children: runs(text, { size: 20, bold: true }) });
 const BULLET = (text) => { TEXT.push(`- ${text}`); return new Paragraph({ numbering: { reference: "bullets", level: 0 }, children: runs(text), spacing: { before: 20, after: 60, line: 276 } }); };
 
@@ -129,8 +132,8 @@ const FIGS = ["aging", "price"];
 const tn = (k) => { if (APPX[k]) return APPX[k]; const i = TABS.indexOf(k); if (i < 0) throw new Error(`table ${k}`); return String(i + 1); };
 const T = (k) => `Table ${tn(k)}`;
 const F = (k) => { const i = FIGS.indexOf(k); if (i < 0) throw new Error(`figure ${k}`); return `Figure ${i + 1}`; };
-const TT = (k, title) => TITLE(`${T(k)}. ${title}`);
-function FIGURE(key, file, title, caption, width = 600) {
+const TT = (k, title) => tag(TITLE(`${T(k)}. ${title}`), "start");
+function FIGURE_(key, file, title, caption, width = 600) {
   const b = fs.readFileSync(path.join(FIG, file));
   const w = b.readUInt32BE(16), h = b.readUInt32BE(20);
   return [TITLE(`${F(key)}. ${title}`), new Paragraph({ alignment: AlignmentType.CENTER, keepNext: true,
@@ -138,7 +141,7 @@ function FIGURE(key, file, title, caption, width = 600) {
 }
 const border = { style: BorderStyle.SINGLE, size: 4, color: "C9C8C3" };
 const borders = { top: border, bottom: border, left: border, right: border };
-function TABLE(header, rows, widths, numeric = [], bold = new Set(), size = 17, keep = true) {
+function TABLE_(header, rows, widths, numeric = [], bold = new Set(), size = 17, keep = true) {
   const tot = widths.reduce((a, b) => a + b, 0);
   if (tot > 9660) throw new Error(`table too wide: ${tot}`);
   rows.forEach((r) => { if (r.length !== header.length) throw new Error(`row of ${r.length} cells under ${header.length} headers: ${r[0]}`); });
@@ -201,8 +204,21 @@ for (const [k, v] of [["start", 1.1506], ["whole", 1.3569], ["war", 0.8054]]) {
 const pB = (r, k) => (r[`p_build_better_${k}`] <= 0.5 ? pr(r[`p_build_better_${k}`]) : `${pr(r[`p_version_better_${k}`])}†`);
 const G2 = N2.goalie, SP = N2.spec, E2 = N2.e2, A82 = N2.all82, W64 = N2.w6040, AB = N2.age_bands, DROP = N2.dropped;
 
+// the companion hook (vv1.5): each table and figure is tagged as it is made; add() collects a titled table or figure
+// with its caption, for companion_doc.js ("Figures and Regression Results")
+const tag = (x, t) => { x.__cap = t; return x; };
+const CAPTION = (text) => tag(CAPTION_(text), "body");
+const FIGURE = (...a) => { const r = FIGURE_(...a); tag(r[0], "start"); r.slice(1).forEach((x) => tag(x, "body")); return r; };
+const TABLE = (...a) => tag(TABLE_(...a), "body");
+const COMPANION = [];
+let capOn = false;
 const kids = [];
-const add = (...xs) => xs.flat().forEach((x) => kids.push(x));
+const add = (...xs) => xs.flat().forEach((x) => {
+  kids.push(x);
+  if (x && x.__cap === "start") capOn = true;
+  else if (!(x && x.__cap === "body")) capOn = false;
+  if (capOn) COMPANION.push(x);
+});
 add(new Paragraph({ spacing: { after: 40 }, children: [new TextRun({ text: "Valuing Players", bold: true, size: 40, font: FONT })] }));
 
 // =====================================================================================================================
@@ -577,7 +593,9 @@ const doc = new Document({
     footers: { default: new Footer({ children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ children: [PageNumber.CURRENT], size: 18, color: "8A8984", font: FONT })] })] }) },
     children: kids }],
 });
-Packer.toBuffer(doc).then((buf) => {
+module.exports = { VERSION, title: "Valuing Players", blocks: COMPANION,
+  n: new Set([...TABS, ...Object.keys(APPX)]).size + (typeof FIGS === "undefined" ? 0 : FIGS.length) };
+if (require.main === module) Packer.toBuffer(doc).then((buf) => {
   fs.writeFileSync(OUTFILE, buf);
   if (process.env.LINT_OUT) fs.writeFileSync(process.env.LINT_OUT, TEXT.join("\n\n"), "utf8");
   console.log(`${VERSION} wrote ${OUTFILE} (${(buf.length / 1024).toFixed(0)} KB, ${TEXT.join(" ").split(/\s+/).length} words)`);

@@ -32,6 +32,9 @@
 // the cap cost (who_overpaid_checks.py tsls); a repeated phrase varied; missing verbs; "compared with"; the double negative
 // rewritten; colons joining sentences made periods; Table 1's labels matched to Tables A1-A2.
 //
+// v5.3 (2026-11-27; Thomas: "Build it", the companion): unchanged text; a hook collects each titled table and
+// figure for companion_doc.js, and the chunk is written only when this file is run.
+//
 // Run:  NODE_PATH=<folder with docx> node 25_TESTS/findings_doc.js   (LINT_OUT=<file.md> writes the prose for the linter)
 
 const fs = require("fs");
@@ -44,7 +47,7 @@ const {
 const ROOT = path.resolve(__dirname, "..");
 const N = JSON.parse(fs.readFileSync(path.join(ROOT, "30_OUTPUT", "findings_doc", "numbers.json"), "utf8"));
 const OUTFILE = process.env.DOC_OUT || path.join(ROOT, "40_DOCS", "Findings.docx");   // 2026-11-24: renamed by Thomas
-const VERSION = "findings_doc.js v5.2";
+const VERSION = "findings_doc.js v5.3";
 const TEXT = [];
 
 // ---- formatting (as model_doc.js) ------------------------------------------------------------------------------------
@@ -81,7 +84,7 @@ function runs(text, base = {}) {
 const P = (text) => { TEXT.push(text); return new Paragraph({ children: runs(text), spacing: { before: 60, after: 120, line: 276 } }); };
 const H1 = (text) => { TEXT.push(`## ${text}`); return new Paragraph({ heading: HeadingLevel.HEADING_1, keepNext: true, children: [new TextRun({ text, font: FONT })], spacing: { before: 280, after: 120 } }); };
 const H2 = (text) => { TEXT.push(`### ${text}`); return new Paragraph({ heading: HeadingLevel.HEADING_2, keepNext: true, children: [new TextRun({ text, font: FONT })], spacing: { before: 200, after: 80 } }); };
-const CAPTION = (text) => { TEXT.push(text); return new Paragraph({ spacing: { before: 40, after: 220 }, children: runs(text, { size: 18, color: "52514E" }) }); };
+const CAPTION_ = (text) => { TEXT.push(text); return new Paragraph({ spacing: { before: 40, after: 220 }, children: runs(text, { size: 18, color: "52514E" }) }); };
 const TITLE = (text) => new Paragraph({ spacing: { before: 180, after: 60 }, keepNext: true, children: runs(text, { size: 20, bold: true }) });
 const BULLET = (text) => { TEXT.push(`- ${text}`); return new Paragraph({ numbering: { reference: "bullets", level: 0 }, children: runs(text), spacing: { before: 20, after: 60, line: 276 } }); };
 
@@ -106,10 +109,10 @@ const TABS = ["vars", "s2", "find", "rep", "top10", "price", "A1", "A2", "A3"];
 const APPX = { A1: "A1", A2: "A2", A3: "A3" };
 const tn = (k) => (APPX[k] ? APPX[k] : String(TABS.indexOf(k) + 1));
 const T = (k) => `Table ${tn(k)}`;
-const TT = (k, title) => TITLE(`${T(k)}. ${title}`);
+const TT = (k, title) => tag(TITLE(`${T(k)}. ${title}`), "start");
 const border = { style: BorderStyle.SINGLE, size: 4, color: "C9C8C3" };
 const borders = { top: border, bottom: border, left: border, right: border };
-function TABLE(header, rows, widths, numeric = [], size = 16) {
+function TABLE_(header, rows, widths, numeric = [], size = 16) {
   const tot = widths.reduce((a, b) => a + b, 0);
   if (tot > 9660) throw new Error(`table too wide: ${tot}`);
   const cell = (text, i, head, kp) => new TableCell({
@@ -135,8 +138,20 @@ for (const [rule, col] of [[AR, "any_age28"], [AR, "any_defence"], [MR, "top15"]
 const reduce = (mc, ac) => O.map((_, i) => 1 - r_(AR, ac, i)[0] / r_(MR, mc, i)[0]);
 const rangePct = (xs) => `${Math.round(100 * Math.min(...xs))}% to ${Math.round(100 * Math.max(...xs))}%`;
 
+// the companion hook (vv5.3): each table and figure is tagged as it is made; add() collects a titled table or figure
+// with its caption, for companion_doc.js ("Figures and Regression Results")
+const tag = (x, t) => { x.__cap = t; return x; };
+const CAPTION = (text) => tag(CAPTION_(text), "body");
+const TABLE = (...a) => tag(TABLE_(...a), "body");
+const COMPANION = [];
+let capOn = false;
 const kids = [];
-const add = (...xs) => xs.flat().forEach((x) => kids.push(x));
+const add = (...xs) => xs.flat().forEach((x) => {
+  kids.push(x);
+  if (x && x.__cap === "start") capOn = true;
+  else if (!(x && x.__cap === "body")) capOn = false;
+  if (capOn) COMPANION.push(x);
+});
 add(new Paragraph({ spacing: { after: 40 }, children: [new TextRun({ text: "Findings", bold: true, size: 40, font: FONT })] }));
 
 // =====================================================================================================================
@@ -366,7 +381,9 @@ const doc = new Document({
     footers: { default: new Footer({ children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ children: [PageNumber.CURRENT], size: 18, color: "8A8984", font: FONT })] })] }) },
     children: kids }],
 });
-Packer.toBuffer(doc).then((buf) => {
+module.exports = { VERSION, title: "Findings", blocks: COMPANION,
+  n: new Set([...TABS, ...Object.keys(APPX)]).size + (typeof FIGS === "undefined" ? 0 : FIGS.length) };
+if (require.main === module) Packer.toBuffer(doc).then((buf) => {
   fs.writeFileSync(OUTFILE, buf);
   if (process.env.LINT_OUT) fs.writeFileSync(process.env.LINT_OUT, TEXT.join("\n\n"), "utf8");
   console.log(`${VERSION} wrote ${OUTFILE} (${(buf.length / 1024).toFixed(0)} KB)`);

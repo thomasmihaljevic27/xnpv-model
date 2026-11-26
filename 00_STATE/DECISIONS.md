@@ -4400,3 +4400,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 
 - DOCUMENT: `40_DOCS/Method_Flow.pdf` and `.png`, the method on one page (flow_diagram.py v1.0), replacing the September
   overview's chart. WORK_QUEUE 0b done. No model change. Session log 2026-11-27.
+
+### Change log, 2026-11-27j (the figures and regression results document)
+
+- DOCUMENT: `40_DOCS/Figures and Regression Results.docx` (companion_doc.js v1.0; companion_figures.py v1.0), the companion
+  to the four chunks. The chunk builders gain a hook (player_doc v1.5, pick_doc v1.3, prospect_doc v1.3, findings_doc v5.3)
+  that leaves each chunk byte-identical. WORK_QUEUE 0c done. No model change. Session log 2026-11-27.
