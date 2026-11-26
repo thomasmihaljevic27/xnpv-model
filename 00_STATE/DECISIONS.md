@@ -4300,3 +4300,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   baseline, forecast_term_audit's scoring); price_line_spec_tests.py v1.2 runs on today's lock at its tolerance. Every
   choice the document defends holds. New for Thomas: WORK_QUEUE 0j (the comparables' level without the league average).
   No model change. MANIFEST rows; inspection ledger; session log 2026-11-25.
+- DECISION (Thomas: "Keep the model"): WORK_QUEUE 0j closed. The comparable players' level keeps the league average at
+  weight ten; the alternative found by model_choices_current.py (season WAR 0.8048 against 0.8054, found by a search over
+  231 blends on the same rows) is not tested further. No model change.

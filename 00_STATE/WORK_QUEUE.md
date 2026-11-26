@@ -47,7 +47,7 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
    flagged on 2026-11-21 carried into the fully worded Findings (findings_doc.js v4.0). Decided: the file keeps the name `40_DOCS/Findings.docx` (Thomas:
    "Just keep it findings"; `findings_doc.js` writes it).
 0i. Done 2026-11-24 (Thomas: "update project state"): PROJECT_STATE v3.7, next due 2026-12-01.
-0j. Decide (Thomas): the comparable players' level without the league average in it. Re-measuring the forecast's choices
+0j. Decided 2026-11-25 (Thomas: "Keep the model"): the comparable players' level keeps the league average in it. Re-measuring the forecast's choices
    on today's model (2026-11-25, `25_TESTS/model_choices_current.py` v1.0; Thomas: "All five now") found that the start
    built from 65% his own rate and 35% his comparable players' weighted level ALONE (the league average at weight ten
    taken out of that level only, kept in the year-to-year changes) has a lower error than the model: season WAR 0.8048
@@ -55,6 +55,7 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
    starting level 1.1502 against 1.1506 (p = 0.16). It was found by a search over 231 blends on these same rows, so
    those p-values overstate the evidence. Taking the league average out of the changes as well (comparable players
    alone) is worse one to five ahead (1.3586, p = 0.024). Nothing changed; the model and its locks stand.
+   Not tested further; the model, the price line, the pick curve and the prospect model stand as they are.
 
 1. Done 2026-11-18: the writeup revised on Thomas's 35 comments, then on his second round of 14 (`40_DOCS/Trade Back-test
    Findings.docx`, findings_doc.js v2.3; the second round's notes are in the ", revised" file, the first round's in the file
