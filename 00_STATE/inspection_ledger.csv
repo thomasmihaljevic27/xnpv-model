@@ -629,3 +629,4 @@ utc,runner,kind,keys,reserved_keys,reason
 2026-10-22T01:20:00Z,forecast_term_audit.py,pages,2015 2016 2017 2018 2019 2020 2021,,terms not statistically significant; games weighting; counting threshold (Thomas 2026-10-21)
 2026-10-22T01:23:28Z,forecast_term_audit.py,pages,2015 2016 2017 2018 2019 2020 2021,,terms not statistically significant; games weighting; counting threshold (Thomas 2026-10-21)
 2026-11-25T19:12:19Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
+2026-11-26T01:36:50Z,forecast_term_audit.py,pages,2015 2016 2017 2018 2019 2020 2021,,terms not statistically significant; games weighting; counting threshold (Thomas 2026-10-21)
