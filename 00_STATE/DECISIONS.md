@@ -4370,3 +4370,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DOCUMENT (Thomas: "made a few notes and changes to the prospects"): his copy committed (64933c8); "Valuing Prospects"
   v1.1 (prospect_doc.js v1.1): his 12 edits, his 5 notes (the age equation moved up, the traded-prospects section cut).
   MANIFEST rows; session log 2026-11-27.
+
+### Change log, 2026-11-27e (the prospect document, an outside review)
+
+- DOCUMENT: "Valuing Prospects" v1.2 (prospect_doc.js v1.2): an outside review's wording and arithmetic notes, applied.
+  Thomas's note: the trade on one scale becomes its own final section in the final draft. Session log 2026-11-27.
