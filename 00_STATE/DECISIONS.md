@@ -4335,3 +4335,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DOCUMENT (Thomas: "Yes, implement it"): "Valuing Players" v1.2 (25_TESTS/player_doc.js v1.2): his 25 edits with the
   corrections agreed in 2026-11-26a, his 8 comments, the outside review's fixes; the forecast's tests one table per step.
   model_doc_figures.py v4.4 (Figure 2's axis label). MANIFEST rows; WORK_QUEUE 0a; session log 2026-11-26.
+
+### Change log, 2026-11-26c (the pick document)
+
+- DOCUMENT (Thomas: "Agreed, re-run those two and build it"): "Valuing Draft Picks" v1.0 (40_DOCS/Valuing Draft Picks.docx;
+  25_TESTS/pick_doc.js v1.0 and pick_doc_figures.py v1.0, new), the second write-up chunk, from v5.0's Section 6 and
+  Appendix C with his comments 81-92. Re-measured on today's model: CBA Group 6 (pick_group6_check.py v1.1, -0.52%) and
+  entry-level seasons at the term left (pick_elc_term_check.py v1.0, new: star value +29.9%). model_doc_figures.py v4.5
+  (the pick figure's labels). No model change. MANIFEST rows; WORK_QUEUE 0a; session log 2026-11-26.

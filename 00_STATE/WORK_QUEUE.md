@@ -12,7 +12,7 @@
 2026-11-24).** Deadline: end of December, with his review, the changes and his sign-off inside it ("sooner is better").
 Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the documents.
 0a. Do: the write-up in four chunks (2026-11-25: the big document updated, v5.0, and the Findings fully worded, v4.0; to be
-   read by Thomas, then split; the player chunk built 2026-11-25, `40_DOCS/Valuing Players.docx`, shortened the same day as v1.1 on Thomas's "Yes, build it"; v1.2 on 2026-11-26 with his edits and an outside review's fixes, for Thomas to read), in this order (Thomas, 2026-11-24): the player model, the pick model, the prospect
+   read by Thomas, then split; the player chunk built 2026-11-25, `40_DOCS/Valuing Players.docx`, shortened the same day as v1.1 on Thomas's "Yes, build it"; v1.2 on 2026-11-26 with his edits and an outside review's fixes, for Thomas to read; the pick chunk built 2026-11-26, `40_DOCS/Valuing Draft Picks.docx`, for Thomas to read), in this order (Thomas, 2026-11-24): the player model, the pick model, the prospect
    model, each from "Valuing Players, Draft Picks, and Prospects" (finish editing it, then split it); then the findings, the
    point-form `40_DOCS/Findings.docx` split up. Thomas: "I don't think there would be anything else?"
 0b. Do: a new flow diagram of the finished method (Thomas: "Yep, that needs to be made").

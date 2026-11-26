@@ -12,7 +12,7 @@ WHAT THIS SCRIPT DOES
   under the games ceiling by then, assuming each has three professional seasons, which overstates it, because the
   data holds no minor-league games), drops each drafted player's priced seasons after that end
   (pick_curve_seasons.csv, the adopted arbitration cost), keeps lapsed-rights picks at zero, and refits the star
-  value with pick_curve's regression (through zero, sum-to-zero draft-year columns, robust errors).
+  value with pick_curve's regression (v1.1: through zero, no draft-year terms, robust errors, as it runs since v1.7).
   Truncating a window changes no earlier season's cost: each season's cost depends only on the seasons before it.
 
 DECLARED READING (before the run): the bound is the most Group 6 could move the star value. Under 2% is "no
@@ -30,7 +30,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "pick_group6_check.py v1.0 (2026-10-14)"
+SCRIPT_VERSION = "pick_group6_check.py v1.1 (2026-11-26)"   # v1.1: refit as pick_curve.py runs today (through zero, no draft-year terms, the deceased left out); re-run for the pick document
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 print(SCRIPT_VERSION)
@@ -47,10 +47,10 @@ w = pd.read_csv(F["draft_window_count"])[["draftYear", "overall", "end_g3", "end
 
 
 def fit_scale(frame, col):
-    cl = sorted(frame["draftYear"].unique())
-    yrs = frame["draftYear"].values
-    X = [frame["p_star"].values] + [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float) for c in cl[:-1]]
-    m = sm.OLS(frame[col].values / 1e6, np.column_stack(X)).fit(cov_type="HC1")
+    # v1.1: pick_curve.py's regression as it runs since v1.7: through zero, no draft-year terms, robust errors, the
+    # drafted players who died left out (v1.6)
+    frame = frame[~frame["excluded_deceased"].astype(bool)]
+    m = sm.OLS(frame[col].values / 1e6, frame[["p_star"]].values).fit(cov_type="HC1")
     return m.params[0], m.bse[0]
 
 

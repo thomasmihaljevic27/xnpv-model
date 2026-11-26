@@ -363,7 +363,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,control_cost_note_doc.js,draft,hashable,2026-10-15,356593b6334efcf7bb41fb8c57be669a2833a22a,11829,2026-10-15,yes,git,built Arbitration Cost Update.docx on 2026-10-14; no longer its source (2026-10-15)
 25_TESTS,control_cost_figure.py,draft,hashable,2026-10-15,5b31ad57913169c345cab5d47502558eb61c1d23,16095,2026-10-15,yes,git,"v1.0: Figure 1 of Arbitration Cost Update (value, chain cost, market price rule, cap hits); guard against pick_curve_log; inserts into the .docx"
 40_DOCS/Supervisor_Drafts,Arbitration Cost Update.docx,doc,rendition,2026-10-15,e63e4d4aaefa90813cc6e11cc3c30849c4ed7fe9,16553,2026-10-15,yes,git,Thomas's edit with his 2026-10-15 note; Figure 1 inserted by control_cost_figure.py (placeholder until run); the record
-25_TESTS,pick_group6_check.py,draft,hashable,2026-10-14,8e9353702819a62adcd2ce73f1681c371ac5f63a,4936,2026-10-14,yes,git,v1.0: the star value with CBA Group 6 applied at its upper bound (-0.37%)
+25_TESTS,pick_group6_check.py,draft,hashable,2026-11-26,17a4b7d31274e710017f98ec4df32811b141d6ef,5124,2026-11-26,yes,git,"v1.1: refit as pick_curve runs today; -0.52% at the upper bound"
 40_DOCS,Age_and_Weighting_Audit.md,doc,hashable,2026-10-14,a0f5928a4a028c38b2a3b28683c736d4f83224f9,10617,2026-10-14,yes,git,where the model reads an age (date vs the CBA) and where it weights seasons or pulls toward the league; Thomas's decisions 2026-10-14 at the top
 00_STATE/sessions,2026-10-14.md,state,hashable,2026-10-14,33dfa2d1b5f76430bf32570b4e57e25c16727073,8368,2026-10-14,yes,git,session log: work-queue walk-through and audit; checks before the prospect model; age and arbitration decisions; PROJECT_STATE v3.4
 20_CODE,elc_signing_dates.py,draft,hashable,2026-10-21,d9606b972488a5b2a5024a731ad6f6b470357809,16450,2026-10-21,yes,git,v1.4: contract_source.read_goalie_war
@@ -503,7 +503,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,prospect_values.py,prospect,hashable,2026-11-24,037ef441f5993a5842a23ec56f9861fac8bdd499,62318,2026-11-24,yes,git,"v1.13: comment only (Peterka confirmed by Thomas)"
 25_TESTS,star_miss_current.py,player,hashable,2026-11-25,e2f23b25f13c8ed7be98164adc130759701ba36b,3906,2026-11-25,yes,git,"v1.0: the star tier's miss on today's forecast (report only)"
 25_TESTS,model_doc.js,docs,hashable,2026-11-25,0945f56b38427c54cdbdf8e54094fc2a2aeb2e0b,172762,2026-11-25,yes,git,"2026-11-25: shares of the cap; the ledger's sources; Section 9's limits re-measured (Thomas)"
-25_TESTS,model_doc_figures.py,docs,hashable,2026-11-26,be6775b9971071e8576b6fda074cfbaaba372335,69900,2026-11-26,yes,git,"v4.4: the price-line figure without if he plays"
+25_TESTS,model_doc_figures.py,docs,hashable,2026-11-26,88b1b98a389c75834ee91cd7dd46eacb3d5f851f,69991,2026-11-26,yes,git,"v4.5: the pick figure says NPV over club control (Thomas, comment 89)"
 25_TESTS,findings_doc.js,docs,hashable,2026-11-25,7244adc5ab3e8908afc8d0a9514f841da96cfa6f,48542,2026-11-25,yes,git,"2026-11-25: the Findings fully worded; every figure read from the outputs (Thomas)"
 25_TESTS,findings_numbers.py,docs,hashable,2026-11-25,763e221e797e47ca1d48d0dfd6113edf3d9c5c46,13627,2026-11-25,yes,git,"2026-11-25: the Findings fully worded; every figure read from the outputs (Thomas)"
 25_TESTS,doc_check.py,docs,hashable,2026-11-25b,abdf64a26fc143b58624b068b5c43bf18d50674c,10697,2026-11-25,yes,git,"v1.0: the banned-pattern check run on every document build (Thomas: Yes, merge and add it)"
@@ -517,3 +517,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,player_doc.js,docs,hashable,2026-11-26,54737a051d2d6dbf0ef1f95acfa409db70907a0b,95307,2026-11-26,yes,git,"v1.2: his 25 edits, the agreed fixes, the tests one table per step (Thomas: Yes, implement it)"
 25_TESTS,player_doc_figures.py,docs,hashable,2026-11-25d,157520a33de120424c539adee9cdd4984426a002,13332,2026-11-25,yes,git,"v1.0: the player document's tested figures from today's runs, guarded"
 40_DOCS,Valuing Players.docx,docs,rendition,2026-11-26,ddb5fd922b58b6369f4fad4cd0a5a7ada55f5c2e,277100,2026-11-26,yes,git,"v1.2, built by player_doc.js v1.2"
+25_TESTS,pick_elc_term_check.py,draft,hashable,2026-11-26,b6b986914bd20d69896785b789e2c61c1105fa9d,7544,2026-11-26,yes,git,"v1.0: entry-level seasons at the term left; star value +29.9%"
+25_TESTS,pick_doc_figures.py,docs,hashable,2026-11-26,63e37413c14debb615a947e47a6060075468e8a3,6217,2026-11-26,yes,git,"v1.0: the pick document figures model_doc_figures does not compute, guarded"
+25_TESTS,pick_doc.js,docs,hashable,2026-11-26,73689150c9a6c6f0e5d3ed697a521061235f1929,47121,2026-11-26,yes,git,"v1.0: builds Valuing Draft Picks.docx, the pick chunk (Thomas: Agreed, re-run those two and build it)"
+40_DOCS,Valuing Draft Picks.docx,docs,hashable,2026-11-26,4ac9a50e275afc500df0da2fa8ebe6f7e6a36dd6,191317,2026-11-26,yes,git,"v1.0, built by pick_doc.js v1.0"

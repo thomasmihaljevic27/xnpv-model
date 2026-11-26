@@ -50,7 +50,7 @@ import matplotlib                                                  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                                    # noqa: E402
 
-SCRIPT_VERSION = "model_doc_figures.py v4.4 (2026-11-26)"   # v4.4: the price-line figure's axis without "if he plays" (an outside review); v4.3: money axes as shares of the 2025-26 cap (Thomas: "Both documents"); v4.2: the prospect model with defenceman x production; the prospect document's tests read in; v4.1: figure labels say NPV and xNPV, not surplus (Thomas); v4.0: the model after 2026-10-21 (round-2 notes)
+SCRIPT_VERSION = "model_doc_figures.py v4.5 (2026-11-26)"   # v4.5: the pick figure says NPV over club control (Thomas, comment 89 on v5.0); v4.4: the price-line figure's axis without "if he plays" (an outside review); v4.3: money axes as shares of the 2025-26 cap (Thomas: "Both documents"); v4.2: the prospect model with defenceman x production; the prospect document's tests read in; v4.1: figure labels say NPV and xNPV, not surplus (Thomas); v4.0: the model after 2026-10-21 (round-2 notes)
 OUT, SRC = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 FIG = OUT / "model_doc"
 FIG.mkdir(exist_ok=True)
@@ -930,9 +930,9 @@ for nm, col, ls, lab in (("straight line in draft position", A4, ":", "Straight 
     ax.plot(xs, np.asarray(PK["shapes"][nm]["curve"], dtype=float) * SHR, color=col, lw=1.8, ls=ls, label=lab, zorder=3)
 ax.axhline(0, color=MUTED, lw=0.6)
 ax.set_xlabel("Draft position")
-ax.set_ylabel("Career NPV (% of the 2025-26 cap)")
+ax.set_ylabel("NPV over club control (% of the 2025-26 cap)")
 ax.set_ylim(-3 * SHR, max(16, np.nanmax(PK["avg_curve"][:5]) + 1) * SHR)
-tidy(ax, "Career NPV delivered, and three curves")
+tidy(ax, "NPV over club control, and three shapes")
 ax.legend(frameon=False, fontsize=7.2, loc="upper right")
 fig.tight_layout(); fig.savefig(FIG / "fig_picks.png"); plt.close(fig)
 
