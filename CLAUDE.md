@@ -524,12 +524,12 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
   pass twice and sent Thomas to wait three days. The page was loading with status 200: the package's
   block test matched "evil" inside "Belleville" (2026-10-08). Before diagnosing a block, request the
   exact page the run is stuck on and read its status code and body, and note which player it is.
-- **Don't hand Thomas a reader-facing document without an agreed spine and the writing-style skill's 1.6 review
+- **Don't hand Thomas a reader-facing document without an agreed spine and the writing-style skill's review
   pass.** "Valuing Draft Picks" ran 11 pages as "an info dump, and a long one at that", and its rewrite still drew 38
   comments, nearly all one of six failures: vague phrases for plain claims, coined labels ("dollar scale", "the
   chain"), claims without their number, results described instead of shown, numbers without their meaning, and
   choices without their reason (2026-10-09). Agree three to five take-aways first, then check each sentence against
-  skill section 1.6 before handing it over. Then run the checks at the end of `40_DOCS/Valuing_Prospects_Feedback.md`, his
+  the skill's final checklist (section 1.6 before version 2.0) and clear `doc_check.py`'s BAN list before handing it over. Then run the checks at the end of `40_DOCS/Valuing_Prospects_Feedback.md`, his
   five rounds of notes on "Valuing Prospects" sorted into themes (2026-10-16).
 - **Don't state what an option costs against a baseline nobody chose.** Asked how pricing a rookie's
   entry-level seasons at the deal's remaining term compares with pricing them as one-year deals, a
@@ -723,9 +723,20 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
 
 ## Working style
 
-Plain English. High hockey fluency, no assumed statistics or econometrics vocabulary. Name a
-technical term once, then explain it plainly and say why it matters. Numbered steps with the
-reasoning behind them. For code, explain each block in prose before or alongside it, with heavy
+In chat with Thomas: plain English, high hockey fluency, a technical term named once and then
+explained plainly with why it matters, numbered steps with the reasoning behind them.
+
+In reader-facing documents (anything in `40_DOCS/` written for Karl or the thesis): the writing-style
+skill, version 2.0 (2026-11-25; the version-controlled copy is `40_DOCS/writing-style/SKILL.md`). Those
+documents are written for an economics committee: impersonal (no first person), with the standard
+econometric terms (dummy variable, interaction term, regression, out-of-sample RMSE), each defined once
+at first use, and plain sentence structure. Plain English there governs the sentences, not the
+technical terms; folk English such as "yes-or-no input", "the fit" or "held-out error" is what Thomas
+asked to retire (2026-11-25). Every build of `model_doc.js` and `findings_doc.js` runs
+`25_TESTS/doc_check.py` on the file it writes and prints the count of each banned pattern (each hit goes
+to `30_OUTPUT/doc_check/`); clear its BAN list and read each LOOK hit before handing a document over.
+The installed skill lives in the claude.ai plugin, so a plugin sync can overwrite the merged version
+with the old one: after a sync, compare the installed SKILL.md with the repo copy by hash. For code, explain each block in prose before or alongside it, with heavy
 inline comments flagging every baked-in assumption: join keys, dedupe rules, which coefficient
 vintage is in use, how a curve is applied.
 

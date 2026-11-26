@@ -506,3 +506,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,model_doc_figures.py,docs,hashable,2026-11-25,aee8d0ae0e6557d8a7ce5f13fcff01b2e67daa1b,70891,2026-11-25,yes,git,"2026-11-25: shares of the cap; the ledger's sources; Section 9's limits re-measured (Thomas)"
 25_TESTS,findings_doc.js,docs,hashable,2026-11-25,7244adc5ab3e8908afc8d0a9514f841da96cfa6f,48542,2026-11-25,yes,git,"2026-11-25: the Findings fully worded; every figure read from the outputs (Thomas)"
 25_TESTS,findings_numbers.py,docs,hashable,2026-11-25,763e221e797e47ca1d48d0dfd6113edf3d9c5c46,13627,2026-11-25,yes,git,"2026-11-25: the Findings fully worded; every figure read from the outputs (Thomas)"
+25_TESTS,doc_check.py,docs,hashable,2026-11-25b,abdf64a26fc143b58624b068b5c43bf18d50674c,10697,2026-11-25,yes,git,"v1.0: the banned-pattern check run on every document build (Thomas: Yes, merge and add it)"
+25_TESTS,model_doc.js,docs,hashable,2026-11-25b,21267a2512d0928f72bff91aa3a6d5d98c49d3fb,173567,2026-11-25,yes,git,2026-11-25b: runs doc_check.py on the file it writes (text unchanged)
+25_TESTS,findings_doc.js,docs,hashable,2026-11-25b,bb67a34a4ea4c873be079e57f5c031bb066bf20c,49347,2026-11-25,yes,git,2026-11-25b: runs doc_check.py on the file it writes (text unchanged)
+40_DOCS/writing-style,SKILL.md,docs,hashable,2026-11-25b,fb0ce088250d8197a7e5e69d03db62d36cb9a7f7,21487,2026-11-25,yes,git,writing-style skill v2.0: the revamp merged with version 1 (Thomas)

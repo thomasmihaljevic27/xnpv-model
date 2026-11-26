@@ -939,4 +939,13 @@ Packer.toBuffer(doc).then((buf) => {
   fs.writeFileSync(OUTFILE, buf);
   if (process.env.LINT_OUT) fs.writeFileSync(process.env.LINT_OUT, TEXT.join("\n\n"), "utf8");
   console.log(`wrote ${OUTFILE} (${(buf.length / 1024).toFixed(0)} KB)`);
+  // 2026-11-25: the banned-pattern check (25_TESTS/doc_check.py) runs on every build; the count table
+  // prints here, each hit with its paragraph goes to 30_OUTPUT/doc_check/. It lists, it never edits or stops.
+  const chkDir = path.join(ROOT, "30_OUTPUT", "doc_check");
+  fs.mkdirSync(chkDir, { recursive: true });
+  const chkOut = path.join(chkDir, path.basename(OUTFILE).replace(/\.docx$/i, ".txt"));
+  const chk = require("child_process").spawnSync(process.env.PYTHON || "python",
+    [path.join(__dirname, "doc_check.py"), "--quiet", "--out", chkOut, OUTFILE],
+    { stdio: "inherit", env: Object.assign({}, process.env, { PYTHONIOENCODING: "utf-8" }) });
+  if (chk.error || chk.status !== 0) console.log(`doc_check did not run: ${chk.error ? chk.error.message : "exit " + chk.status}`);
 });

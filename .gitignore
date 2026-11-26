@@ -22,7 +22,8 @@
 /env
 debug.log
 # Local Claude Code state stays out (settings.local.json and the like). The writing-style
-# skill lives in the claude.ai account, not the repo (repo copy removed 2026-10-04).
+# skill is installed from the claude.ai account; its version-controlled copy is 40_DOCS/writing-style/SKILL.md
+# (removed 2026-10-04, restored 2026-11-25 with version 2.0).
 .claude/
 
 # --- Generated output. Regenerable from code, drifts every run ---

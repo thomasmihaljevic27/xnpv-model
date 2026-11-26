@@ -4280,3 +4280,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   difference variables; shares of the cap; the former top-10 pick as exploratory; the cap-dump note in the discussion. Four
   stale readers re-run first (defence_checks, defence_gap_split, trend_both, played_out_trades). MANIFEST rows; WORK_QUEUE
   0a, 0f, 0g, 0h; session log 2026-11-25.
+
+### Change log, 2026-11-25b (the writing skill, and a check on every build)
+
+- PROCESS (Thomas: "Yes, merge and add it"): the writing-style skill version 2.0, his revamp with version 1's
+  personification ban, project vocabulary, worked rewrites, mechanical-check step and "write what you say" merged in;
+  copy in 40_DOCS/writing-style/SKILL.md. 25_TESTS/doc_check.py v1.0 (new) lists the banned patterns; model_doc.js and
+  findings_doc.js run it on each build (no change to either document's text). CLAUDE.md working style: chat in plain
+  English, documents in the skill's register with the standard econometric terms. MANIFEST rows; session log 2026-11-25.
