@@ -19,7 +19,7 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
    Built: `40_DOCS/Method_Flow.pdf` and `.png` (`25_TESTS/flow_diagram.py`), on the layout Thomas agreed.
 0c. [DONE 2026-11-27] Do: a figures and regression results document beside each chunk (Thomas: "Sure").
    Built: `40_DOCS/Figures and Regression Results.docx` (`25_TESTS/companion_doc.js`, `companion_figures.py`), one file
-   for the four chunks (Thomas's choice); open: the goaltender age slope in "Valuing Players" (session log 2026-11-27).
+   for the four chunks (Thomas's choice); the goaltender age slope in "Valuing Players" fixed to the model's (v1.6).
 0d. Do: a separate codebook for each document (the three models and the findings), each relevant CSV checked accurate;
    descriptions sparse (Thomas: "Keep the codebook sparse in terms of description"). Decided 2026-11-24: "If we need to send
    him the PuckPedia csvs or a mix of the various sources in a single CSV, that's what we have to do." Thomas has run some of

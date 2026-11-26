@@ -41,6 +41,9 @@
 // v1.5 (2026-11-27; Thomas: "Build it", the companion): unchanged text; a hook collects each titled table and
 // figure for companion_doc.js, and the chunk is written only when this file is run.
 //
+// v1.6 (2026-11-27; Thomas: "Yes, fix it"): Section 5's goaltender age slope is the model's 2025-26 straight line
+// (0.09 a year, as the companion's Table R1), not the linear term of a test regression with age squared (0.10).
+//
 // Run:  NODE_PATH=<folder with docx> node 25_TESTS/player_doc.js   (DOC_OUT=<file> to write elsewhere; LINT_OUT=<file.md>)
 
 const fs = require("fs");
@@ -51,7 +54,7 @@ const {
   MathFraction, MathSum, MathRoundBrackets,
 } = require("docx");
 
-const VERSION = "player_doc.js v1.5";
+const VERSION = "player_doc.js v1.6";
 const ROOT = path.resolve(__dirname, "..");
 const FIG = path.join(ROOT, "30_OUTPUT", "model_doc");
 const N = JSON.parse(fs.readFileSync(path.join(FIG, "numbers.json"), "utf8"));
@@ -202,6 +205,11 @@ for (const [k, v] of [["start", 1.1506], ["whole", 1.3569], ["war", 0.8054]]) {
 // p of a comparison: that the adopted model's error is not lower; a dagger marks a version with the lower RMSE, and
 // its p is then that the version's error is not lower
 const pB = (r, k) => (r[`p_build_better_${k}`] <= 0.5 ? pr(r[`p_build_better_${k}`]) : `${pr(r[`p_version_better_${k}`])}†`);
+// v1.6: the goaltender age slope is the straight line the model uses at 2025-26 (companion_figures.py, guarded there
+// against GoalieProjector.age_coef; Table R1 of the companion), not the linear term of a test with age squared
+const CF = JSON.parse(fs.readFileSync(path.join(ROOT, "30_OUTPUT", "companion", "numbers.json"), "utf8"));
+if (!String(CF.script).startsWith("companion_figures.py v1.") || CF.page !== 2025) throw new Error(`companion numbers from ${CF.script}`);
+const GAGE = CF.g_age;
 const G2 = N2.goalie, SP = N2.spec, E2 = N2.e2, A82 = N2.all82, W64 = N2.w6040, AB = N2.age_bands, DROP = N2.dropped;
 
 // the companion hook (vv1.5): each table and figure is tagged as it is made; add() collects a titled table or figure
@@ -518,7 +526,7 @@ add(CAPTION(`Percent of the 2018-19 cap ($${f1(M(CAP18))} million). Age on Septe
 add(H1("5. Goaltenders"));
 add(P(`A goaltender's WAR carries over from one season to the next far less than a skater's. Across consecutive seasons of 20 or more games, a goaltender's WAR in one season has a correlation of ${f3(G2.g_r)} with his WAR in the next (${comma(G2.g_pairs)} pairs by ${G2.g_goalies} goaltenders), compared with ${f3(G2.s_r)} for skaters, and his 50/30/20 average of the three seasons before has a correlation of ${f3(G2.g_trail)} with the next season, compared with ${f3(G2.s_trail)} for skaters. A goaltender's own record therefore says much less about his next season, and his forecast keeps less of it.`));
 add(P(`A goaltender's forecast is his 50/30/20 average of season WAR, keeping 35% of it and pulling 65% toward the league average of 2.19 WAR, plus an age term. The 35% was chosen by cross-validation. Each goaltender's seasons were predicted from regressions on other goaltenders (${comma(G2.cv_n)} goaltender-seasons of 20 or more games by ${G2.cv_goalies} goaltenders), and the out-of-sample RMSE of season WAR, the square root of the mean squared error across the cross-validation folds, was lowest at 35% (${f4(Math.sqrt(G2.pull_mse))} wins, compared with ${f4(Math.sqrt(G2.pull_30))} at 30% and ${f4(Math.sqrt(G2.pull_40))} at 40%). Every season counts, whatever its games; counting only seasons of 10 or more games, as for skaters, raised the out-of-sample RMSE (${f4(Math.sqrt(G2.gp10))} compared with ${f4(Math.sqrt(G2.gp10_base))} on the same seasons).`));
-add(P(`The age term is a straight line in age, estimated on the forecast's errors in goaltender-seasons before the valuation season. It lowers the forecast by about ${f2(-G2.slope)} WAR for each year of age (${pq(G2.slope_p)} in sample) and lowers the out-of-sample RMSE of season WAR by ${f2(100 * (1 - Math.sqrt(G2.age_lin / G2.age_base)))}% (${f4(Math.sqrt(G2.age_lin))} compared with ${f4(Math.sqrt(G2.age_base))}; p = ${f3(G2.age_lin_p)}). Adding age squared lowered it by a further ${f2(100 * (Math.sqrt(G2.age_lin / G2.age_base) - Math.sqrt(G2.age_quad / G2.age_base)))}%, a gain that was not compared with the straight line by a test of its own, so the simpler straight line was kept. The term is applied at his age in each season, so a goaltender's forecast declines as he ages.`));
+add(P(`The age term is a straight line in age, estimated on the forecast's errors in goaltender-seasons before the valuation season. Estimated for 2025-26, it lowers the forecast by about ${f2(-GAGE.terms.age_c.b)} WAR for each year of age (${pq(GAGE.terms.age_c.p)} in sample) and lowers the out-of-sample RMSE of season WAR by ${f2(100 * (1 - Math.sqrt(G2.age_lin / G2.age_base)))}% (${f4(Math.sqrt(G2.age_lin))} compared with ${f4(Math.sqrt(G2.age_base))}; p = ${f3(G2.age_lin_p)}). Adding age squared lowered it by a further ${f2(100 * (Math.sqrt(G2.age_lin / G2.age_base) - Math.sqrt(G2.age_quad / G2.age_base)))}%, a gain that was not compared with the straight line by a test of its own, so the simpler straight line was kept. The term is applied at his age in each season, so a goaltender's forecast declines as he ages.`));
 add(P(`A goaltender's chance of playing each season is a logistic regression for each season ahead on his age, his forecast, and his games share in the most recent season, as for skaters but without contract status. Age squared was not statistically significant in any season ahead (p from ${f3(G2.sq_p_min)} to ${f3(G2.sq_p_max)}) and is not in the model. On the valuation seasons 2015-16 to 2021-22 the mean forecast chance is ${f3(G2.fc0)}, compared with ${f3(G2.played0)} who played in the valuation season, and ${f3(G2.fc5)} compared with ${f3(G2.played5)} five seasons ahead.`));
 const GOC = N.goalie;
 add(P(`The goaltender price line has the skater line's form: cap share regressed on the forecast dated at the signing, censored at the league minimum, with a term for contract length, estimated on ${GOC.n} standard-level goaltender contracts starting from 2015-16 to 2025-26 (${GOC.at_min} at the minimum). Written with its estimates, in shares of the cap:`));

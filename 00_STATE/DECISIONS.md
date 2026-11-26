@@ -4406,3 +4406,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DOCUMENT: `40_DOCS/Figures and Regression Results.docx` (companion_doc.js v1.0; companion_figures.py v1.0), the companion
   to the four chunks. The chunk builders gain a hook (player_doc v1.5, pick_doc v1.3, prospect_doc v1.3, findings_doc v5.3)
   that leaves each chunk byte-identical. WORK_QUEUE 0c done. No model change. Session log 2026-11-27.
+
+### Change log, 2026-11-27k (the goaltender age slope in "Valuing Players")
+
+- DOCUMENT: "Valuing Players" v1.6 (player_doc.js v1.6): the goaltender age slope quoted is the model's 2025-26 straight
+  line (0.09 WAR a year), not a test regression's linear term (0.10). No model change. Session log 2026-11-27.

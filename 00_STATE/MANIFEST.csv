@@ -536,3 +536,5 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,companion_figures.py,docs,hashable,2026-11-27,ec5987dfc656acd8f5182967b3e55002ab2fb303,12567,2026-11-27,yes,git,"v1.0: the regressions the chunks give in prose, in full, guarded"
 25_TESTS,companion_doc.js,docs,hashable,2026-11-27,cd24868bf6bad325ad9ebb87805ff8587537f1a0,15602,2026-11-27,yes,git,"v1.0: writes 40_DOCS/Figures and Regression Results.docx"
 40_DOCS,Figures and Regression Results.docx,docs,hashable,2026-11-27,c652893102193969f6421c7b790b567b8b265bf4,706122,2026-11-27,yes,git,"built by companion_doc.js v1.0"
+25_TESTS,player_doc.js,docs,hashable,2026-11-27,3727cffd39ee545dfdddec66d6bcc8cf1f67fd55,97692,2026-11-27,yes,git,"v1.6: the goaltender age slope the model's 2025-26 line"
+40_DOCS,Valuing Players.docx,docs,hashable,2026-11-27,eea1ecc32483afd98e1f0f5a462ebd4c6d66e0f8,277110,2026-11-27,yes,git,"v1.6, built by player_doc.js v1.6"
