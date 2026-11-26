@@ -514,10 +514,10 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS/writing-style/scripts,LICENSE-ste-lint,docs,hashable,2026-11-25c,cb380040cc190991ff95e4beb64ce5f5f9688c4e,1075,2026-11-25,yes,git,its MIT licence
 25_TESTS,model_choices_current.py,player,hashable,2026-11-25c,c4bce9bc0839a6e9db380ac9b1f306089da1243c,32331,2026-11-25,yes,git,v1.0: the forecast's tested choices on today's model (Thomas: All five now)
 25_TESTS,price_line_spec_tests.py,player,hashable,2026-11-25c,6cb643c9532cd4f0ae11ac746ccb9cdb334add42,28798,2026-11-25,yes,git,v1.2: on today's lock at its tolerance; the October figures printed beside
-25_TESTS,player_doc.js,docs,hashable,2026-11-26,54737a051d2d6dbf0ef1f95acfa409db70907a0b,95307,2026-11-26,yes,git,"v1.2: his 25 edits, the agreed fixes, the tests one table per step (Thomas: Yes, implement it)"
+25_TESTS,player_doc.js,docs,hashable,2026-11-27,fad566b5e68822004e8ce2da34029817c492076e,95421,2026-11-27,yes,git,"v1.3: Section 6 retitled (his edit)"
 25_TESTS,player_doc_figures.py,docs,hashable,2026-11-25d,157520a33de120424c539adee9cdd4984426a002,13332,2026-11-25,yes,git,"v1.0: the player document's tested figures from today's runs, guarded"
-40_DOCS,Valuing Players.docx,docs,rendition,2026-11-26,ddb5fd922b58b6369f4fad4cd0a5a7ada55f5c2e,277100,2026-11-26,yes,git,"v1.2, built by player_doc.js v1.2"
+40_DOCS,Valuing Players.docx,docs,hashable,2026-11-27,bdbff25aba18b505b91d567b8ad703fc0035a412,277091,2026-11-27,yes,git,"v1.3, built by player_doc.js v1.3"
 25_TESTS,pick_elc_term_check.py,draft,hashable,2026-11-26,b6b986914bd20d69896785b789e2c61c1105fa9d,7544,2026-11-26,yes,git,"v1.0: entry-level seasons at the term left; star value +29.9%"
 25_TESTS,pick_doc_figures.py,docs,hashable,2026-11-26,63e37413c14debb615a947e47a6060075468e8a3,6217,2026-11-26,yes,git,"v1.0: the pick document figures model_doc_figures does not compute, guarded"
-25_TESTS,pick_doc.js,docs,hashable,2026-11-26,73689150c9a6c6f0e5d3ed697a521061235f1929,47121,2026-11-26,yes,git,"v1.0: builds Valuing Draft Picks.docx, the pick chunk (Thomas: Agreed, re-run those two and build it)"
-40_DOCS,Valuing Draft Picks.docx,docs,hashable,2026-11-26,4ac9a50e275afc500df0da2fa8ebe6f7e6a36dd6,191317,2026-11-26,yes,git,"v1.0, built by pick_doc.js v1.0"
+25_TESTS,pick_doc.js,docs,hashable,2026-11-27,097b257781cf96caea6178735190730cf7d04b78,47474,2026-11-27,yes,git,"v1.1: his edits; arbitration WAR dropped as a term"
+40_DOCS,Valuing Draft Picks.docx,docs,hashable,2026-11-27,9faa6a42d5c000e7a571b4902aed5f28f45a3f20,191300,2026-11-27,yes,git,"v1.1, built by pick_doc.js v1.1"

@@ -4343,3 +4343,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   Appendix C with his comments 81-92. Re-measured on today's model: CBA Group 6 (pick_group6_check.py v1.1, -0.52%) and
   entry-level seasons at the term left (pick_elc_term_check.py v1.0, new: star value +29.9%). model_doc_figures.py v4.5
   (the pick figure's labels). No model change. MANIFEST rows; WORK_QUEUE 0a; session log 2026-11-26.
+
+### Change log, 2026-11-27a (the pick and player documents, his copies)
+
+- DOCUMENT (Thomas: "pick doc is mostly fine. Take a look"): his copies committed (552a8b7); "Valuing Draft Picks" v1.1
+  (pick_doc.js v1.1: his edits; the term "arbitration WAR" dropped, its meaning kept) and "Valuing Players" v1.3
+  (player_doc.js v1.3: Section 6 retitled). MANIFEST rows; session log 2026-11-27.

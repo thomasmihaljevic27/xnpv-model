@@ -15,6 +15,7 @@
 //     the model's own figures from OUTPUT_DIR/model_doc/numbers.json (model_doc_figures.py v4.3, refreshed 2026-11-25);
 //   - the order changed so nothing is argued before it is introduced: the own rate, then comparable players, then the
 //     starting level that blends them, then aging.
+// v1.3 (2026-11-27; Thomas): Section 6 retitled "Limitations of the Player Model", his edit to his copy (552a8b7).
 // v1.2 (2026-11-26; Thomas: "Yes, implement it", on the list agreed that day). His 25 edits to v1.1 (committed 8010f1f)
 // carried in, except where the list corrects one: the comparables' age in Aging kept to the code's rule (his most recent
 // counted season, skater_forecast.py age_last); "therefore 20 was chosen" cut (any NHL game next season is playing on); the
@@ -45,7 +46,7 @@ const {
   MathFraction, MathSum, MathRoundBrackets,
 } = require("docx");
 
-const VERSION = "player_doc.js v1.2";
+const VERSION = "player_doc.js v1.3";
 const ROOT = path.resolve(__dirname, "..");
 const FIG = path.join(ROOT, "30_OUTPUT", "model_doc");
 const N = JSON.parse(fs.readFileSync(path.join(FIG, "numbers.json"), "utf8"));
@@ -509,7 +510,7 @@ add(P(`Each control season has one weight for all goaltenders: ${pct(G2.ctl_q)} 
 // =====================================================================================================================
 // 6. LIMITS (each said once, here only)
 // =====================================================================================================================
-add(H1("6. What the Player Model Does Not Do"));
+add(H1("6. Limitations of the Player Model"));
 add(BULLET("Estimated on later seasons. The price line is estimated on contracts that started from 2018-19 to 2025-26, the goaltender price line on contracts that started from 2015-16 to 2025-26, and the control-season weights on decisions about contracts that ended from 2018-19 to 2024-25; each runs past many of the trades it prices. The forecast alone uses only seasons before the valuation season, but the WAR it reads is the current release of Bacon's WAR, and no archived copy shows each season's figures as they stood at the time of a trade."));
 add(BULLET("Arbitration eligibility. PuckPedia's eligibility mark is recorded when a contract ends, so a valuation dated earlier reads a mark recorded later."));
 add(BULLET("Form within a season. Each asset is valued once a season, on seasons completed before it, so a player's form in the season of an in-season trade is not used."));
