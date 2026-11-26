@@ -4356,3 +4356,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   v1.0, new), the third write-up chunk, from v5.0's Sections 7 and 8 and Appendix B with his comments 93-100; the trade on
   one scale closes it. nhl_arrival_timing.py re-run (unchanged). No model change. MANIFEST rows; WORK_QUEUE 0a; session
   log 2026-11-27.
+
+### Change log, 2026-11-27c (pick document tweaks; the Stata package)
+
+- DOCUMENT (Thomas: "Agreed, do all of it"): "Valuing Draft Picks" v1.2 (an outside review's edits; the deceased's dates
+  checked and cited from Elite Prospects and Hockey-Reference), "Valuing Players" v1.4 (his two edits; the p-value note),
+  model_doc_figures.py v4.6 (a legend). STATA: 40_DOCS/Stata_Codebook.md (new, the four documents' regressions in their
+  order) and 25_TESTS/stata_pack.py (new; 149 commands checked) write 30_OUTPUT/xNPV_Stata.zip for the supervisor. No model
+  change. MANIFEST rows; session log 2026-11-27.

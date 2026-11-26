@@ -19,6 +19,10 @@
 // his comment on "arbitration WAR" answered by dropping the term, three places, keeping what is charged (his starting level
 // rebuilt at that season). His "for Max Pacioretty, which originally belonged to Columbus" placed on the pick.
 //
+// v1.2 (2026-11-27; Thomas: "Agreed, do all of it", on an outside review): a sentence after Figure 1 on why clubs paid more
+// than the value delivered; "compared with" in Table 2's note; two missing verbs; the entry-level length tied to each age;
+// the rights rule's "it" named; "in the 2019 draft"; the p-value note as a test; the deceased's dates from player records.
+//
 // Run:  NODE_PATH=<folder with docx> node 25_TESTS/pick_doc.js   (DOC_OUT=<file> to write elsewhere; LINT_OUT=<file.md>)
 
 const fs = require("fs");
@@ -29,13 +33,13 @@ const {
   MathFraction, MathSum, MathRoundBrackets,
 } = require("docx");
 
-const VERSION = "pick_doc.js v1.1";
+const VERSION = "pick_doc.js v1.2";
 const ROOT = path.resolve(__dirname, "..");
 const FIG = path.join(ROOT, "30_OUTPUT", "model_doc");
 const N = JSON.parse(fs.readFileSync(path.join(FIG, "numbers.json"), "utf8"));
 const N3 = JSON.parse(fs.readFileSync(path.join(ROOT, "30_OUTPUT", "pick_doc", "numbers.json"), "utf8"));
 if (!String(N3.script).startsWith("pick_doc_figures.py v1.")) throw new Error(`pick_doc numbers from ${N3.script}`);
-if (!String(N.script).startsWith("model_doc_figures.py v4.5")) throw new Error(`model_doc numbers from ${N.script}`);
+if (!/^model_doc_figures\.py v4\.([5-9]|\d\d)/.test(String(N.script))) throw new Error(`model_doc numbers from ${N.script}`);
 const OUTFILE = process.env.DOC_OUT || path.join(ROOT, "40_DOCS", "Valuing Draft Picks.docx");
 const TEXT = [];
 
@@ -191,14 +195,14 @@ add(P(`The star probability is Bacon's probability that a player taken at the pi
 add(H1("2. What a Drafted Player Delivered"));
 add(P("To learn what a draft position returns, each player drafted from 2007 to 2017 is priced the way the player model prices a contract, over the seasons his club controlled him: from his draft to the end of club control, with seasons observed through 2025-26. Club control ends when he can become an unrestricted free agent under CBA Section 10.1(a), at 27 as of June 30 or after seven seasons of 40 or more NHL games (30 for a goaltender). The rules for each season are as follows:"));
 add(BULLET("Value: The market price of the performance he delivered, his WAR, on the price line at one year of term, floored at the league minimum; a goaltender's is priced on the goaltender price line. The seasons have been played, so delivered WAR is priced rather than a forecast. WAR in the shortened 2012-13, 2019-20, and 2020-21 seasons is scaled to 82 games."));
-add(BULLET("Cost: The entry-level maximum for his draft class from his first NHL season, for three, two, or one seasons depending on his age on September 15 of the year he signed (18 to 21, 22 to 23, 24 or older). After it, a one-year qualifying offer each season, and once he is eligible for arbitration, the higher of the qualifying offer and the price line's price of his WAR, measured as for a player under contract by his starting level rebuilt from the seasons before. He becomes eligible after 4, 3, 2, or 1 seasons of 10 or more NHL games for a signing age of 20 or under, 21, 22 to 23, or 24 or older (CBA Section 12.1(a))."));
+add(BULLET("Cost: The entry-level maximum for his draft class from his first NHL season, for three seasons if he was 18 to 21 on September 15 of the year he signed, two if he was 22 or 23, and one if he was 24 or older. After it, a one-year qualifying offer each season, and once he is eligible for arbitration, the higher of the qualifying offer and the price line's price of his WAR, measured as for a player under contract by his starting level rebuilt from the seasons before. He becomes eligible after 4, 3, 2, or 1 seasons of 10 or more NHL games for a signing age of 20 or under, 21, 22 to 23, or 24 or older (CBA Section 12.1(a))."));
 add(BULLET("Seasons outside the NHL: A season without an NHL game is worth zero and costs zero, because a minor-league salary does not count against the cap. A season of fewer than 10 games is scaled by its games over 82, because a call-up counts against the cap only for his days on the roster."));
-add(BULLET(`Rights: A player belongs to the pick only while the drafting club held him. If the drafting club let his rights lapse, so that he first played for a different club without being signed or traded by it, he is worth zero to the pick (${PK.routes.lapsed} players). If he signed his entry-level contract with the drafting club and was later lost on waivers or released, he counts (${PK.routes["signed by the drafting club"]} players), because the club held him.`));
+add(BULLET(`Rights: A player belongs to the pick only while the drafting club held him. If the drafting club let his rights lapse, so that he first played for a different club without having been signed or traded by the drafting club, he is worth zero to the pick (${PK.routes.lapsed} players). If he signed his entry-level contract with the drafting club and was later lost on waivers or released, he counts (${PK.routes["signed by the drafting club"]} players), because the club held him.`));
 add(P("The seasons have already been played, so each season's value and cost are in that season's dollars and each season's cap is known. Each season is restated at the 2025-26 cap, cap*, by multiplying it by cap* over that season's cap:"));
 add(EQ(["NPV = ", ["sum", "s", [["()", [SUB("V", "s"), " − ", SUB("C", "s")]], " × ", ["/", ["cap*"], [SUB("cap", "s")]]]]]));
 add(P("Here V_{s} and C_{s} are season s's value and cost in that season's dollars, and cap_{s} is that season's cap. This is the player model's discount at the cap's actual growth rather than at 3%. On the value side, cap growth and the discount cancel, so each season's value and cost become shares of that season's cap, and the NPV is the sum of those shares, stated at the 2025-26 cap. The seasons have been played, so this is a net present value rather than an expected one, and the pick's xNPV is estimated from these NPVs."));
 const played_ = PT.seasons.filter((x) => x.gp > 0);
-add(P(`${T("sissons")} prices ${PT.name}, taken ${PT.pick}th in ${PT.draft} (star probability ${pct(PT.p_star)}), the same draft position the example pick became in a previous year. He played ${played_.length} NHL seasons within club control, and his NPV over them is ${mil(PT.surplus)}.`));
+add(P(`${T("sissons")} prices ${PT.name}, taken ${PT.pick}th in ${PT.draft} (star probability ${pct(PT.p_star)}), the draft position the example pick became in the 2019 draft. He played ${played_.length} NHL seasons within club control, and his NPV over them is ${mil(PT.surplus)}.`));
 add(TT("sissons", `${PT.name} (${PT.draft}, #${PT.pick}), from his draft to the end of club control`));
 add(TABLE(["Season", "NHL games", "Season WAR", "Contract charged", "Value", "Cost", "Net value"],
   [...PT.seasons.map((x) => [`${x.season}-${String(x.season + 1).slice(2)}`, String(x.gp), x.gp > 0 ? f2(x.war82) : "", x.gp <= 0 ? "Not in the NHL" : (x.elc ? "Entry-level" : (x.arb ? `Arbitration (${f2(x.arb_war)} WAR)` : "Qualifying offer")), f2(x.value * K25), f2(x.cost * K25), f2(x.surplus * K25)]),
@@ -212,6 +216,8 @@ add(P(`How a drafted player's seasons are costed moves pick values more than any
 add(P(`Even so, the rule's cost is below what clubs paid first-round picks (${F("pickcost")}): ${listAnd(PK.first_round.map((g, i) => `${pct(g.cost_arb / g.cost_actual, 0)}${i ? "" : " of what clubs paid"} for picks ${g.lo} to ${g.hi}`))}. Therefore, the model may overstate the value that draft picks provide.`));
 add(FIGURE("pickcost", "fig_pick_cost.png", "Value delivered and two measures of cost, first-round picks",
   `Average per first-round skater who played in the NHL for the club that drafted him (2007-2017 drafts), over the seasons his club held his rights, as a percentage of the 2025-26 cap: the value of the performance he delivered, his cost under the adopted rule, and what clubs paid (each season's cap hit; PuckPedia from 2018-19, CapWages before).`));
+if (!PK.first_round.every((g) => g.cost_actual > g.value)) throw new Error("what clubs paid is not above the value delivered in every first-round group");
+add(P("What clubs paid is above the value delivered in each first-round group because many of these players signed long contracts while their clubs still controlled them. A long contract's cap hit spreads the price of the unrestricted seasons it also buys, and the premium clubs pay for term, across the controlled seasons, while the value here is priced at one year of term over the controlled seasons alone."));
 
 add(H2("Other choices in pricing a drafted player"));
 const pch = PCH;
@@ -233,7 +239,7 @@ const CHS = [
 ];
 add(TT("choices", "Other choices in pricing a drafted player"));
 add(TABLE(["Choice", "What the model does", "Why", "What the alternative would do"], CHS, [1500, 2800, 2700, 2640], [], new Set(), 15, false));
-add(CAPTION(`Each effect is measured on the pick model as it runs, against the star value of ${mil(STAR.b)}. Slides are modelled approximately, by moving one later season to the entry-level cost for each season that would slide. Group 6 at its upper bound applies it at 25 to every player under the games ceiling, as if each had three professional seasons.`));
+add(CAPTION(`Each effect is measured on the pick model as it runs, compared with the star value of ${mil(STAR.b)}. Slides are modelled approximately, by moving one later season to the entry-level cost for each season that would slide. Group 6 at its upper bound applies it at 25 to every player under the games ceiling, as if each had three professional seasons.`));
 
 // =====================================================================================================================
 // 3. ESTIMATING THE STAR VALUE
@@ -255,7 +261,7 @@ add(TABLE(["Shape", "Parameters", "#1", "#10", "#32", "#64", "Out-of-sample RMSE
   [...SHROWS.map(([lab, k]) => [lab, String(shp(k).params), f2(shp(k).at["1"] * K25), f2(shp(k).at["10"] * K25), f2(shp(k).at["32"] * K25), f2(shp(k).at["64"] * K25), f4(shp(k).held * K25), pShape(k)]),
    ["Average of the eleven players taken", "", f2(PK.avg_at["1"] * K25), f2(PK.avg_at["10"] * K25), f2(PK.avg_at["32"] * K25), f2(PK.avg_at["64"] * K25), "", ""]],
   [2900, 950, 700, 700, 700, 700, 1100, 1000], [1, 2, 3, 4, 5, 6, 7], bestKeys(SHROWS.map(([, k]) => ["", "", "", "", "", "", f4(shp(k).held * K25)]), [6], 4), 16));
-add(CAPTION("Values in percent of the 2025-26 cap, from each shape's regression on all picks. Out-of-sample RMSE: each draft predicted from a regression without it, over all picks, in percent of the cap; the lowest is in bold. p: one-sided p-value that the adopted shape's RMSE is not lower than the shape's. Each average rests on eleven players, so a single draft changes it a great deal."));
+add(CAPTION("Values in percent of the 2025-26 cap, from each shape's regression on all picks. Out-of-sample RMSE: each draft predicted from a regression without it, over all picks, in percent of the cap; the lowest is in bold. p: one-sided p-value of the test that the adopted shape's RMSE is lower than the shape's. Each average rests on eleven players, so a single draft changes it a great deal."));
 add(FIGURE("picks", "fig_picks.png", "Draft position and NPV over club control",
   "Left: Bacon's star probability by draft position (a logistic regression on pick number with a change of slope at pick 150). Right: the average NPV over club control of the eleven players taken at each draft position (2007-2017), and three of the shapes. Percent of the 2025-26 cap."));
 
@@ -307,10 +313,10 @@ add(TABLE(["When the pick was traded", "Picks", "Draft position used"],
    ["Before that season started, or for a later draft", comma(nRound), "The average star probability of its round"]],
   [3200, 900, 5500], [1], new Set(), 16, false));
 add(CAPTION(`The ${comma(PK.traded.n)} picks traded from July 2017 to March 2022.`));
-add(P(`The round average is used because a team's draft position says little about its position a year or two later. Across the 2005 to 2026 drafts, a team's own first-round position has a correlation of ${f2(LIN.corr1)} with its position in the next draft and ${f2(LIN.corr2)} with its position two drafts later, and it moves a median of ${f1(LIN.median_move)} places in a year. The position is not purely random, so the round average loses some information. Valued at the positions teams went on to pick, the next first-round pick of a team that had just picked in the top five was worth ${mil(LIN.top5_later)} on average, and that of a team that had just picked 25th or later ${mil(LIN.bottom_later)}, compared with the round average of ${mil(LIN.round_avg)}. The round average is kept for its simplicity.`));
+add(P(`The round average is used because a team's draft position says little about its position a year or two later. Across the 2005 to 2026 drafts, a team's own first-round position has a correlation of ${f2(LIN.corr1)} with its position in the next draft and ${f2(LIN.corr2)} with its position two drafts later, and it moves a median of ${f1(LIN.median_move)} places in a year. The position is not purely random, so the round average loses some information. Valued at the positions teams went on to pick, the next first-round pick of a team that had just picked in the top five was worth ${mil(LIN.top5_later)} on average, and that of a team that had just picked 25th or later was worth ${mil(LIN.bottom_later)}, compared with the round average of ${mil(LIN.round_avg)}. The round average is kept for its simplicity.`));
 add(P("A pick for a later draft is not discounted further for the years until its draft. Its value is a share of the cap, and the player model projects the cap to grow 3% a year and discounts 3% a year, so the two cancel."));
 const EX = N3.example;
-add(P(`The 2019 second-round pick Montreal received was traded before the 2018-19 season began, so it is given the average star probability over round 2's draft positions, picks ${EX.first} to ${EX.last} of a 31-team draft. That average, ${pct(TPK.star_chance, 2)}, is the star probability of about the ${EX.pick_nearest_avg}th pick, and the pick is worth ${f4(TPK.star_chance)} × ${money(STAR.b)} = ${mil(TPK.value)}. It became the ${TPK.actual_slot}th pick, three places after the middle of the round; at that position its star probability is ${pct(EX.p_at_50, 2)} and its value ${mil(EX.value_at_50_M)}.`));
+add(P(`The 2019 second-round pick Montreal received was traded before the 2018-19 season began, so it is given the average star probability over round 2's draft positions, picks ${EX.first} to ${EX.last} of a 31-team draft. That average, ${pct(TPK.star_chance, 2)}, is the star probability of about the ${EX.pick_nearest_avg}th pick, and the pick is worth ${f4(TPK.star_chance)} × ${money(STAR.b)} = ${mil(TPK.value)}. It became the ${TPK.actual_slot}th pick, three places after the middle of the round; at that position its star probability is ${pct(EX.p_at_50, 2)} and its value is ${mil(EX.value_at_50_M)}.`));
 if (TPK.actual_slot - EX.middle !== 3) throw new Error("the example pick's place in its round");
 
 // =====================================================================================================================
@@ -335,7 +341,7 @@ if (DEC.length !== DC.n) throw new Error("the deceased count");
 add(P(`${T("deceased")} lists the ${DC.n} drafted players of 2007 to 2017 who never played an NHL season and died before their club's control would have ended.`));
 add(TT("deceased", "Drafted players left out of every regression"));
 add(TABLE(["Player", "Drafted", "Club", "Died"], DEC, [2600, 1500, 2700, 2400]));
-add(CAPTION("From Wikipedia's list of ice hockey players who died during their careers."));
+add(CAPTION("Dates of death from each player's Elite Prospects profile, and from Hockey-Reference for Alexei Cherepanov and Kristians Pelss."));
 
 // ---- every table and figure is referred to in the text before or at it --------------------------------------------
 const body = TEXT.join("\n");

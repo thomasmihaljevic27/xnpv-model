@@ -15,6 +15,8 @@
 //     the model's own figures from OUTPUT_DIR/model_doc/numbers.json (model_doc_figures.py v4.3, refreshed 2026-11-25);
 //   - the order changed so nothing is argued before it is introduced: the own rate, then comparable players, then the
 //     starting level that blends them, then aging.
+// v1.4 (2026-11-27; Thomas): his two edits (552a8b7 onward: "Fifty-two have no forecast", "age matters more"); the p-value
+// note worded as the pick document's ("of the test that the adopted model's RMSE is lower").
 // v1.3 (2026-11-27; Thomas): Section 6 retitled "Limitations of the Player Model", his edit to his copy (552a8b7).
 // v1.2 (2026-11-26; Thomas: "Yes, implement it", on the list agreed that day). His 25 edits to v1.1 (committed 8010f1f)
 // carried in, except where the list corrects one: the comparables' age in Aging kept to the code's rule (his most recent
@@ -46,7 +48,7 @@ const {
   MathFraction, MathSum, MathRoundBrackets,
 } = require("docx");
 
-const VERSION = "player_doc.js v1.3";
+const VERSION = "player_doc.js v1.4";
 const ROOT = path.resolve(__dirname, "..");
 const FIG = path.join(ROOT, "30_OUTPUT", "model_doc");
 const N = JSON.parse(fs.readFileSync(path.join(FIG, "numbers.json"), "utf8"));
@@ -254,7 +256,7 @@ function TESTS(key, title, rows, first = false, ages = false) {
   add(TT(key, title));
   add(TABLE(head, body, widths, widths.map((_, i) => i).slice(1), new Set(), 15));
   add(CAPTION(first
-    ? `Out-of-sample RMSE on the valuation seasons 2015-16 to 2021-22: the starting level and one to five seasons ahead in WAR per 82, season WAR in wins; all ${comma(N.audit.rows_all)} player-seasons unless a row says otherwise. Each row changes one setting of the adopted model. p: one-sided p-value that the adopted model's RMSE is not lower than the version's; † marks a version with the lower RMSE, whose p-value is then that its RMSE is not lower; – where the version leaves the measure unchanged.`
+    ? `Out-of-sample RMSE on the valuation seasons 2015-16 to 2021-22: the starting level and one to five seasons ahead in WAR per 82, season WAR in wins; all ${comma(N.audit.rows_all)} player-seasons unless a row says otherwise. Each row changes one setting of the adopted model. p: one-sided p-value of the test that the adopted model's RMSE is lower than the version's; † marks a version with the lower RMSE, whose p-value is then of the test that its RMSE is lower; – where the version leaves the measure unchanged.`
     : `Out-of-sample RMSE, as in ${T("ownT")}${ages ? `; aged 35 and over at the valuation season, ${comma(N2.age_band_n[2])} seasons played one to five seasons ahead` : ""}. Each row changes one setting of the adopted model; p and †: as in ${T("ownT")}.`));
 }
 
@@ -417,12 +419,13 @@ add(P(`${F("price")} shows the price line with the contracts it is estimated on.
 add(FIGURE("price", "fig_price_line.png", "The price line",
   `Each point is one contract's cap hit, restated at the 2025-26 cap, plotted on the forecast at its signing of the player's WAR in its first season. Lines: the adopted price line for one, three, and six years of term, floored at the league minimum.`));
 add(H2("The forecast used to estimate the price line"));
+const NUMWORD = (n) => { const w = { "52": "Fifty-two" }[String(n)]; if (!w) throw new Error(`spell ${n} at a sentence start`); return w; };   // v1.4: his "Fifty-two"
 const SL = PL.signing_log.find((l) => l.startsWith("seasons between")) || "";
 const beforeN = (SL.match(/, 1: ([\d,]+)/) || [])[1];
 const sampleN = ((PL.signing_log.find((l) => l.startsWith("signing-dated")) || "").match(/of ([\d,]+)/) || [])[1];
 const noFc = ((PL.signing_log.find((l) => l.startsWith("left out, no forecast")) || "").match(/: ([\d,]+)/) || [])[1];
 if (Number(String(sampleN).replace(/,/g, "")) - Number(String(noFc).replace(/,/g, "")) !== PL.n) throw new Error("candidate contracts less those without a forecast at signing must equal the regression's");
-add(P(`A club signing a player prices what it expects him to produce, so the price line is estimated on the forecast, dated at the contract's signing, of the player's performance in the first season of the new contract. The forecast uses only the seasons the club had seen when it agreed to the deal. Of the ${sampleN} candidate contracts, ${beforeN} were signed mid-season before the new contract's first season, an extension signed in January for example. ${noFc} have no forecast at their signing and are left out, which leaves the ${comma(PL.n)} contracts of the regression.`));
+add(P(`A club signing a player prices what it expects him to produce, so the price line is estimated on the forecast, dated at the contract's signing, of the player's performance in the first season of the new contract. The forecast uses only the seasons the club had seen when it agreed to the deal. Of the ${sampleN} candidate contracts, ${beforeN} were signed mid-season before the new contract's first season, an extension signed in January for example. ${NUMWORD(noFc)} have no forecast at their signing and are left out, which leaves the ${comma(PL.n)} contracts of the regression.`));
 const TA = (v, t) => N.term_avg.find((r) => r.version === v && r.term === t);
 const TA0 = TA("first season (today)", true), TA1 = TA("term average (main)", true), TA2 = TA("term average, expected", true);
 if (Math.abs(TA0.loglik - PLF["wins + defence + term"].loglik_share) > 0.05 || Math.abs(TA0.rmse_M - SP.locked_rmse_M) > 1e-4) throw new Error("the first-season row is not the adopted price line");
@@ -531,7 +534,7 @@ add(P("Tobin, J. 1958. \"Estimation of Relationships for Limited Dependent Varia
 add(P("Watson, G. S. 1964. \"Smooth Regression Analysis.\" *Sankhyā, Series A* 26 (4): 359-372."));
 
 add(H1("Appendix A. The Games-Share and Chance-of-Playing Regressions"));
-add(P(`The adopted regressions of ${T("gs")} and ${T("pp")} are estimated separately for each season ahead, in the 2025-26 estimation. ${T("gsH")} and ${T("ppH")} give each, from the valuation season (0) to five seasons ahead. The trailing games share matters less the further ahead the season, and age more.`));
+add(P(`The adopted regressions of ${T("gs")} and ${T("pp")} are estimated separately for each season ahead, in the 2025-26 estimation. ${T("gsH")} and ${T("ppH")} give each, from the valuation season (0) to five seasons ahead. The trailing games share matters less the further ahead the season, and age matters more.`));
 const HS = ["0", "1", "2", "3", "4", "5"];
 const gsA = (h) => GS[h]["+ trailing WAR (adopted)"];
 add(TT("gsH", "The games-share regression, by seasons ahead"));

@@ -50,7 +50,7 @@ import matplotlib                                                  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                                    # noqa: E402
 
-SCRIPT_VERSION = "model_doc_figures.py v4.5 (2026-11-26)"   # v4.5: the pick figure says NPV over club control (Thomas, comment 89 on v5.0); v4.4: the price-line figure's axis without "if he plays" (an outside review); v4.3: money axes as shares of the 2025-26 cap (Thomas: "Both documents"); v4.2: the prospect model with defenceman x production; the prospect document's tests read in; v4.1: figure labels say NPV and xNPV, not surplus (Thomas); v4.0: the model after 2026-10-21 (round-2 notes)
+SCRIPT_VERSION = "model_doc_figures.py v4.6 (2026-11-27)"   # v4.6: the pick cost figure says "What clubs paid"; v4.5: the pick figure says NPV over club control (Thomas, comment 89 on v5.0); v4.4: the price-line figure's axis without "if he plays" (an outside review); v4.3: money axes as shares of the 2025-26 cap (Thomas: "Both documents"); v4.2: the prospect model with defenceman x production; the prospect document's tests read in; v4.1: figure labels say NPV and xNPV, not surplus (Thomas); v4.0: the model after 2026-10-21 (round-2 notes)
 OUT, SRC = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 FIG = OUT / "model_doc"
 FIG.mkdir(exist_ok=True)
@@ -955,7 +955,7 @@ fig, ax = plt.subplots(figsize=(6.4, 3.0), dpi=200)
 xg = np.arange(len(fr))
 wbar = 0.26
 for i, (col, c_, lab) in enumerate((("value", A3, "Value delivered"),
-                                    ("cost_arb", A1, "Cost: adopted rule"), ("cost_actual", A2, "Cost actually paid"))):
+                                    ("cost_arb", A1, "Cost: adopted rule"), ("cost_actual", A2, "What clubs paid"))):
     ax.bar(xg + (i - 1) * wbar, fr[col] * SHR, width=wbar, color=c_, label=lab, zorder=3)
     for x_, v_ in zip(xg + (i - 1) * wbar, fr[col] * SHR):
         ax.text(x_, v_ + 0.4, f"{v_:.1f}", ha="center", va="bottom", fontsize=7, color=INK)

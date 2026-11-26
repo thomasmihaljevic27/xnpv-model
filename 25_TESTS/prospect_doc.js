@@ -27,7 +27,7 @@ const VERSION = "prospect_doc.js v1.0";
 const ROOT = path.resolve(__dirname, "..");
 const FIG = path.join(ROOT, "30_OUTPUT", "model_doc");
 const N = JSON.parse(fs.readFileSync(path.join(FIG, "numbers.json"), "utf8"));
-if (!String(N.script).startsWith("model_doc_figures.py v4.5")) throw new Error(`model_doc numbers from ${N.script}`);
+if (!/^model_doc_figures\.py v4\.([5-9]|\d\d)/.test(String(N.script))) throw new Error(`model_doc numbers from ${N.script}`);
 const OUTFILE = process.env.DOC_OUT || path.join(ROOT, "40_DOCS", "Valuing Prospects.docx");
 const TEXT = [];
 
