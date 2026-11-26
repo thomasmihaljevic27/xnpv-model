@@ -24,6 +24,8 @@ debug.log
 # Local Claude Code state stays out (settings.local.json and the like). The writing-style
 # skill is installed from the claude.ai account; its version-controlled copy is 40_DOCS/writing-style/SKILL.md
 # (removed 2026-10-04, restored 2026-11-25 with version 2.0).
+# The zip built from it for the claude.ai upload regenerates; the folder's scripts/ holds the MIT linter.
+40_DOCS/writing-style/writing-style.zip
 .claude/
 
 # --- Generated output. Regenerable from code, drifts every run ---

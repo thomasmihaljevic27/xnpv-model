@@ -4288,3 +4288,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   copy in 40_DOCS/writing-style/SKILL.md. 25_TESTS/doc_check.py v1.0 (new) lists the banned patterns; model_doc.js and
   findings_doc.js run it on each build (no change to either document's text). CLAUDE.md working style: chat in plain
   English, documents in the skill's register with the standard econometric terms. MANIFEST rows; session log 2026-11-25.
+- PROCESS (Thomas: "yes I approve the download"): the clarity linter ste-lint.py (MIT, current head) and its licence
+  restored in 40_DOCS/writing-style/scripts/ after the plugin sync dropped the skill's scripts; writing-style.zip
+  (gitignored) built for the upload. MANIFEST rows; session log 2026-11-25.
