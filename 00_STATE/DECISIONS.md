@@ -4389,3 +4389,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DOCUMENT (Thomas: "notes are up for the findings"): his copy committed (33ab4b9); "Findings" v5.1 (findings_doc.js v5.1):
   his edits and eight notes (the variables as a table, "contract clause", "out of the regression sample", the pick result
   as a limitation, the counterfactual). No model change. MANIFEST rows; session log 2026-11-27.
+
+### Change log, 2026-11-27h (the findings document, an outside review)
+
+- DOCUMENT: "Findings" v5.2 (findings_doc.js v5.2): the cap-dump average reconciled with Table A1 (checked in the code),
+  the two-stage first stage's cap cost named, Table A3's header and p-values, wording and colons. No model change. Session
+  log 2026-11-27.
