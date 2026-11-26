@@ -4311,3 +4311,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   comments, every tested figure from today's runs. Banned-pattern check clear. Two control-season figures from an earlier
   price line dropped; the exit-after-qualifying share updated to today's 15.9%. MANIFEST rows; WORK_QUEUE 0a; session log
   2026-11-25.
+
+### Change log, 2026-11-25e (the player document, his copy)
+
+- DOCUMENT: Thomas's saved copy of "Valuing Players" committed as his (three edits, two comments); the edits carried into
+  25_TESTS/player_doc.js, not rebuilt. A restructure to shorten it proposed, awaiting his answer. Session log 2026-11-25.
